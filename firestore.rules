@@ -26,6 +26,7 @@ service cloud.firestore {
       allow create: if isStaff() || (isActive() && request.resource.data.hostId == request.auth.uid);
       allow update: if isStaff()
         || (isActive() && resource.data.hostId == request.auth.uid)
+        || (isActive() && changed().hasOnly(['photos']))
         || (isActive() && changed().hasOnly(['attendees', 'people'])
             && resource.data.attendees.toSet().difference(request.resource.data.attendees.toSet()).hasOnly([request.auth.uid])
             && request.resource.data.attendees.toSet().difference(resource.data.attendees.toSet()).hasOnly([request.auth.uid]));
@@ -49,6 +50,14 @@ service cloud.firestore {
       allow read: if isOwner();
       allow create: if (signedIn() && request.auth.uid == uid) || isStaff();
       allow update, delete: if isOwner() || isStaff();
+    }
+
+    // 산행사진 공유 — 활동 크루원 열람·업로드(본인), 삭제는 본인 또는 운영진
+    match /photos/{id} {
+      allow read: if isActive() || isOwner();
+      allow create: if isActive() && request.resource.data.by == request.auth.uid;
+      allow update: if false;
+      allow delete: if isStaff() || (isActive() && resource.data.by == request.auth.uid);
     }
 
     // 산 도감 덧붙임(크루 메모·직접 추가한 코스) — 활동 크루원만 읽기, 운영진만 쓰기
