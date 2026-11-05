@@ -1,0 +1,60 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{db}/documents {
+
+    function signedIn() { return request.auth != null; }
+    function crewExists() { return exists(/databases/$(db)/documents/meta/crew); }
+    function crew() { return get(/databases/$(db)/documents/meta/crew).data; }
+    function isOwner() { return signedIn() && crewExists() && crew().ownerUid == request.auth.uid; }
+    function memExists() { return signedIn() && exists(/databases/$(db)/documents/members/$(request.auth.uid)); }
+    function mem() { return get(/databases/$(db)/documents/members/$(request.auth.uid)).data; }
+    function isActive() { return memExists() && mem().status == 'active'; }
+    function isStaff() { return isOwner() || (isActive() && mem().role in ['owner', 'staff']); }
+    function changed() { return request.resource.data.diff(resource.data).affectedKeys(); }
+
+    // 크루 기본 정보 — 누구나 읽기, 최초 1회 생성자가 개설자, 이후 운영진 수정(개설자 변경 불가)
+    match /meta/crew {
+      allow read: if true;
+      allow create: if signedIn() && !crewExists() && request.resource.data.ownerUid == request.auth.uid;
+      allow update: if isStaff() && request.resource.data.ownerUid == resource.data.ownerUid;
+      allow delete: if false;
+    }
+
+    // 산행 일정 — 누구나 읽기. 등록: 활동 크루원(주관=본인) 또는 운영진. 수정: 주관자·운영진. 참석 체크: 활동 크루원 본인만 추가/제외
+    match /hikes/{id} {
+      allow read: if true;
+      allow create: if isStaff() || (isActive() && request.resource.data.hostId == request.auth.uid);
+      allow update: if isStaff()
+        || (isActive() && resource.data.hostId == request.auth.uid)
+        || (isActive() && changed().hasOnly(['attendees', 'people'])
+            && resource.data.attendees.toSet().difference(request.resource.data.attendees.toSet()).hasOnly([request.auth.uid])
+            && request.resource.data.attendees.toSet().difference(resource.data.attendees.toSet()).hasOnly([request.auth.uid]));
+      allow delete: if isStaff();
+    }
+
+    // 크루원 — 활동 크루원만 명단 열람(본인 문서는 본인도). 가입 신청은 본인 문서를 '가입 대기·회원'으로만 생성
+    match /members/{uid} {
+      allow read: if isActive() || isOwner() || (signedIn() && request.auth.uid == uid);
+      allow create: if (signedIn() && request.auth.uid == uid && request.resource.data.status == 'pending' && request.resource.data.role == 'member')
+        || (isOwner() && request.auth.uid == uid && request.resource.data.role == 'owner')
+        || (isStaff() && request.resource.data.role != 'owner');
+      allow update: if isOwner()
+        || (isStaff() && !('role' in changed()) && resource.data.role != 'owner')
+        || (signedIn() && request.auth.uid == uid && changed().hasOnly(['birth', 'gender', 'region', 'memo', 'car']));
+      allow delete: if isStaff() && resource.data.role != 'owner';
+    }
+
+    // 비밀번호(4자리) 보관 — 개설자만 열람. 본인 가입 시 생성, 운영진이 회원 추가 시 생성
+    match /pins/{uid} {
+      allow read: if isOwner();
+      allow create: if (signedIn() && request.auth.uid == uid) || isStaff();
+      allow update, delete: if isOwner() || isStaff();
+    }
+
+    // 산 도감 덧붙임(크루 메모·직접 추가한 코스) — 누구나 읽기, 운영진만 쓰기
+    match /mtx/{id} {
+      allow read: if true;
+      allow write: if isStaff();
+    }
+  }
+}
