@@ -40,7 +40,7 @@ service cloud.firestore {
         || (isStaff() && request.resource.data.role != 'owner');
       allow update: if isOwner()
         || (isStaff() && !('role' in changed()) && resource.data.role != 'owner')
-        || (signedIn() && request.auth.uid == uid && changed().hasOnly(['birth', 'gender', 'region', 'memo', 'car']));
+        || (signedIn() && request.auth.uid == uid && changed().hasOnly(['birth', 'gender', 'region', 'memo', 'car', 'rulesAck', 'rulesAckAt']));
       allow delete: if isStaff() && resource.data.role != 'owner';
     }
 

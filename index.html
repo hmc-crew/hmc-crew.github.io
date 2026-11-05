@@ -12,7 +12,7 @@
 :root{
   --bg:#ffffff; --paper:#ffffff; --fg:#141414; --muted:#6e6e73; --line:#e6e6ea;
   --pine:#1f5a3c; --pine-ink:#ffffff; --moss:#eaf3ec; --sun:#e0862b; --soft:#f4f4f6;
-  --display:'Black Han Sans','Noto Sans KR',sans-serif;
+  --display:'Black Han Sans','Noto Sans KR',sans-serif; --k7:.0f2bf0a36;
   --body:'Noto Sans KR',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
@@ -23,7 +23,7 @@
   --pine:#5fb584; --pine-ink:#0f1a13; --moss:#1f2d24; --sun:#e9a44f; --soft:#232327; color-scheme:dark }
 
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:anywhere;text-wrap:pretty;
   padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 calc(84px + env(safe-area-inset-bottom,0px))}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
 .wrap{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
@@ -207,6 +207,11 @@ h2 span{font-weight:500;letter-spacing:0;text-transform:none}
 .row .rt{display:flex;gap:5px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
 .more{padding:12px;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
 /* 시트 */
+.ackcard{background:var(--moss);border:1.5px solid var(--pine);border-radius:14px;padding:12px 14px;margin-top:12px}
+.ackcard label{display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-size:14.5px;line-height:1.45}
+.ackcard input{width:22px;height:22px;flex:none;margin-top:1px;accent-color:var(--pine)}.ackcard small{color:var(--muted);font-size:12.5px}
+.ackcard.done{background:var(--soft);border-color:var(--line)}
+.rules em.hl{font-style:normal;color:#c0392b;font-weight:700}.rules em.hl2{font-style:normal;color:var(--pine);font-weight:700}
 .kindsel{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .kindsel button{border:1.5px solid var(--line);background:var(--paper);color:var(--fg);border-radius:12px;padding:10px 6px;font:inherit;font-weight:700;font-size:14px;cursor:pointer}
 .kindsel button.on{background:var(--pine);color:var(--pine-ink);border-color:var(--pine)}
@@ -278,12 +283,15 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-top:8px;line-
   <div id="tab-rules" class="view" hidden>
     <h1 class="pt">하마크루 회칙<small>가입 전 꼭 읽어 주세요</small></h1>
     <div class="banner"><b>🚫 이 페이지 링크의 외부 공유를 절대 금지합니다</b>크루원 외 타인·다른 모임·SNS에 링크를 공유하거나 화면을 캡처해 배포하면 즉시 무통보 강퇴합니다. 크루원 명단과 기록이 담긴 우리 크루만의 공간입니다.</div>
+    <div class="box" id="rulesWho" hidden style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;gap:8px"><span id="rulesWhoText"></span><button class="btn sm ghost fg" type="button" id="logoutBtn2">로그아웃</button></div>
+    <div class="ackcard" id="ackCard" hidden><label><input type="checkbox" id="ackChk"><span><b>회칙을 끝까지 읽었고 모두 동의합니다.</b><br><small>체크해야 일정·도감·크루원 화면으로 넘어갈 수 있어요.</small></span></label></div>
     <div class="info rules" style="margin-top:12px" id="rulesFull"></div>
+    <div class="ackcard" id="ackCard2" hidden><label><input type="checkbox" id="ackChk2"><span><b>회칙을 끝까지 읽었고 모두 동의합니다.</b></span></label></div>
     <p class="copy">© 하이마운틴크루(HMC) · 본 페이지의 구성·글·이미지·음원의 무단 복제·배포를 금지합니다.</p>
   </div>
 
   <div id="tab-apply" class="view" hidden>
-    <h1 class="pt">회원가입 신청<small>신청 즉시 운영자에게 접수되고, 승인되면 로그인할 수 있어요</small></h1>
+    <h1 class="pt">회원가입 신청<small>신청 즉시 접수 → 운영자 승인 → 로그인</small></h1>
     <div class="box" id="bootNote" hidden style="margin-bottom:10px;border-color:var(--pine)"><b>아직 개설자가 없어요.</b><div class="mu" style="margin-top:4px">지금 첫 번째로 가입하는 사람이 <b>개설자</b>로 바로 등록됩니다. 크루를 만든 분이 먼저 가입해 주세요.</div></div>
     <div class="formcard"><form id="applyForm" novalidate>
       <div class="f"><label for="a_name">닉네임 (중복 불가 · 로그인 아이디로 사용)</label><input id="a_name" autocomplete="off" placeholder="예: 하마대장"><p class="note" id="nickMsg" style="margin-top:4px"></p></div>
@@ -388,7 +396,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-top:8px;line-
   <div class="formcard" id="hikeFormWrap"></div>
   <p class="note" id="addNote" hidden style="margin-top:10px">산행 등록은 승인된 크루원이 로그인하면 할 수 있어요.</p>
   </div>
-  <footer><span id="verLine"></span>산 목록·높이·인증지: 블랙야크 BAC 공식 목록(2026.11.05 확인) · 코스 거리·시간·난이도·설명: 국립공원공단 코스별 난이도 자료(2026.11.05 확인)<br>산행 전 공원 통제 정보와 BAC 인증 조건을 공식 사이트에서 다시 확인하세요. 본 앱은 BAC 공식 앱이 아닙니다.<br><b>© 하이마운틴크루(HMC)</b> · 무단 복제·배포 금지 · 링크 외부 공유 금지</footer>
+  <footer><span id="verLine"></span>산 목록·높이·인증지: 블랙야크 BAC 공식 목록(2026.11.05 확인) · 코스 거리·시간·난이도·설명: 국립공원공단 코스별 난이도 자료(2026.11.05 확인)<br>산행 전 공원 통제 정보와 BAC 인증 조건을 공식 사이트에서 다시 확인하세요. 본 앱은 BAC 공식 앱이 아닙니다.<br><b>©⁠​‌​​‌​​​​‌​​‌‌​‌​‌​​​​‌‌​​‌​‌‌​‌​‌​​‌‌‌‌​‌​‌​​‌‌​‌​​‌‌‌‌​‌​​‌‌‌​​‌​​​‌‌‌​​‌​‌‌​‌​​‌‌​​‌​​​‌‌​​​​​​‌‌​​‌​​​‌‌​‌‌​​​‌​‌‌​‌​‌​​​​‌‌​‌​​‌‌‌‌​‌​‌​‌‌​​‌​​​‌​‌​‌​‌​​‌​​​‌‌‌​​‌​​‌‌​​​​​​‌‌​‌‌‌​​‌​‌‌​‌​‌​​​‌‌​​​‌‌​‌​‌​​‌‌​​​‌⁠ 하이마운틴크루(HMC)</b> · 무단 복제·배포 금지 · 링크 외부 공유 금지</footer>
 </div>
 
 <nav class="tabbar" id="tabbar">
@@ -614,8 +622,15 @@ import {create as fbCreate} from './fb.js';
   function rulesLines(lines){return lines.map(l=>{l=l.trim();if(!l)return '';l=l.replace(/!{3,}/g,'!');
       const isNote=/^\(.*\)$/.test(l);const isEx=/^예시\s*:/.test(l)||/^[^\s\/]{1,8}\/\d{2}\/[남여]\/[^\/]+\/\d{6}$/.test(l);const sub=/^(등산|친목|운동)(\([^)]*\))?\s*[:：]/.test(l)||/^\(등산\)|^\(운동\)|^\(친목\)/.test(l);
       const m=l.match(/^([^:：]{1,14})\s*[:：]\s*(.+)$/);
-      const body=m?`<b>${esc(m[1])}</b>${esc(m[2])}`:esc(l);
+      const hl=t=>t.replace(/(무통보 강퇴|강퇴\s?사유(?:가 됩니다|입니다)?|즉시 무통보 강퇴|절대\s?금지|엄격히 금지합니다|엄격히 금지|어떠한 책임도 지지 않습니다|하지 말아주세요|금지합니다|체크하지 말아주세요)/g,'<em class="hl">$1</em>').replace(/(필참|변경 필수|본인의 안전은 본인이 꼭 책임져 주세요|끝까지 정리해주세요|1\/N로 정산합니다|전체 정산 인원에 포함됩니다|동일하게 정산합니다)/g,'<em class="hl2">$1</em>');
+      const body=m?`<b>${esc(m[1])}</b>${hl(esc(m[2]))}`:hl(esc(l));
       return `<li class="${isEx?'ex':isNote?'note':sub?'sub':''}">${body}</li>`}).filter(Boolean).join('')}
+  const rulesAcked=()=>{const m=me();if(m&&m.rulesAck)return true;try{return localStorage.getItem('hmc_ack_'+meId)==='1'}catch(e){return false}};
+  function renderAck(){const show=loggedIn();const done=rulesAcked();const rw=$('#rulesWho');rw.hidden=!(show&&!canEdit);if(show&&!canEdit){$('#rulesWhoText').innerHTML=`<b>${esc(me().name)}</b>님 · ${me().status==='pending'?'<span class="tag sun">가입 승인 대기 중</span> 승인되면 모든 메뉴가 열려요':'<span class="tag off">'+(STAT[me().status]||'')+'</span>'}`}for(const id of ['ackCard','ackCard2']){const el=$('#'+id);el.hidden=!show||(id==='ackCard2'&&done);el.classList.toggle('done',done);el.querySelector('input').checked=done;el.querySelector('input').disabled=done}
+    if(show&&done){$('#ackCard b').textContent='회칙 확인 완료 ✓'}else{$('#ackCard b').textContent='회칙을 끝까지 읽었고 모두 동의합니다.'}}
+  async function ackRules(){const m=me();if(!m)return;m.rulesAck=true;m.rulesAckAt=new Date().toISOString().slice(0,10);try{localStorage.setItem('hmc_ack_'+meId,'1')}catch(e){}renderAck();await saveSelf(m);toast('확인했어요. 이제 모든 메뉴를 쓸 수 있어요')}
+  $('#logoutBtn2').addEventListener('click',()=>$('#logoutBtn').click());
+  ['ackChk','ackChk2'].forEach(id=>$('#'+id).addEventListener('change',e=>{if(e.target.checked)ackRules()}));
   function renderRules(){const t=(S.crew.rulesFull||DEFAULT_RULES);const blocks=t.split(/\n\s*\n/);
     const isHead=first=>/^[^\w\s가-힣]{1,3}\s*(\d+\.|강퇴|공지)/.test(first)||/^[🌟⛰️📅🚗🚫✒️]/.test(first);
     let out='',i=0;
@@ -758,6 +773,9 @@ import {create as fbCreate} from './fb.js';
     try{await FB.signIn(emailOf(key),pwOf(key,v));msg.textContent='';$('#gateCode').value=''}
     catch(e){msg.textContent=authMsg(e);try{localStorage.removeItem('hmc_login_at')}catch(x){}}finally{$('#gateBtn').disabled=false}});
   $('#gateCode').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('#gateBtn').click()}});
+  $('#gateBtn2').addEventListener('click',()=>{$('#gateNick').value=$('#gateNick2').value;$('#gateCode').value=$('#gateCode2').value;$('#gateBtn').click()});
+  $('#gateCode2').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('#gateBtn2').click()}});
+  new MutationObserver(()=>{$('#gateMsg2').textContent=$('#gateMsg').textContent;$('#gateMsg2').style.color='var(--sun)'}).observe($('#gateMsg'),{childList:true,characterData:true,subtree:true});
   $('#logoutBtn').addEventListener('click',async()=>{try{await FB.signOut()}catch(e){}try{localStorage.removeItem('hmc_login_at')}catch(e){}});
   const ROLE={owner:'개설자',staff:'운영진',member:'회원'},STAT={active:'활동',rest:'휴식',out:'탈퇴',pending:'가입 대기'};
   const CROWN=c=>`<svg class="crown ${c}" viewBox="0 0 24 24"><path d="M3 8l4.5 4L12 5l4.5 7L21 8l-2 11H5z"/></svg>`;
@@ -880,7 +898,8 @@ import {create as fbCreate} from './fb.js';
     if(k==='hike'){applyCourseAuto(mtById($('#h_mtId').value)||{courses:[]},curCourseNos)}
     $('#dateLabel').textContent=k==='hike'?'산행 날짜':'모임 날짜';$('#timeLabel').textContent=k==='hike'?'집합 시간':'모임 시간';$('#meetLabel').textContent=k==='hike'?'집합 장소':'모임 장소';
     $('#feeLabel').textContent=k==='sport'?'회비 (원, 1인)':'예상 비용 (원, 1인 · 대략)';$('#noteLabel').textContent=k==='hike'?'안내 문구':'코멘트';
-    $('#addTitle').querySelector('small').textContent=k==='hike'?'등록한 사람이 주관자가 됩니다':k==='sport'?'등산 외 볼링·배드민턴 등 활동':'저녁 식사·야유회 등 모임'}
+    $('#addTitle').querySelector('small').textContent=k==='hike'?'등록한 사람이 주관자가 됩니다':k==='sport'?'등산 외 볼링·배드민턴 등 활동':'저녁 식사·야유회 등 모임';
+    const ed=!!$('#h_id').value;$('#addTitle').firstChild.textContent=(k==='hike'?'산행':k==='sport'?'운동 일정':'친목 일정')+(ed?' 편집':' 등록')}
   $('#kindSel').addEventListener('click',e=>{const b=e.target.closest('button');if(b)applyKind(b.dataset.kind)});
   // 이동 자동 계산: 카카오 길찾기(키 있으면, 통행료 포함) 또는 OSRM(OSM 기반, 거리·시간만)
   $('#navCalc').addEventListener('click',async()=>{const mlat=$('#h_meetLat').value,mlng=$('#h_meetLng').value,dlat=$('#h_destLat').value,dlng=$('#h_destLng').value;const line=$('#navLine');
@@ -1013,6 +1032,7 @@ import {create as fbCreate} from './fb.js';
     if(no){m.courses.find(x=>x.no===no).note=$('#m_text').value.trim();openNo=no}else m.memo=$('#m_text').value.trim();
     ms.hidden=true;save();drawMt(m)});
 
+  async function saveSelf(m){if(isStaff()){await save();return}try{await FB.set('members/'+meId,m)}catch(e){toast(authMsg(e))}}
   // ---------- 저장 ----------
   function toast(t){const el=document.createElement('div');el.className='toast';el.textContent=t;document.body.appendChild(el);setTimeout(()=>el.remove(),2200)}
   let curPhotos=[];
@@ -1042,7 +1062,10 @@ import {create as fbCreate} from './fb.js';
   let lastTab='';
   const hideSheetsSilently=()=>document.querySelectorAll('.sheet').forEach(n=>{if(!n.hidden){n.dataset.silent='1';n.hidden=true}});
   function showTab(){hideSheetsSilently();let h=(location.hash||'#home').replace('#','');let mtId='';if(h.startsWith('mt-')){mtId=h.slice(3);h='mt'}let t=['book','members','add','schedule','apply','rules','mt'].includes(h)?h:'home';
-    const want=t;if(['book','add','schedule','rules','mt','members'].includes(t)&&!canEdit){t='gate';$('#gateWait').hidden=authReady;$('#gateBox').hidden=!authReady}
+    const want=t;if(['book','add','schedule','mt','members'].includes(t)&&!canEdit){t='gate';$('#gateWait').hidden=authReady;$('#gateBox').hidden=!authReady}
+    if(t==='rules'&&!loggedIn()&&!canEdit){t='gate';$('#gateWait').hidden=authReady;$('#gateBox').hidden=!authReady}
+    if(loggedIn()&&!rulesAcked()&&['book','add','schedule','mt','members'].includes(t)){toast('회칙을 꼭 읽은 뒤 체크박스에 체크하세요');location.hash='#rules';return}
+    renderAck();
     if(lastTab==='book'&&t!=='book'&&t!=='mt')bookScroll=window.scrollY;
     if(t==='mt'&&lastTab==='book'){try{history.replaceState({from:'book'},'')}catch(e){}}
     for(const k of ['home','schedule','book','members','add','apply','rules','mt','gate']){const el=$('#tab-'+k);const show=k===t;if(show&&el.hidden){el.classList.remove('view');void el.offsetWidth;el.classList.add('view')}el.hidden=!show}
@@ -1090,7 +1113,7 @@ import {create as fbCreate} from './fb.js';
       await FB.set('members/'+uid,m);try{await FB.set('pins/'+uid,{pin})}catch(e){}
       await onUser({uid});
       out.style.color='var(--pine)';out.textContent=boot?'개설자로 등록됐어요. 크루원 탭에서 크루 정보를 채워 주세요.':'가입 신청이 접수됐어요. 운영자가 승인하면 닉네임과 비밀번호로 로그인할 수 있어요.';out.hidden=false;toast(out.textContent);
-      $('#applyForm').reset();$('#dongWrap').hidden=true;setTimeout(()=>{location.hash='#members'},600);
+      $('#applyForm').reset();$('#dongWrap').hidden=true;setTimeout(()=>{location.hash='#rules'},600);
     }catch(e){err(authMsg(e))}finally{btn.disabled=false}});
 
   // ---------- 데이터 연결 ----------
