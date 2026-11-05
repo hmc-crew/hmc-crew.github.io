@@ -38,11 +38,11 @@ service cloud.firestore {
       allow read: if isActive() || isOwner() || (signedIn() && request.auth.uid == uid);
       allow create: if (signedIn() && request.auth.uid == uid && request.resource.data.status == 'pending' && request.resource.data.role == 'member')
         || (isOwner() && request.auth.uid == uid && request.resource.data.role == 'owner')
-        || (isStaff() && request.resource.data.role != 'owner');
+        || (isStaff() && request.resource.data.role == 'member');
       allow update: if isOwner()
-        || (isStaff() && !('role' in changed()) && resource.data.role != 'owner')
+        || (isStaff() && !('role' in changed()) && resource.data.role == 'member')
         || (signedIn() && request.auth.uid == uid && changed().hasOnly(['birth', 'gender', 'region', 'memo', 'car', 'rulesAck', 'rulesAckAt']));
-      allow delete: if isStaff() && resource.data.role != 'owner';
+      allow delete: if isOwner() || (isStaff() && resource.data.role == 'member');
     }
 
     // 비밀번호(4자리) 보관 — 개설자만 열람. 본인 가입 시 생성, 운영진이 회원 추가 시 생성
@@ -54,8 +54,8 @@ service cloud.firestore {
 
     // 산행사진 공유 — 활동 크루원 열람·업로드(본인), 삭제는 본인 또는 운영진
     match /photos/{id} {
-      allow read: if isActive() || isOwner();
-      allow create: if isActive() && request.resource.data.by == request.auth.uid;
+      allow read: if isStaff() || (isActive() && request.auth.uid in get(/databases/$(db)/documents/hikes/$(resource.data.hikeId)).data.attendees);
+      allow create: if (isStaff() || (isActive() && request.auth.uid in get(/databases/$(db)/documents/hikes/$(request.resource.data.hikeId)).data.attendees)) && request.resource.data.by == request.auth.uid;
       allow update: if false;
       allow delete: if isStaff() || (isActive() && resource.data.by == request.auth.uid);
     }

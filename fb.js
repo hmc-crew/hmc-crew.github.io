@@ -1,7 +1,7 @@
 // Firebase 어댑터 — 페이지 본문은 이 파일의 함수만 호출합니다.
 import { initializeApp, deleteApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-import { getFirestore, collection, doc, onSnapshot, getDoc, setDoc, deleteDoc, writeBatch } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getFirestore, collection, doc, onSnapshot, getDoc, setDoc, deleteDoc, writeBatch, query, where } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 export function create(cfg){
   const app=initializeApp(cfg);
@@ -18,6 +18,7 @@ export function create(cfg){
     // 운영진이 다른 사람 계정을 만들 때: 현재 로그인은 유지하고 보조 앱으로 생성
     async createUserSecondary(email,pw){const app2=initializeApp(cfg,'secondary-'+Date.now());try{const a2=getAuth(app2);const r=await createUserWithEmailAndPassword(a2,email,pw);const uid=r.user.uid;await signOut(a2);return uid}finally{try{await deleteApp(app2)}catch(e){}}},
     listenDoc(path,cb,err){return onSnapshot(ref(path),s=>cb(s.exists()?{id:s.id,...s.data()}:null),e=>err&&err(e))},
+    listenWhere(col,field,value,cb,err){return onSnapshot(query(collection(db,col),where(field,'==',value)),s=>cb(s.docs.map(d=>({id:d.id,...d.data()}))),e=>err&&err(e))},
     listenCol(col,cb,err){return onSnapshot(collection(db,col),s=>cb(s.docs.map(d=>({id:d.id,...d.data()}))),e=>err&&err(e))},
     async get(path){const s=await getDoc(ref(path));return s.exists()?{id:s.id,...s.data()}:null},
     async set(path,data){await setDoc(ref(path),clean(data))},
