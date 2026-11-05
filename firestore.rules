@@ -20,9 +20,9 @@ service cloud.firestore {
       allow delete: if false;
     }
 
-    // 산행 일정 — 누구나 읽기. 등록: 활동 크루원(주관=본인) 또는 운영진. 수정: 주관자·운영진. 참석 체크: 활동 크루원 본인만 추가/제외
+    // 일정(등산·운동·친목) — 활동 크루원만 읽기. 등록: 활동 크루원(주관=본인) 또는 운영진. 수정: 주관자·운영진. 참석 체크: 활동 크루원 본인만 추가/제외
     match /hikes/{id} {
-      allow read: if true;
+      allow read: if isActive() || isOwner();
       allow create: if isStaff() || (isActive() && request.resource.data.hostId == request.auth.uid);
       allow update: if isStaff()
         || (isActive() && resource.data.hostId == request.auth.uid)
@@ -51,9 +51,9 @@ service cloud.firestore {
       allow update, delete: if isOwner() || isStaff();
     }
 
-    // 산 도감 덧붙임(크루 메모·직접 추가한 코스) — 누구나 읽기, 운영진만 쓰기
+    // 산 도감 덧붙임(크루 메모·직접 추가한 코스) — 활동 크루원만 읽기, 운영진만 쓰기
     match /mtx/{id} {
-      allow read: if true;
+      allow read: if isActive() || isOwner();
       allow write: if isStaff();
     }
   }
