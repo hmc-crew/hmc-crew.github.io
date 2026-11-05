@@ -7,4 +7,4 @@ window.HMC_FIREBASE = {
   messagingSenderId: "171096713252",
   appId: "1:171096713252:web:4a8a06e0382b4b0d8c90b1"
 };
-window.HMC_VERSION = "1.0.0";
+window.HMC_VERSION = "1.0.1";

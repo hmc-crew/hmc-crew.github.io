@@ -131,7 +131,16 @@ h2 span{font-weight:500;letter-spacing:0;text-transform:none}
 .quick a b small{display:block;font-size:12px;font-weight:500;opacity:.8}
 .banner{background:#fbe3e2;border:1.5px solid #d9534f;color:#8f1d1a;border-radius:14px;padding:14px;font-weight:700;line-height:1.5}
 .banner b{display:block;font-size:17px;margin-bottom:4px}
-.rules h3{font-size:16px;margin:18px 0 6px}.rules p{margin:0 0 8px;white-space:pre-line;font-size:14.5px}
+.rules{gap:0;padding:4px 14px 10px;word-break:keep-all;overflow-wrap:anywhere;text-wrap:pretty}
+.rules h3{font-size:15.5px;margin:16px 0 8px;padding-top:14px;border-top:1px solid var(--line);letter-spacing:-.2px}.rules h3:first-child{border-top:0;padding-top:8px;margin-top:4px}
+.rules ul{list-style:none;margin:0 0 8px;padding:0;display:flex;flex-direction:column;gap:5px}
+.rules li{position:relative;padding-left:12px;font-size:14px;line-height:1.5;color:var(--fg)}
+.rules li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--pine)}
+.rules li.sub{padding-left:22px;color:var(--muted);font-size:13px}.rules li.sub::before{left:12px;width:4px;height:4px;background:var(--muted);top:.6em}
+.rules li.note{padding-left:12px;color:var(--muted);font-size:13px}.rules li.note::before{display:none}
+.rules li b{color:var(--fg);font-weight:700;margin-right:4px}
+.rules li.ex{background:var(--soft);border-radius:8px;padding:6px 10px;font-size:13px;color:var(--fg)}.rules li.ex::before{display:none}
+.rules .lead{font-size:14px;color:var(--muted);margin:0 0 6px;line-height:1.5}
 .copy{font-size:12px;color:var(--muted);text-align:center;margin-top:10px}
 .formcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px 14px;display:flex;flex-direction:column}
 .formcard input,.formcard select,.formcard textarea{background:var(--soft)}
@@ -198,6 +207,8 @@ h2 span{font-weight:500;letter-spacing:0;text-transform:none}
 .row .rt{display:flex;gap:5px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
 .more{padding:12px;text-align:center;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
 /* 시트 */
+.pagebar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:flex;align-items:center;gap:10px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px);margin:0 calc(-1 * max(16px,env(safe-area-inset-left,0px))) 6px;padding:10px max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line)}
+.backbtn{border:0;background:var(--soft);color:var(--pine);font:inherit;font-weight:700;font-size:15px;border-radius:999px;padding:8px 14px 8px 10px;cursor:pointer}
 .sheet{position:fixed;inset:0;z-index:1200;background:rgba(0,0,0,.35);backdrop-filter:blur(6px);display:flex;align-items:flex-end;justify-content:center;padding-left:max(0px,env(safe-area-inset-left,0px));padding-right:max(0px,env(safe-area-inset-right,0px))}
 .sheet>div{background:var(--bg);color:var(--fg);width:100%;max-width:560px;max-height:90vh;overflow:auto;border-radius:18px 18px 0 0;padding:18px 18px calc(18px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:12px}
 .sheet h3{margin:0;font-size:18px;display:flex;justify-content:space-between;align-items:center;gap:10px}
@@ -353,6 +364,11 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-top:8px;line-
   </div>
 
 
+  <div id="tab-mt" class="view" hidden>
+    <div class="pagebar"><button class="backbtn" type="button" id="mtClose">‹ 도감</button><span id="mtTitle"></span></div>
+    <div id="mtBody"></div>
+  </div>
+
   <div id="tab-add" class="view" hidden>
   <h1 class="pt" id="addTitle">산행 등록<small>등록한 사람이 주관자가 됩니다</small></h1>
   <div class="formcard" id="hikeFormWrap"></div>
@@ -370,11 +386,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-top:8px;line-
   <a href="#book" data-tab="book"><svg viewBox="0 0 24 24"><path d="M3 19L9 8l4 6 2-3 6 8z"/><path d="M9 8l1.5-2.5L12 8"/></svg>도감</a>
 </nav>
 
-<!-- 산 상세 -->
-<div class="sheet" id="mtSheet" hidden><div>
-  <h3><span id="mtTitle"></span><button class="x" type="button" id="mtClose" aria-label="닫기">×</button></h3>
-  <div id="mtBody"></div>
-</div></div>
+<div class="sheet" id="mtSheet" hidden></div>
 
 <!-- 산행 편집 폼 (등록 탭으로 이동됨) -->
 <div id="hikeSheet" hidden>
@@ -571,8 +583,20 @@ import {create as fbCreate} from './fb.js';
   const gearFor=d=>{const se=seasonOf(d);return se?`[공통] ${GEAR.common}\n[${seasonKo[se]}] ${GEAR[se]}`:''};
   const memById=id=>S.members.find(m=>m.id===id);
   const DEFAULT_RULES="✒️ 공지를 확인하셨다면 \"확인\" 이라고 댓글을 남겨주세요\n입장시 간단한 인사는 매너입니다\n\n🌟 1. 가입 조건 및 닉네임 설정\n연령: 1975년생 ~ 2000년생\n(활발한 소통을 위해 나이 제한을 둡니다)\n\n지역: 오송, 조치원, 세종, 청주 인근 거주자 및 직장인\n\n닉네임 양식 (입장 후 10분 내 변경 필수)\n형식: [닉네임(2~4자)/출생년도/성별/지역/가입일]\n주의: 출생년도는 등록상 빠른 년생이 아닌 실제 태어난 연도로 기재\n\n예시: 하마대장/81/남/오송/260506\n미나/90/여/세종/260506\n(가입일은 오프라인 모임 등!산! 참석이후 삭제)\n\n양식 미준수 및 무성의한 닉네임은 무통보 강퇴 사유가 됩니다.\n\n⛰️ 2. 안전 및 개인 책임 (필독)\n하마크루의 산행은 인솔자가 이끄는 유료 투어가 아닌 자발적 동행 입니다.\n\n산행 중 발생하는 사고 및 부상에 대해 방장과 운영진, 해당 모임장은 그 어떠한 책임도 지지 않습니다.\n본인의 안전은 본인이 꼭 책임져 주세요.\n\n📅 3. 모임 운영 규칙\n신규 회원 필참: 가입일로부터 한달간 최소 1회 이상 모임에 참여해 주세요.\n5월 1일 가입시 6월 1일 오전 12시부\n(미참여 시 강퇴사유입니다)\n\n벙 개설 권한:\n등산: 기존 산행 1회 참석 후 누구나 개설 가능.\n친목(술/식사): 등산 벙주를 1회 이상 수행한 분은 자유롭게 가능\n다만 회칙에 준해서 모임은 끝까지 정리해주세요\n\n등산의 경우 먼저 일정을 만드신분이 있다면 같은날 다른 산행의 일정을 만들수 없으며\n타산악회의 일정을 저희 모임에 올리거나 타산악회의 일정에 하마크루 인원을 게스트로 유도하는 행위는 하지 말아주세요\n(안내 산악회 알레버스등은 예외)\n\n이성 매너: 1:1 사적 만남 요구 및 불필요한 사적 연락은 엄격히 금지합니다.\n\n벙주는 모임의 성격을 앞에 명시해주세요\n(등산) 산행관련일정\n(운동) 산행을 제외한 각종 운동 관련모임\n(친목) 운동외 모임 예) 영화나 전시관 식사등\n\n운영진의 특별한 요청시를 제외 일정에 불참란은 체크하지 말아주세요!!!!!!!!!!!!!!!!!!!\n(긍정적인 참여 독려를 위함)\n\n🚗 4. 카풀 및 정산\n교통비: 운전자를 제외한 탑승 인원이 유류비와 통행료를 1/N로 정산합니다.\n(네이버 유류비 기준)\n\n참석 예의: 술벙/먹벙 시 잠시 참석하더라도 전체 정산 인원에 포함됩니다.\n음주여부와 상관없이 동일하게 정산합니다\n\n🚫 강퇴 사유\n비매너 행동, 금전 분쟁, 이성에게 불편함을 주는 행위.\n\n타 모임 홍보, 정치 종교 민감한사항, 나이 허위 기재, 다단계 영업과 금전대출등 절대금지";
+  // 회칙: 문단→목록. '라벨: 내용' 줄은 라벨 굵게, 괄호만 있는 줄은 보조 설명, '예시:'는 박스. 글자 단위 줄바꿈 방지(keep-all)
+  function rulesLines(lines){return lines.map(l=>{l=l.trim();if(!l)return '';l=l.replace(/!{3,}/g,'!');
+      const isNote=/^\(.*\)$/.test(l);const isEx=/^예시\s*:/.test(l)||/^[^\s\/]{1,8}\/\d{2}\/[남여]\/[^\/]+\/\d{6}$/.test(l);const sub=/^(등산|친목|운동)(\([^)]*\))?\s*[:：]/.test(l)||/^\(등산\)|^\(운동\)|^\(친목\)/.test(l);
+      const m=l.match(/^([^:：]{1,14})\s*[:：]\s*(.+)$/);
+      const body=m?`<b>${esc(m[1])}</b>${esc(m[2])}`:esc(l);
+      return `<li class="${isEx?'ex':isNote?'note':sub?'sub':''}">${body}</li>`}).filter(Boolean).join('')}
   function renderRules(){const t=(S.crew.rulesFull||DEFAULT_RULES);const blocks=t.split(/\n\s*\n/);
-    $('#rulesFull').innerHTML=blocks.map(b=>{const first=b.split('\n')[0];if(/^[^\w\s가-힣]{1,3}\s*(\d+\.|강퇴|공지)/.test(first)||/^[🌟⛰️📅🚗🚫✒️]/.test(first)){const rest=b.split('\n').slice(1).join('\n');return `<h3>${esc(first)}</h3>${rest?`<p>${esc(rest)}</p>`:''}`}return `<p>${esc(b)}</p>`}).join('')}
+    const isHead=first=>/^[^\w\s가-힣]{1,3}\s*(\d+\.|강퇴|공지)/.test(first)||/^[🌟⛰️📅🚗🚫✒️]/.test(first);
+    let out='',i=0;
+    for(const b of blocks){const lines=b.split('\n');const first=lines[0].trim();
+      if(isHead(first)){out+=`<h3>${esc(first)}</h3>`;const rest=lines.slice(1);if(rest.join('').trim())out+=`<ul>${rulesLines(rest)}</ul>`}
+      else if(i===0&&!/[:：]/.test(b)){out+=`<p class="lead">${esc(b.replace(/\n/g,' '))}</p>`}
+      else out+=`<ul>${rulesLines(lines)}</ul>`;i++}
+    $('#rulesFull').innerHTML=out}
   const TIER={1:'공식',2:'지자체',3:'인터넷'};const tierLabel=k=>/산림청 100대 명산 책자/.test(k.src||'')?'산림청 책자(문자 인식)':TIER[tierOf(k)];
   const tierOf=k=>k.tier||(k.src==='국립공원공단'?1:/산림청/.test(k.src||'')?2:/크루/.test(k.src||'')?2:3);
 
@@ -729,7 +753,7 @@ import {create as fbCreate} from './fb.js';
     $('#plan_body').innerHTML=`<div style="font-size:17px;font-weight:700">${esc(m.name)} ${bacTag(m.bac)}</div>${k?`<div style="margin-top:6px"><b>${k.no}번 ${esc(k.name)}</b><div class="mu" style="color:var(--muted);font-size:13px">${k.dist?k.dist+'km · ':''}${k.min?tm(k.min)+' · ':''}난이도 ${esc(k.lvl||'-')}${k.start?' · 출발 '+esc(k.start):''}</div></div>`:`<div class="mu" style="color:var(--muted);font-size:13px;margin-top:4px">코스는 등록 화면에서 고릅니다</div>`}`;
     $('#planSheet').hidden=false}
   $('#plan_close').addEventListener('click',()=>$('#planSheet').hidden=true);$('#plan_no').addEventListener('click',()=>$('#planSheet').hidden=true);
-  $('#plan_yes').addEventListener('click',()=>{if(!planCtx)return;const {m,no}=planCtx;$('#planSheet').hidden=true;mtSheet.hidden=true;
+  $('#plan_yes').addEventListener('click',()=>{if(!planCtx)return;const {m,no}=planCtx;hideSheetsSilently();
     lastTab='add';openHike('');$('#h_mountain').value=m.name;curCourseNos=no?[no]:[];syncMt();
     if(no){const k=m.courses.find(x=>x.no===no);if(k&&k.start){$('#h_dest').value=k.start+(k.startAddr?' ('+k.startAddr+')':'');$('#h_destLat').value=k.startLat||'';$('#h_destLng').value=k.startLng||''}applyCourseAuto(m,[no]);routeBtns()}
     hs.hidden=false;setTimeout(()=>{$('#h_date').focus()},80)});
@@ -770,8 +794,13 @@ import {create as fbCreate} from './fb.js';
 
   // ---------- 산 상세 ----------
   const mtSheet=$('#mtSheet'); let openNo=null;
-  function openMt(id,no){const m=mtById(id);if(!m)return;openNo=no;$('#mtTitle').innerHTML=`<span class="badge${m.bac==='명산100+'?' plus':''}">BAC · ${esc(m.bac)}</span>`;drawMt(m);mtSheet.hidden=false;
-    if(no){setTimeout(()=>{const el=document.querySelector(`#mtBody .course[data-no="${no}"]`);el&&el.scrollIntoView({block:'start'})},60)}}
+  let bookScroll=0;
+  function openMt(id,no){const m=mtById(id);if(!m)return;openNo=no;
+    if(location.hash!=='#mt-'+id){pendingNo=no;if(lastTab==='book')bookScroll=window.scrollY;location.hash='#mt-'+id;return}
+    $('#mtTitle').innerHTML=`<span class="badge${m.bac==='명산100+'?' plus':''}">BAC · ${esc(m.bac)}</span> <b style="margin-left:4px">${esc(m.name)}</b>`;drawMt(m);
+    if(no){setTimeout(()=>{const el=document.querySelector(`#mtBody .course[data-no="${no}"]`);el&&el.scrollIntoView({block:'start'})},60)}else window.scrollTo({top:0})}
+  let pendingNo=null;
+
   function drawMt(m){
     const q=m.addr&&m.addr.length>4?m.name.replace(/\(.*\)/,'')+' '+m.addr.split(' ').slice(0,2).join(' '):m.name.replace(/\(.*\)/,'');
     const cs=m.courses.slice().sort((a,b)=>a.no-b.no);
@@ -805,8 +834,7 @@ import {create as fbCreate} from './fb.js';
     document.querySelectorAll('[data-kmemo]').forEach(b=>b.addEventListener('click',()=>openMemo(m.id,Number(b.dataset.kmemo))));
     document.querySelectorAll('[data-kedit]').forEach(b=>b.addEventListener('click',()=>openCourse(m.id,Number(b.dataset.kedit))));
   }
-  $('#mtClose').addEventListener('click',()=>mtSheet.hidden=true);
-  mtSheet.addEventListener('click',e=>{if(e.target===mtSheet)mtSheet.hidden=true});
+  $('#mtClose').addEventListener('click',()=>{if(history.state&&history.state.from==='book')history.back();else location.hash='#book'});
 
   // ---------- 운영자: 산행 ----------
   const cs=$('#crewSheet');
@@ -950,14 +978,28 @@ import {create as fbCreate} from './fb.js';
   function applyMtx(){for(const m of S.mountains){const base=JSON.parse(BASE[m.id]||'{"memo":"","courses":[]}');const ov=remote.mtx[m.id];m.memo=ov?(ov.memo||''):base.memo;m.courses=(ov&&ov.courses)?ov.courses:base.courses}}
 
   let lastTab='';
-  function showTab(){let h=(location.hash||'#home').replace('#','');if(h.startsWith('mt-')){const id=h.slice(3);h='book';setTimeout(()=>openMt(id,null),50)}const t=['book','members','add','schedule','apply','rules'].includes(h)?h:'home';
-    for(const k of ['home','schedule','book','members','add','apply','rules']){const el=$('#tab-'+k);const show=k===t;if(show&&el.hidden){el.classList.remove('view');void el.offsetWidth;el.classList.add('view')}el.hidden=!show}
-    document.querySelectorAll('#tabbar a').forEach(a=>a.classList.toggle('on',a.dataset.tab===t));
+  const hideSheetsSilently=()=>document.querySelectorAll('.sheet').forEach(n=>{if(!n.hidden){n.dataset.silent='1';n.hidden=true}});
+  function showTab(){hideSheetsSilently();let h=(location.hash||'#home').replace('#','');let mtId='';if(h.startsWith('mt-')){mtId=h.slice(3);h='mt'}const t=['book','members','add','schedule','apply','rules','mt'].includes(h)?h:'home';
+    if(lastTab==='book'&&t!=='book'&&t!=='mt')bookScroll=window.scrollY;
+    if(t==='mt'&&lastTab==='book'){try{history.replaceState({from:'book'},'')}catch(e){}}
+    for(const k of ['home','schedule','book','members','add','apply','rules','mt']){const el=$('#tab-'+k);const show=k===t;if(show&&el.hidden){el.classList.remove('view');void el.offsetWidth;el.classList.add('view')}el.hidden=!show}
+    document.querySelectorAll('#tabbar a').forEach(a=>a.classList.toggle('on',a.dataset.tab===(t==='mt'?'book':t)));
+    if(t==='mt'){const no=pendingNo;pendingNo=null;setTimeout(()=>openMt(mtId,no),0)}
+    if(t==='book'&&lastTab==='mt'){setTimeout(()=>window.scrollTo({top:bookScroll}),0)}
     const fresh=t==='add'&&lastTab!=='add'; lastTab=t;
     if(fresh&&!$('#h_id').value){openHike('')}
     if(t==='add') window.scrollTo({top:0});
     if(t==='book'&&!$('#mapcard').hidden){setTimeout(()=>{initMap();if(map)map.invalidateSize()},30)}}
+  try{history.scrollRestoration='manual'}catch(e){}
   window.addEventListener('hashchange',showTab); showTab();
+  // 팝업 시트가 열리면 히스토리 한 칸 추가 → 뒤로가기로 닫힘
+  let sheetPop=false;
+  const openSheets=()=>[...document.querySelectorAll('.sheet')].filter(n=>!n.hidden);
+  new MutationObserver(ms=>{ms.forEach(mu=>{const el=mu.target;if(!el.classList.contains('sheet'))return;
+    if(!el.hidden){if(!(history.state&&history.state.sheet)){try{history.pushState({sheet:el.id,from:(history.state&&history.state.from)||''},'')}catch(e){}}}
+    else if(el.dataset.silent){delete el.dataset.silent}
+    else if(!openSheets().length&&history.state&&history.state.sheet&&!sheetPop){sheetPop=true;history.back()}})}).observe(document.body,{attributes:true,attributeFilter:['hidden'],subtree:true});
+  window.addEventListener('popstate',()=>{if(sheetPop){sheetPop=false;return}if(openSheets().length&&!(history.state&&history.state.sheet)){openSheets().forEach(n=>n.hidden=true)}});
 
   // BGM / 뮤비
   const bgm=$('#bgm'),bgmBtn=$('#bgmBtn'),mv=$('#mv');
