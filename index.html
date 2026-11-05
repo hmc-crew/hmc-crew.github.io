@@ -111,6 +111,21 @@ h2 span{font-weight:500;letter-spacing:0;text-transform:none}
 .quick a{display:flex;flex-direction:column;gap:4px;text-decoration:none;color:var(--fg);background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px}
 .quick a b{font-size:15px}.quick a span{font-size:12.5px;color:var(--muted)}
 .quick a.hi{background:var(--pine);color:var(--pine-ink);border-color:var(--pine)}.quick a.hi span{color:inherit;opacity:.85}
+.quick.big a{padding:16px 14px;gap:6px;min-height:110px;justify-content:flex-end}.quick.big a i{font-style:normal;font-size:26px;line-height:1}.quick.big a b{font-size:18px;letter-spacing:-.2px}.quick.big a span{font-size:13px}.quick.big a b small{display:inline;font-size:13px}
+.nextcard{background:var(--pine);color:var(--pine-ink);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:6px;text-decoration:none}
+.nextcard .nk{display:flex;gap:8px;align-items:center;font-size:13px;opacity:.9}.nextcard .nk b{background:rgba(255,255,255,.2);padding:3px 10px;border-radius:999px;font-weight:700}
+.nextcard .nt{font-size:30px;font-weight:700;line-height:1.1;letter-spacing:-.5px;margin:2px 0}.nextcard .nd{font-size:16px;font-weight:600}.nextcard .nm{font-size:14px;opacity:.9}
+.nextcard .nb{margin-top:8px;align-self:flex-start;background:#fff;color:var(--pine);font-weight:700;border-radius:12px;padding:10px 16px;font-size:15px}
+.nextcard.off{background:var(--paper);color:var(--fg);border:1px solid var(--line)}.nextcard.off .nb{background:var(--pine);color:var(--pine-ink)}
+.fs{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px;margin-top:12px}.fs:first-of-type{margin-top:0}
+.fsh{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:700;margin:0 0 12px;padding-bottom:10px;border-bottom:1px solid var(--line)}.fsh small{font-weight:500;color:var(--muted);font-size:12.5px;margin-left:auto}
+.fsn{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--pine);color:var(--pine-ink);font-size:13px;font-weight:800}
+.formcard{padding:0;background:transparent;border:0}.formcard .f input,.formcard .f select,.formcard .f textarea{background:var(--soft)}
+.navbox{background:var(--moss);border-radius:12px;padding:10px}
+.cost.big b{font-size:22px}
+.clamp{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer}.clamp.c3{-webkit-line-clamp:3}.clamp.open{-webkit-line-clamp:unset;display:block}
+.morebtn{border:0;background:none;color:var(--pine);font:inherit;font-weight:700;font-size:13px;padding:4px 0;cursor:pointer}
+.gearlist{display:flex;flex-direction:column;gap:6px}.gearlist .gl{display:flex;gap:6px;flex-wrap:wrap;align-items:center}.gearlist .gl b{font-size:12px;color:var(--pine);background:var(--moss);padding:3px 8px;border-radius:999px;white-space:nowrap}.gearlist .gl span{font-size:13px;background:var(--soft);padding:4px 9px;border-radius:9px}
 .mv{border-radius:16px;overflow:hidden;background:#000;border:1px solid var(--line)}
 .mv video{display:block;width:100%;max-width:100%;max-height:70vh;background:#000}
 .crown{width:16px;height:16px;vertical-align:-2px;margin-right:4px}
@@ -270,13 +285,15 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-top:8px;line-
   <div id="tab-home" class="view" style="display:flex;flex-direction:column;gap:18px">
     <div class="herocard"><img src="mascot.jpg" alt="하마크루 마스코트 — 산 정상에서 컵라면을 먹는 하마"><div class="ov"><div><b id="homeName">하이마운틴크루</b><span id="homeTag"></span></div><button class="bgm" type="button" id="bgmBtn"><span class="eq"><i></i><i></i><i></i></span>BGM</button></div></div>
     <audio id="bgm" src="bgm.mp3" preload="none" loop></audio>
+    <section><h2>다음 일정</h2><div id="homeNext"></div></section>
+    <section><h2>바로가기</h2><div class="quick big">
+      <a href="#schedule"><i>📅</i><b>일정 확인</b><span id="qNext">크루원 로그인 후 열람</span></a>
+      <a href="#book"><i>⛰️</i><b>산 도감</b><span>블야 100 · 100+</span></a>
+      <a href="#members"><i>👥</i><b>크루원 정보</b><span>명단 · 순위 · 로그인</span></a>
+      <a href="#rules"><i>📜</i><b>회칙</b><span>가입 전 필독</span></a>
+      <a href="#apply" class="hi" style="grid-column:1/-1"><i>✍️</i><b>회원가입 신청 <small>(크루원 모집)</small></b><span>신청 → 운영자 승인 → 로그인</span></a>
+    </div></section>
     <section><h2>소개</h2><div class="info"><p class="intro" id="homeIntro"></p></div></section>
-    <section><h2>바로가기</h2><div class="quick">
-      <a href="#apply" class="hi"><b>회원가입<small>(크루원 모집)</small></b><span>운영자 승인</span></a>
-      <a href="#schedule"><b>일정 확인</b><span id="qNext">누구나 볼 수 있어요</span></a>
-      <a href="#book"><b>산 도감<small>블야 100<br>블야 100+</small></b><span>&nbsp;</span></a>
-      <a href="#members"><b>크루원 정보</b><span>가입 크루원만 열람</span></a>
-    </div><div class="linkrow" style="margin-top:8px"><a class="lbtn" href="#rules">📜 회칙 보기</a></div></section>
     <section><h2>주제곡 뮤직비디오</h2><div class="mv"><video id="mv" src="mv.mp4" poster="poster.jpg" controls playsinline preload="none"></video></div><p class="note" style="margin-top:6px">재생을 누르면 주제곡 BGM은 자동으로 멈춥니다.</p></section>
   </div>
 
@@ -414,6 +431,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-top:8px;line-
 <div id="hikeSheet" hidden>
   <form id="hikeForm" novalidate>
     <span id="hikeSheetTitle" hidden></span><input type="hidden" id="h_id"><input type="hidden" id="h_mtId"><input type="hidden" id="h_bac"><input type="hidden" id="h_destLat"><input type="hidden" id="h_destLng"><input type="hidden" id="h_kind" value="hike">
+    <section class="fs"><div class="fsh"><span class="fsn">1</span>기본 정보</div>
     <div class="f"><label>일정 종류</label><div class="kindsel" id="kindSel"><button type="button" class="on" data-kind="hike">⛰️ 등산</button><button type="button" data-kind="sport">🏸 운동</button><button type="button" data-kind="social">🍽️ 친목</button></div></div>
     <div class="grid2" style="margin-top:10px">
       <div class="f"><label for="h_date" id="dateLabel">산행 날짜</label><input type="date" id="h_date" required></div>
@@ -421,17 +439,27 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-top:8px;line-
     </div>
     <div class="f kf-sport" style="margin-top:10px" hidden><label for="h_sport">운동 종류</label><input id="h_sport" list="sportList" placeholder="예: 볼링, 배드민턴"><datalist id="sportList"><option value="볼링"><option value="배드민턴"><option value="탁구"><option value="러닝"><option value="자전거"><option value="풋살"><option value="수영"><option value="골프"><option value="클라이밍"></datalist></div>
     <div class="f kf-social" style="margin-top:10px" hidden><label for="h_title">모임 제목</label><input id="h_title" placeholder="예: 11월 저녁 식사 모임"></div>
-    <div class="f sug kf-hike" style="margin-top:10px"><label for="h_mountain">산행지 (ㅅ, 소, 속… 글자를 치면 후보가 떠요)</label><input id="h_mountain" required placeholder="예: 속리산" autocomplete="off"><ul id="mtSug" hidden></ul><p class="note" id="bacLine" style="margin-top:4px"></p></div>
-    <div class="f kf-hike" style="margin-top:10px" id="courseSelWrap" hidden><label>코스 선택 (여러 개 가능 · 고르면 도착지가 채워져요)</label><div class="sel" id="courseSel"></div></div>
-    <div class="f kf-hike" style="margin-top:10px"><label for="h_course">코스 메모 (도감 코스가 없을 때 직접 적기)</label><input id="h_course" placeholder="예: 법주사 → 문장대 (왕복)"></div>
+    </section>
+    <section class="fs kf-hike"><div class="fsh"><span class="fsn">2</span>산행지 · 코스</div>
+    <div class="f sug"><label for="h_mountain">산행지 (ㅅ, 소, 속… 글자를 치면 후보가 떠요)</label><input id="h_mountain" required placeholder="예: 속리산" autocomplete="off"><ul id="mtSug" hidden></ul><p class="note" id="bacLine" style="margin-top:4px"></p></div>
+    <div class="f" style="margin-top:10px" id="courseSelWrap" hidden><label>코스 선택 (여러 개 가능 · 고르면 도착지·거리·시간·난이도가 자동으로 채워져요)</label><div class="sel" id="courseSel"></div></div>
+    <div class="f" style="margin-top:10px" id="courseMemoWrap"><label for="h_course">코스 직접 입력 (도감에 코스가 없는 산만)</label><input id="h_course" placeholder="예: 법주사 → 문장대 (왕복)"></div>
+    <div class="grid2" style="margin-top:10px" id="manualWrap">
+      <div class="f"><label for="h_dist">거리·시간</label><input id="h_dist" placeholder="예: 약 13km · 6시간"></div>
+      <div class="f"><label for="h_level">난이도</label><select id="h_level"><option>하</option><option selected>중</option><option>상</option></select></div>
+    </div>
+    <p class="note" id="autoLine" hidden style="margin-top:8px"></p>
+    </section>
+    <section class="fs"><div class="fsh"><span class="fsn">3</span><span id="sec3Title">집합 · 이동</span></div>
+    <div class="f"><label for="h_meetSel" id="meetLabel">집합 장소</label><select id="h_meetSel"><option value="">프리셋 선택 (크루 정보에서 등록)</option></select><input id="h_meet" placeholder="또는 직접 입력" style="margin-top:6px"><input type="hidden" id="h_meetLat"><input type="hidden" id="h_meetLng"><p class="note" id="meetLine" style="margin-top:4px"></p></div>
     <div class="f kf-hike" style="margin-top:10px"><label for="h_dest">도착지 (들머리·주차장)</label><input id="h_dest" placeholder="코스를 고르면 자동으로 채워져요"><p class="note" id="destLine" style="margin-top:4px"></p></div>
-    <div class="f" style="margin-top:10px"><label for="h_meetSel" id="meetLabel">집합 장소</label><select id="h_meetSel"><option value="">프리셋 선택 (크루 정보에서 등록)</option></select><input id="h_meet" placeholder="또는 직접 입력" style="margin-top:6px"><input type="hidden" id="h_meetLat"><input type="hidden" id="h_meetLng"><p class="note" id="meetLine" style="margin-top:4px"></p></div>
     <div class="f kf-sport kf-social" style="margin-top:10px" hidden><label for="h_link">장소 링크 (네이버 지도·카카오맵 주소를 붙여 넣으면 일정에 버튼으로 표시)</label><input id="h_link" type="url" placeholder="https://naver.me/… 또는 https://map.naver.com/…"></div>
     <div class="f kf-sport kf-social" style="margin-top:10px" hidden><label for="h_fee" id="feeLabel">회비 (원, 1인)</label><input id="h_fee" type="number" min="0" step="1000" inputmode="numeric" placeholder="예: 15000"></div>
-    <div class="f kf-hike" style="margin-top:10px"><label for="h_route">이동 (방법·예상 소요시간)</label><input id="h_route" placeholder="예: 자차 카풀, 약 1시간 30분"><div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap" id="routeBtns"></div>
-      <div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;align-items:center"><button class="btn sm primary" type="button" id="navCalc">거리·시간·통행료 자동 계산</button><span class="note" id="navLine"></span></div></div>
-    <div class="f kf-hike" style="margin-top:10px"><label>예상 비용 — 자동 계산 또는 길찾기 결과의 유류비·통행료(차 1대 왕복)를 적으면 1인 금액이 계산돼요</label>
-      <div class="grid2">
+    <div class="f kf-hike" style="margin-top:10px"><label for="h_route">이동 (방법·예상 소요시간)</label><input id="h_route" placeholder="예: 자차 카풀, 약 1시간 30분"><div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap" id="routeBtns"></div></div>
+    </section>
+    <section class="fs kf-hike"><div class="fsh"><span class="fsn">4</span>경비 계산 <small>차 1대 왕복 기준 → 1인 금액 자동</small></div>
+    <div class="navbox"><button class="btn primary" type="button" id="navCalc" style="width:100%">🚗 거리·시간·통행료·유류비 자동 계산</button><p class="note" id="navLine" style="margin-top:6px"></p></div>
+      <div class="grid2" style="margin-top:10px">
         <div class="f"><label for="h_fuel">유류비 (원, 왕복)</label><input id="h_fuel" type="number" min="0" step="100" inputmode="numeric"></div>
         <div class="f"><label for="h_toll">통행료 (원, 왕복)</label><input id="h_toll" type="number" min="0" step="100" inputmode="numeric"></div>
       </div>
@@ -443,19 +471,20 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-top:8px;line-
         <div class="f"><label for="h_people">참여 인원 (운전자 포함)</label><input id="h_people" type="number" min="1" step="1" inputmode="numeric"><p class="note" style="margin-top:2px">등록 후 일정 화면에서 참석자를 체크하면 자동으로 바뀝니다</p></div>
         <div class="f"><label for="h_extra">기타 비용 메모</label><input id="h_extra" placeholder="예: 주차비 현장 분담, 식사 별도"></div>
       </div>
-      <p class="note" id="costPreview" style="margin-top:6px"></p>
-    </div>
-    <div class="f" style="margin-top:10px"><label>참석자 (초기 참석자 · 등록 후에도 일정 화면에서 바꿀 수 있어요)</label><div class="sel" id="attSel"></div></div>
+      <div class="cost" id="costPreview" style="margin-top:10px"></div>
+    </section>
+    <section class="fs"><div class="fsh"><span class="fsn" id="sec5n">5</span>참석 · 주관</div>
+    <div class="f"><label>참석자 (초기 참석자 · 등록 후에도 일정 화면에서 바꿀 수 있어요)</label><div class="sel" id="attSel"></div></div>
     <div class="f" style="margin-top:10px"><label for="h_hostId">주관 (일정 올린 사람)</label><select id="h_hostId"><option value="">선택</option></select></div>
-    <div class="grid2 kf-hike" style="margin-top:10px" id="manualWrap">
-      <div class="f"><label for="h_dist">거리·시간 (코스를 고르면 자동)</label><input id="h_dist" placeholder="예: 약 13km · 6시간"></div>
-      <div class="f"><label for="h_level">난이도 (코스를 고르면 자동)</label><select id="h_level"><option>하</option><option selected>중</option><option>상</option></select></div>
-    </div>
-    <p class="note kf-hike" id="autoLine" hidden style="margin-top:8px"></p>
-    <div class="f kf-hike" style="margin-top:10px"><label for="h_gear">준비물 <span id="gearHint" style="font-weight:400"></span></label><textarea id="h_gear" style="min-height:60px" placeholder="날짜를 고르면 계절 기본 준비물이 들어갑니다"></textarea><div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap"><button class="btn sm ghost fg" type="button" id="gearAuto">계절 기본값 다시 넣기</button><a class="btn sm ghost fg" href="https://www.weather.go.kr/w/index.do" target="_blank" rel="noopener">기상청 날씨 보기</a></div></div>
+    </section>
+    <section class="fs"><div class="fsh"><span class="fsn" id="sec6n">6</span><span id="sec6Title">준비물 · 안내</span></div>
+    <div class="f kf-hike"><label for="h_gear">준비물 <span id="gearHint" style="font-weight:400"></span></label><textarea id="h_gear" style="min-height:120px;line-height:1.6" placeholder="날짜를 고르면 계절 기본 준비물이 들어갑니다"></textarea><div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap"><button class="btn sm ghost fg" type="button" id="gearAuto">계절 기본값 다시 넣기</button><a class="btn sm ghost fg" href="https://www.weather.go.kr/w/index.do" target="_blank" rel="noopener">기상청 날씨 보기</a></div></div>
     <div class="f" style="margin-top:10px"><label for="h_note" id="noteLabel">안내 문구</label><textarea id="h_note" placeholder="차량 배정, 식사 등"></textarea></div>
+    </section>
+    <section class="fs"><div class="fsh"><span class="fsn" id="sec7n">7</span>상태 · 사진</div>
+    <div class="f"><label for="h_status">상태</label><select id="h_status"><option value="open">모집 중</option><option value="closed">마감</option><option value="done">완료</option><option value="cancel">취소</option></select></div>
     <div class="f kf-hike" style="margin-top:10px" id="photoWrap" hidden><label>인증사진 (최대 3장 · 자동으로 작게 줄여 저장돼요)</label><input type="file" id="h_photo" accept="image/*" multiple><div class="photos" id="photoList"></div></div>
-    <div class="f" style="margin-top:10px"><label for="h_status">상태</label><select id="h_status"><option value="open">모집 중</option><option value="closed">마감</option><option value="done">완료</option><option value="cancel">취소</option></select></div>
+    </section>
     <p class="note" id="formErr" style="margin-top:10px;color:var(--sun)" hidden></p>
     <div class="acts" style="margin-top:14px">
       <span style="display:flex;gap:8px"><button class="btn sm ghost fg" type="button" id="h_delete">삭제</button><button class="btn sm ghost fg" type="button" id="h_cancel">취소</button></span>
@@ -615,6 +644,7 @@ import {create as fbCreate} from './fb.js';
     autumn:'바람막이, 보온 중간 레이어, 장갑, 비니 (고지대 결빙 시 아이젠)',winter:'아이젠(필수), 스패츠, 보온 자켓, 두꺼운 장갑, 비니·넥워머, 보온병, 핫팩, 고글'};
   const seasonOf=d=>{const m=Number((d||'').split('-')[1]);return !m?'':m>=3&&m<=5?'spring':m>=6&&m<=8?'summer':m>=9&&m<=11?'autumn':'winter'};
   const seasonKo={spring:'봄',summer:'여름',autumn:'가을',winter:'겨울'};
+  const gearHtml=g=>{if(!g)return '';const lines=g.split('\n').map(l=>l.trim()).filter(Boolean);return `<div class="gearlist">${lines.map(l=>{const m=l.match(/^\[([^\]]+)\]\s*(.*)$/);const lab=m?m[1]:'',body=m?m[2]:l;return `<div class="gl">${lab?`<b>${esc(lab)}</b>`:''}${body.split(/[,，]\s*/).filter(Boolean).map(x=>`<span>${esc(x)}</span>`).join('')}</div>`}).join('')}</div>`};
   const gearFor=d=>{const se=seasonOf(d);return se?`[공통] ${GEAR.common}\n[${seasonKo[se]}] ${GEAR[se]}`:''};
   const memById=id=>S.members.find(m=>m.id===id);
   const DEFAULT_RULES="✒️ 공지를 확인하셨다면 \"확인\" 이라고 댓글을 남겨주세요\n입장시 간단한 인사는 매너입니다\n\n🌟 1. 가입 조건 및 닉네임 설정\n연령: 1975년생 ~ 2000년생\n(활발한 소통을 위해 나이 제한을 둡니다)\n\n지역: 오송, 조치원, 세종, 청주 인근 거주자 및 직장인\n\n닉네임 양식 (입장 후 10분 내 변경 필수)\n형식: [닉네임(2~4자)/출생년도/성별/지역/가입일]\n주의: 출생년도는 등록상 빠른 년생이 아닌 실제 태어난 연도로 기재\n\n예시: 하마대장/81/남/오송/260506\n미나/90/여/세종/260506\n(가입일은 오프라인 모임 등!산! 참석이후 삭제)\n\n양식 미준수 및 무성의한 닉네임은 무통보 강퇴 사유가 됩니다.\n\n⛰️ 2. 안전 및 개인 책임 (필독)\n하마크루의 산행은 인솔자가 이끄는 유료 투어가 아닌 자발적 동행 입니다.\n\n산행 중 발생하는 사고 및 부상에 대해 방장과 운영진, 해당 모임장은 그 어떠한 책임도 지지 않습니다.\n본인의 안전은 본인이 꼭 책임져 주세요.\n\n📅 3. 모임 운영 규칙\n신규 회원 필참: 가입일로부터 한달간 최소 1회 이상 모임에 참여해 주세요.\n5월 1일 가입시 6월 1일 오전 12시부\n(미참여 시 강퇴사유입니다)\n\n벙 개설 권한:\n등산: 기존 산행 1회 참석 후 누구나 개설 가능.\n친목(술/식사): 등산 벙주를 1회 이상 수행한 분은 자유롭게 가능\n다만 회칙에 준해서 모임은 끝까지 정리해주세요\n\n등산의 경우 먼저 일정을 만드신분이 있다면 같은날 다른 산행의 일정을 만들수 없으며\n타산악회의 일정을 저희 모임에 올리거나 타산악회의 일정에 하마크루 인원을 게스트로 유도하는 행위는 하지 말아주세요\n(안내 산악회 알레버스등은 예외)\n\n이성 매너: 1:1 사적 만남 요구 및 불필요한 사적 연락은 엄격히 금지합니다.\n\n벙주는 모임의 성격을 앞에 명시해주세요\n(등산) 산행관련일정\n(운동) 산행을 제외한 각종 운동 관련모임\n(친목) 운동외 모임 예) 영화나 전시관 식사등\n\n운영진의 특별한 요청시를 제외 일정에 불참란은 체크하지 말아주세요!!!!!!!!!!!!!!!!!!!\n(긍정적인 참여 독려를 위함)\n\n🚗 4. 카풀 및 정산\n교통비: 운전자를 제외한 탑승 인원이 유류비와 통행료를 1/N로 정산합니다.\n(네이버 유류비 기준)\n\n참석 예의: 술벙/먹벙 시 잠시 참석하더라도 전체 정산 인원에 포함됩니다.\n음주여부와 상관없이 동일하게 정산합니다\n\n🚫 강퇴 사유\n비매너 행동, 금전 분쟁, 이성에게 불편함을 주는 행위.\n\n타 모임 홍보, 정치 종교 민감한사항, 나이 허위 기재, 다단계 영업과 금전대출등 절대금지";
@@ -651,7 +681,10 @@ import {create as fbCreate} from './fb.js';
     $('#homeName').textContent=c.name||'하이마운틴크루';$('#homeTag').textContent=c.tagline||'';
     $('#homeIntro').textContent=c.intro||'오송·청주를 중심으로 평일에 산을 오르는 크루입니다. 교대근무자도 환영하고, 블랙야크 명산100·100+를 함께 채워 갑니다.';
     renderRules();
-    const nx=S.hikes.filter(h=>!isPast(h)).sort((a,b)=>a.date.localeCompare(b.date))[0];$('#qNext').textContent=nx?`다음 ${KIND[kindOf(nx)]} ${fmt(nx.date)} ${titleOf(nx)}`:'크루원 로그인 후 열람';
+    const nx=S.hikes.filter(h=>!isPast(h)).sort((a,b)=>a.date.localeCompare(b.date))[0];$('#qNext').textContent=nx?`${KIND[kindOf(nx)]} ${fmt(nx.date)} ${titleOf(nx)}`:(canEdit?'예정된 일정 없음':'크루원 로그인 후 열람');
+    const hn=$('#homeNext');if(!canEdit){hn.innerHTML=`<a class="nextcard off" href="#members"><div class="nk"><b>크루원 전용</b></div><div class="nt" style="font-size:22px">로그인하면 다음 일정이 여기 보여요</div><div class="nm">닉네임 + 비밀번호 4자리 · 아직 크루원이 아니면 가입 신청</div><span class="nb">로그인 / 가입 신청 →</span></a>`}
+    else if(!nx){hn.innerHTML=`<a class="nextcard off" href="#add"><div class="nk"><b>예정 없음</b></div><div class="nt" style="font-size:22px">다음 일정을 올려 주세요</div><span class="nb">일정 등록 →</span></a>`}
+    else{const attN=(nx.attendees||[]).length;hn.innerHTML=`<a class="nextcard" href="#schedule"><div class="nk"><b>${dday(nx.date)}</b><span>${KIND[kindOf(nx)]}${kindOf(nx)==='hike'&&(nx.bac||'')?' · '+esc(nx.bac):''}</span></div><div class="nt">${esc(titleOf(nx))}</div><div class="nd">${fmt(nx.date)}${nx.time?' '+esc(nx.time):''}</div><div class="nm">${esc([nx.meet?'집합 '+nx.meet:'',attN?'참석 '+attN+'명':'참석자 모집 중'].filter(Boolean).join(' · '))}</div><span class="nb">일정 자세히 보기 →</span></a>`}
     const jc=$('#a_chat');if(c.joinUrl){jc.href=c.joinUrl;jc.hidden=false}else jc.hidden=true;
     $('#rules').textContent=c.rules||'';
     $('#contactRow').hidden=!c.contact; $('#contact').textContent=c.contact||'';
@@ -671,7 +704,7 @@ import {create as fbCreate} from './fb.js';
       const host=memById(next.hostId);const atts=(next.attendees||[]).map(memById).filter(Boolean);const attN=(next.attendees||[]).length;
       const rows=[['주관',esc(host?host.name:(next.hostName||''))],['집합',esc([next.meet,next.time].filter(Boolean).join(' · '))+mapLinks(next.meet)],['이동',esc(next.route)],['도착지',next.dest?esc(next.dest)+(next.destLat&&next.destLng?`<div class="maps"><a href="${next.meetLat&&next.meetLng?`https://map.kakao.com/link/by/car/${encodeURIComponent(next.meet||'집합')},${next.meetLat},${next.meetLng}/${encodeURIComponent(next.dest.replace(/\s*\(.*\)$/,''))},${next.destLat},${next.destLng}`:`https://map.kakao.com/link/to/${encodeURIComponent(next.dest.replace(/\s*\(.*\)$/,''))},${next.destLat},${next.destLng}`}" target="_blank" rel="noopener">${next.meetLat&&next.meetLng?'카카오맵 길찾기 (집합 → 도착지)':'카카오맵 길찾기 (도착지까지)'}</a>${next.meetLat&&next.meetLng?`<a href="nmap://route/car?slat=${next.meetLat}&slng=${next.meetLng}&sname=${encodeURIComponent(next.meet||'집합')}&dlat=${next.destLat}&dlng=${next.destLng}&dname=${encodeURIComponent(next.dest.replace(/\s*\(.*\)$/,''))}&appname=hmc.hiking">네이버지도 앱 길찾기</a>`:''}<a href="https://map.naver.com/p/search/${encodeURIComponent(next.dest.replace(/\s*\(.*\)$/,''))}" target="_blank" rel="noopener">네이버지도</a></div>`:mapLinks(next.dest.replace(/\s*\(.*\)$/,''))):''],['예상 비용',(()=>{const c=costCalc(next);return c?`<div class="cost"><b>1인 ${won(c.per)}</b><small>${esc(c.basis)}</small>${next.extra?`<small>${esc(next.extra)}</small>`:''}</div>`:esc(next.extra)})()],
         ['코스',sel.length?`<div class="cchips">${sel.map(k=>`<button class="cchip" type="button" data-mt="${mt.id}" data-no="${k.no}"><b>${k.no}번</b><div>${esc(k.name)}${k.shortest?' <span class="tag">최단</span>':''}<br><span>${k.dist}km · ${tm(k.min)} · 난이도 ${esc(k.lvl)}</span>${k.sec?`<span class="via">경유 ${esc(k.sec)}</span>`:''}</div></button>`).join('')}</div>`:esc(next.course)],
-        ['거리',sel.length?'':esc(next.dist)],['난이도',sel.length?'':esc(next.level)],['참석',(attN?`${attN}명${atts.length?' · '+esc(atts.map(a=>a.name).join(', ')):''}`:'아직 없음')+(canEdit?`<div class="chips" style="margin-top:6px" id="attPanel">${(mayEdit(next)?S.members.filter(m=>m.status!=='out'&&m.status!=='pending').sort((a,b)=>a.name.localeCompare(b.name,'ko')):[me()].filter(Boolean)).map(m=>`<button class="chip att${(next.attendees||[]).includes(m.id)?' on':''}" type="button" data-att="${m.id}">${esc(m.name)}</button>`).join('')}</div><p class="note">${mayEdit(next)?'이름을 누르면 참석/취소 — 비용이 바로 다시 계산돼요':'내 이름을 누르면 참석/취소 돼요'}</p>`:'')],['준비물',esc(next.gear).replace(/\n/g,'<br>')]].filter(r=>r[1]);
+        ['거리',sel.length?'':esc(next.dist)],['난이도',sel.length?'':esc(next.level)],['참석',(attN?`${attN}명${atts.length?' · '+esc(atts.map(a=>a.name).join(', ')):''}`:'아직 없음')+(canEdit?`<div class="chips" style="margin-top:6px" id="attPanel">${(mayEdit(next)?S.members.filter(m=>m.status!=='out'&&m.status!=='pending').sort((a,b)=>a.name.localeCompare(b.name,'ko')):[me()].filter(Boolean)).map(m=>`<button class="chip att${(next.attendees||[]).includes(m.id)?' on':''}" type="button" data-att="${m.id}">${esc(m.name)}</button>`).join('')}</div><p class="note">${mayEdit(next)?'이름을 누르면 참석/취소 — 비용이 바로 다시 계산돼요':'내 이름을 누르면 참석/취소 돼요'}</p>`:'')],['준비물',gearHtml(next.gear)]].filter(r=>r[1]);
       hero.innerHTML=`<div class="top"><span class="dday">${dday(next.date)}</span><span>${kindTag(next)} ${bac?bacTag(bac):''}</span></div>
         <p class="mt">${esc(next.mountain)}</p><div class="date">${fmt(next.date)}</div>
         <dl>${rows.map(r=>`<dt>${r[0]}</dt><dd>${r[1]}</dd>`).join('')}</dl>
@@ -862,14 +895,14 @@ import {create as fbCreate} from './fb.js';
       ${(()=>{const d=distKm(m);const vs=S.hikes.filter(h=>h.mtId===m.id&&h.status==='done').length;return `<div class="tiles"><div class="tile"><span>높이</span><b>${esc(m.height.replace('m',''))} <small style="font-size:14px;font-weight:500">m</small></b></div><div class="tile"><span>인증지</span><b style="font-size:17px">${esc(m.peak)}</b></div><div class="tile"><span>${d!=null?esc(base().name)+'에서 직선':'직선거리'}</span><b>${d!=null?Math.round(d)+' <small style=\"font-size:14px;font-weight:500\">km</small>':'<small style=\"font-size:13px;font-weight:500;color:var(--muted)\">집합지 좌표 필요</small>'}</b></div><div class="tile"><span>우리 크루 완등</span><b>${vs?vs+' <small style=\"font-size:14px;font-weight:500\">회</small>':'<small style=\"font-size:13px;font-weight:500;color:var(--muted)\">아직 없음</small>'}</b></div></div>`})()}
       ${m.kfs?`<div class="sec">산 소개 <span style="font-size:12px;font-weight:500;color:var(--muted);margin-left:auto">산림청 100대 명산</span></div>
       <div class="box">${m.kfs.time||m.kfs.lvl?`<div class="linkrow" style="margin-bottom:8px">${m.kfs.time?`<span class="tag">산행시간 ${esc(m.kfs.time)}</span>`:''}${m.kfs.lvl?`<span class="tag sun">난이도 ${esc(m.kfs.lvl)}</span>`:''}${m.kfs.season?`<span class="tag off">${esc(m.kfs.season)}</span>`:''}${m.kfs.theme?`<span class="tag off">${esc(m.kfs.theme)}</span>`:''}</div>`:''}
-      ${m.kfs.why?`<p style="margin:0 0 6px;font-size:13.5px"><b>선정 이유</b> ${esc(m.kfs.why)}</p>`:''}${m.kfs.overview?`<p style="margin:0;font-size:13.5px;color:var(--muted);white-space:pre-line">${esc(m.kfs.overview)}</p>`:''}
+      ${m.kfs.why?`<p class="clamp c3" style="margin:0 0 6px;font-size:13.5px" title="누르면 펼쳐요"><b>선정 이유</b> ${esc(m.kfs.why)}</p>`:''}${m.kfs.overview?`<p class="clamp" style="margin:0;font-size:13.5px;color:var(--muted);white-space:pre-line" title="누르면 펼쳐요">${esc(m.kfs.overview)}</p><button class="morebtn" type="button" data-more>더 보기 ▾</button>`:''}
       <p class="mu" style="margin:8px 0 0;font-size:12px">출처: 산림청 100대 명산 안내(산행시간은 산 전체 기준 시간대, 코스별 수치 아님)</p></div>`:''}
       <div class="sec"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>산 위치</div>
       <div class="box"><div>${esc(m.addr)}</div>${m.lat?`<div class="mu" style="margin-top:4px">위도 ${m.lat} · 경도 ${m.lng}</div>`:''}<div class="linkrow" style="margin-top:8px">${m.lat?`<a class="lbtn" href="https://map.kakao.com/link/map/${encodeURIComponent(nm)},${m.lat},${m.lng}" target="_blank" rel="noopener">카카오맵에서 보기 ↗</a>`:''}<a class="lbtn" href="https://map.naver.com/p/search/${encodeURIComponent(nm+' '+m.addr.split(' ').slice(0,2).join(' '))}" target="_blank" rel="noopener">네이버지도 ↗</a></div><p class="mu" style="margin:8px 0 0">주소·좌표는 BAC 공개 목록의 산/인증지 기준이며 주차장 위치가 아닙니다.</p></div>
       ${m.memo?`<div class="memo" style="margin-top:10px">${esc(m.memo)}</div>`:''}${isStaff()?`<button class="btn sm ghost fg" type="button" id="mtMemoBtn" style="margin-top:8px">산 메모 ${m.memo?'수정':'추가'}</button>`:''}
       <div class="sec"><svg viewBox="0 0 24 24"><path d="M4 17l5-9 4 6 2-3 5 6z"/></svg>대표 등산 코스 <span style="font-size:12px;font-weight:500;color:var(--muted);margin-left:auto">${cs.length?'번호를 누르면 설명이 열려요':''}</span></div>
       ${cs.length?`<div class="tierlegend"><span><i style="background:#2e8b57"></i>공식(국립공원공단·산림청)</span><span><i style="background:#d9a21b"></i>지자체 자료·확인 필요</span><span><i style="background:#d9534f"></i>인터넷 5개 이상 교차확인</span></div><div class="courses">${cs.map(k=>`<div class="course t${tierOf(k)}" data-no="${k.no}"><button type="button"><div class="no">${k.no}</div><div><div class="cn">${esc(k.name)}${k.shortest?' <span class="tag">최단</span>':''}<span class="tier t${tierOf(k)}">${tierLabel(k)}</span></div><div class="cm">${k.dist?k.dist+'km':''}${k.min?' · '+tm(k.min):''}${k.start?' · 출발 '+esc(k.start):''}</div></div><span class="lv l${esc(k.lvl)}">난이도 ${esc(k.lvl)}</span></button>
-        <div class="body" ${openNo===k.no?'':'hidden'}>${k.sec?`<p><b>구간</b> ${esc(k.sec)}</p>`:''}${k.start?`<p><b>출발지</b> ${esc(k.start)}${k.startAddr?` (${esc(k.startAddr)})`:''}${mapLinks(k.startAddr||k.start)}</p>`:''}${k.park&&k.park!==k.start?`<p><b>주차</b> ${esc(k.park)}${k.parkAddr?` (${esc(k.parkAddr)})`:''}${mapLinks(k.parkAddr||k.park)}</p>`:''}${k.desc?`<p>${esc(k.desc)}</p>`:''}${k.note?`<div class="memo">크루 메모 · ${esc(k.note)}</div>`:''}<p class="src">출처: ${esc(k.src||'미확인')}</p>${canEdit?`<div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn sm primary" type="button" data-plan="${k.no}">이 코스로 일정 등록</button>${isStaff()?`<button class="btn sm ghost fg" type="button" data-kmemo="${k.no}">코스 메모</button><button class="btn sm ghost fg" type="button" data-kedit="${k.no}">편집</button>`:''}</div>`:''}</div></div>`).join('')}</div>`
+        <div class="body" ${openNo===k.no?'':'hidden'}>${k.sec?`<p><b>구간</b> ${esc(k.sec)}</p>`:''}${k.start?`<p><b>출발지</b> ${esc(k.start)}${k.startAddr?` (${esc(k.startAddr)})`:''}${mapLinks(k.startAddr||k.start)}</p>`:''}${k.park&&k.park!==k.start?`<p><b>주차</b> ${esc(k.park)}${k.parkAddr?` (${esc(k.parkAddr)})`:''}${mapLinks(k.parkAddr||k.park)}</p>`:''}${k.desc?`<p class="clamp" title="누르면 펼쳐요">${esc(k.desc)}</p><button class="morebtn" type="button" data-more>더 보기 ▾</button>`:''}${k.note?`<div class="memo">크루 메모 · ${esc(k.note)}</div>`:''}<p class="src">출처: ${esc(k.src||'미확인')}</p>${canEdit?`<div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn sm primary" type="button" data-plan="${k.no}">이 코스로 일정 등록</button>${isStaff()?`<button class="btn sm ghost fg" type="button" data-kmemo="${k.no}">코스 메모</button><button class="btn sm ghost fg" type="button" data-kedit="${k.no}">편집</button>`:''}</div>`:''}</div></div>`).join('')}</div>`
       :`<div class="box"><div class="mu">검증된 코스 자료가 아직 없는 산입니다. 공식 안내도를 확인한 뒤 운영자가 추가할 수 있어요.</div><div class="linkrow" style="margin-top:8px"><a class="lbtn" href="https://search.naver.com/search.naver?query=${encodeURIComponent(nm+' 등산코스')}" target="_blank" rel="noopener">등산코스 검색 ↗</a></div></div>`}
       ${canEdit?`<div class="linkrow" style="margin-top:10px"><button class="btn primary" type="button" id="planBtn" style="flex:1">이 산으로 일정 등록</button>${isStaff()?`<button class="btn sm ghost fg" type="button" id="kAddBtn">+ 코스 추가</button>`:''}</div>`:''}
       ${cs.length?`<p class="note" style="margin-top:6px">거리·시간은 각 출처 기준이며 편도/왕복 여부는 구간 표기를 확인하세요. 코스를 열면 출처가 보입니다.</p>`:''}
@@ -877,6 +910,8 @@ import {create as fbCreate} from './fb.js';
       <div class="linkrow"><a class="lbtn" href="https://www.knps.or.kr" target="_blank" rel="noopener">국립공원 통제 안내 ↗</a><a class="lbtn" href="https://search.naver.com/search.naver?query=${encodeURIComponent(nm+' 입산통제')}" target="_blank" rel="noopener">지역 통제 검색 ↗</a><a class="lbtn" href="https://www.weather.go.kr/w/index.do" target="_blank" rel="noopener">기상청 날씨 ↗</a><a class="lbtn" href="https://bac.blackyak.com/BAC/ChallengeProgram/" target="_blank" rel="noopener">BAC 공식 인증 안내 ↗</a></div>
       <div class="warn">현재 통제 여부와 날씨를 실시간 확인한 화면이 아닙니다. 출발 전 관리기관 안내를 확인하세요.</div>`;
     $('#favBtn').addEventListener('click',()=>{toggleFav(m.id);drawMt(m);renderBook()});
+    document.querySelectorAll('#mtBody .clamp').forEach(p=>p.addEventListener('click',()=>{p.classList.toggle('open');const b=p.nextElementSibling;if(b&&b.dataset.more!==undefined)b.textContent=p.classList.contains('open')?'접기 ▴':'더 보기 ▾'}));
+    document.querySelectorAll('#mtBody [data-more]').forEach(b=>b.addEventListener('click',()=>{const p=b.previousElementSibling;p.classList.toggle('open');b.textContent=p.classList.contains('open')?'접기 ▴':'더 보기 ▾'}));
     $('#copyBtn').addEventListener('click',async()=>{const url=location.href.split('#')[0]+'#mt-'+m.id;try{await navigator.clipboard.writeText(url);toast('링크를 복사했어요')}catch(e){toast(url)}});
     document.querySelectorAll('#mtBody .course>button').forEach(b=>b.addEventListener('click',()=>{const body=b.nextElementSibling;body.hidden=!body.hidden}));
     const mb=$('#mtMemoBtn'); if(mb) mb.addEventListener('click',()=>openMemo(m.id,null));
@@ -896,6 +931,9 @@ import {create as fbCreate} from './fb.js';
   function applyKind(k){k=k||'hike';$('#h_kind').value=k;document.querySelectorAll('#kindSel button').forEach(b=>b.classList.toggle('on',b.dataset.kind===k));
     document.querySelectorAll('#hikeForm [class*="kf-"]').forEach(el=>{el.hidden=!el.classList.contains('kf-'+k)||(el.id==='courseSelWrap'&&!el.querySelector('input'))||(el.id==='autoLine'&&!el.textContent)||(el.id==='photoWrap'&&!canEdit)});
     if(k==='hike'){applyCourseAuto(mtById($('#h_mtId').value)||{courses:[]},curCourseNos)}
+    const mm=mtById($('#h_mtId').value);$('#courseMemoWrap').hidden=k!=='hike'||!!(mm&&mm.courses.length);
+    const nums=k==='hike'?['1','2','3','4','5','6','7']:['1','','2','','3','4','5'];document.querySelectorAll('#hikeForm .fsn').forEach((el,i)=>el.textContent=nums[i]||'');
+    $('#sec3Title').textContent=k==='hike'?'집합 · 이동':'모임 장소 · 비용';
     $('#dateLabel').textContent=k==='hike'?'산행 날짜':'모임 날짜';$('#timeLabel').textContent=k==='hike'?'집합 시간':'모임 시간';$('#meetLabel').textContent=k==='hike'?'집합 장소':'모임 장소';
     $('#feeLabel').textContent=k==='sport'?'회비 (원, 1인)':'예상 비용 (원, 1인 · 대략)';$('#noteLabel').textContent=k==='hike'?'안내 문구':'코멘트';
     $('#addTitle').querySelector('small').textContent=k==='hike'?'등록한 사람이 주관자가 됩니다':k==='sport'?'등산 외 볼링·배드민턴 등 활동':'저녁 식사·야유회 등 모임';
@@ -918,7 +956,8 @@ import {create as fbCreate} from './fb.js';
     if(toll!=null){$('#h_toll').value=toll*2}
     line.textContent=`${src}: 편도 ${kmR}km · ${tm(minR)}${toll!=null?` · 통행료 편도 ${won(toll)} → 왕복 ${won(toll*2)}`:' · 통행료는 직접 입력'}${fuelTxt}${price?'':' · 유가를 크루 정보에 넣으면 유류비도 자동'}`;previewCost()});
   function fillMeets(){const sel=$('#h_meetSel');sel.innerHTML='<option value="">프리셋 선택 (크루 정보에서 등록)</option>'+(S.crew.meets||[]).map((m,i)=>`<option value="${i}">${esc(m.name)}${m.lat?'':' (좌표 없음)'}</option>`).join('')}
-  $('#h_meetSel').addEventListener('change',()=>{const m=(S.crew.meets||[])[Number($('#h_meetSel').value)];if(m){$('#h_meet').value=m.name;$('#h_meetLat').value=m.lat||'';$('#h_meetLng').value=m.lng||''}routeBtns()});
+  $('#h_meetSel').addEventListener('change',()=>{const m=(S.crew.meets||[])[Number($('#h_meetSel').value)];if(m){$('#h_meet').value=m.name;$('#h_meetLat').value=m.lat||'';$('#h_meetLng').value=m.lng||''}routeBtns();autoNav()});
+  let navKey='';function autoNav(){const k=[$('#h_meetLat').value,$('#h_meetLng').value,$('#h_destLat').value,$('#h_destLng').value].join(',');if(!$('#h_meetLat').value||!$('#h_destLat').value||k===navKey||$('#h_kind').value!=='hike')return;navKey=k;$('#navCalc').click()}
   function fillOptions(){fillMeets();const sel=$("#h_hostId");const cur=sel.value;sel.innerHTML='<option value="">선택</option>'+S.members.filter(m=>m.status!=='out').map(m=>`<option value="${m.id}">${esc(m.name)} (${ROLE[m.role]})</option>`).join('');sel.value=cur}
   // 산행지 자모 검색 드롭다운
   const sug=$('#mtSug');let sugIdx=-1;
@@ -942,13 +981,13 @@ import {create as fbCreate} from './fb.js';
       $('#h_dist').value=`${Math.round(dist*10)/10}km · ${tm(min)}`;$('#h_level').value=lv;$('#manualWrap').hidden=true;$('#autoLine').hidden=false;
       $('#autoLine').textContent=`자동 입력: ${ks.map(k=>k.no+'번 '+k.name).join(' + ')} → ${$('#h_dist').value} · 난이도 ${lv}${ks.length>1?' (합산)':''}`}
     else{$('#manualWrap').hidden=false;$('#autoLine').hidden=true}}
-  function syncMt(){const name=$('#h_mountain').value.trim();const m=S.mountains.find(x=>x.name===name);$('#h_mtId').value=m?m.id:'';
+  function syncMt(){const name=$('#h_mountain').value.trim();const m=S.mountains.find(x=>x.name===name);$('#h_mtId').value=m?m.id:'';$('#courseMemoWrap').hidden=!!(m&&m.courses.length);
     $('#h_bac').value=m?m.bac:'';$('#bacLine').innerHTML=m?`${bacTag(m.bac)} ${esc(m.height)} · 인증 ${esc(m.peak)}`:'';
     const wrap=$('#courseSelWrap');
     if(m&&m.courses.length){wrap.hidden=false;const cur=new Set(curCourseNos);$('#courseSel').innerHTML=m.courses.slice().sort((a,b)=>a.no-b.no).map(k=>`<label><input type="checkbox" value="${k.no}" ${cur.has(k.no)?'checked':''}><span><b>${k.no}번</b> ${esc(k.name)}${k.shortest?' <span class="tag">최단</span>':''} <span style="color:var(--muted)">· ${k.dist}km · ${tm(k.min)} · ${esc(k.lvl)}</span>${k.sec?`<br><span style="color:var(--muted);font-size:12px">경유 ${esc(k.sec)}</span>`:''}</span></label>`).join('');
       $('#courseSel').querySelectorAll('input').forEach(i=>i.addEventListener('change',()=>{const nos=[...$('#courseSel').querySelectorAll('input:checked')].map(x=>Number(x.value));const k=nos.length?m.courses.find(x=>x.no===nos[0]):null;
         if(k&&k.start){$('#h_dest').value=k.start+(k.startAddr?' ('+k.startAddr+')':'');$('#h_destLat').value=k.startLat||'';$('#h_destLng').value=k.startLng||''}
-        applyCourseAuto(m,nos);routeBtns()}))}
+        applyCourseAuto(m,nos);routeBtns();autoNav()}))}
     else{wrap.hidden=true;$('#courseSel').innerHTML=''}
     if(m&&m.courses.length){applyCourseAuto(m,curCourseNos)}else{$('#manualWrap').hidden=false;$('#autoLine').hidden=true}
     routeBtns()}
@@ -974,7 +1013,7 @@ import {create as fbCreate} from './fb.js';
   }
   ['h_fuel','h_toll','h_people','h_drivers'].forEach(id=>$('#'+id).addEventListener('input',previewCost));
   function previewCost(){const c=costCalc({fuel:$('#h_fuel').value,toll:$('#h_toll').value,cars:$('#h_cars').value,people:$('#h_people').value,drivers:$('#h_drivers').value});
-    $('#costPreview').textContent=c?`→ 1인 ${won(c.per)} (${c.basis})`:'유류비·통행료·참여 인원을 넣으면 1인 금액이 계산됩니다'}
+    $('#costPreview').className='cost big';$('#costPreview').innerHTML=c?`<b>1인 ${won(c.per)}</b><small>${esc(c.basis)}</small>`:`<b style="font-size:15px;color:var(--muted)">1인 금액 미계산</b><small>자동 계산 버튼을 누르거나 유류비·통행료·참여 인원을 넣으면 계산됩니다</small>`}
   $('#h_cars').addEventListener('input',()=>{$('#h_drivers').value=$('#h_cars').value;previewCost()});
   $('#h_mountain').addEventListener('input',()=>{curCourseNos=[...document.querySelectorAll('#courseSel input:checked')].map(i=>Number(i.value));syncMt();showSug()});
   $('#h_cancel').addEventListener('click',()=>{hs.hidden=true});
