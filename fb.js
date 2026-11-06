@@ -1,7 +1,7 @@
 // Firebase 어댑터 — 페이지 본문은 이 파일의 함수만 호출합니다.
 import { initializeApp, deleteApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-import { getFirestore, collection, doc, onSnapshot, getDoc, setDoc, deleteDoc, writeBatch, query, where } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getFirestore, collection, doc, onSnapshot, getDoc, setDoc, updateDoc, deleteDoc, writeBatch, query, where } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 export function create(cfg){
   const app=initializeApp(cfg);
@@ -22,6 +22,8 @@ export function create(cfg){
     listenCol(col,cb,err){return onSnapshot(collection(db,col),s=>cb(s.docs.map(d=>({id:d.id,...d.data()}))),e=>err&&err(e))},
     async get(path){const s=await getDoc(ref(path));return s.exists()?{id:s.id,...s.data()}:null},
     async set(path,data){await setDoc(ref(path),clean(data))},
+    // 지정한 필드만 바꾼다(문서 전체를 덮어쓰지 않음) — 본인 접속 기록처럼 규칙이 특정 필드만 허용할 때 사용
+    async update(path,data){await updateDoc(ref(path),clean(data))},
     async del(path){await deleteDoc(ref(path))},
     async batch(ops){const b=writeBatch(db);for(const o of ops){if(o.type==='del')b.delete(ref(o.path));else b.set(ref(o.path),clean(o.data))}await b.commit()},
   };
