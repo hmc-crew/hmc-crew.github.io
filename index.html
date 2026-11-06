@@ -3,7 +3,7 @@
 <meta name="theme-color" content="#1f5a3c"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="하마크루">
 <link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
-<script src="firebase-config.js?v=1.9.36"></script>
+<script src="firebase-config.js?v=2.0.0"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Black+Han+Sans&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <style> .leaflet-pane, .leaflet-tile, .leaflet-marker-icon, .leaflet-marker-shadow, .leaflet-tile-container, .leaflet-pane > svg, .leaflet-pane > canvas, .leaflet-zoom-box, .leaflet-image-layer, .leaflet-layer { position: absolute; left: 0; top: 0; } .leaflet-container { overflow: hidden; } .leaflet-tile, .leaflet-marker-icon, .leaflet-marker-shadow { -webkit-user-select: none; -moz-user-select: none; user-select: none; -webkit-user-drag: none; } .leaflet-tile::selection { background: transparent; } .leaflet-safari .leaflet-tile { image-rendering: -webkit-optimize-contrast; } .leaflet-safari .leaflet-tile-container { width: 1600px; height: 1600px; -webkit-transform-origin: 0 0; } .leaflet-marker-icon, .leaflet-marker-shadow { display: block; } .leaflet-container .leaflet-overlay-pane svg { max-width: none !important; max-height: none !important; } .leaflet-container .leaflet-marker-pane img, .leaflet-container .leaflet-shadow-pane img, .leaflet-container .leaflet-tile-pane img, .leaflet-container img.leaflet-image-layer, .leaflet-container .leaflet-tile { max-width: none !important; max-height: none !important; width: auto; padding: 0; } .leaflet-container img.leaflet-tile { mix-blend-mode: plus-lighter; } .leaflet-container.leaflet-touch-zoom { -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; } .leaflet-container.leaflet-touch-drag { -ms-touch-action: pinch-zoom; touch-action: none; touch-action: pinch-zoom; } .leaflet-container.leaflet-touch-drag.leaflet-touch-zoom { -ms-touch-action: none; touch-action: none; } .leaflet-container { -webkit-tap-highlight-color: transparent; } .leaflet-container a { -webkit-tap-highlight-color: rgba(51, 181, 229, 0.4); } .leaflet-tile { filter: inherit; visibility: hidden; } .leaflet-tile-loaded { visibility: inherit; } .leaflet-zoom-box { width: 0; height: 0; -moz-box-sizing: border-box; box-sizing: border-box; z-index: 800; } .leaflet-overlay-pane svg { -moz-user-select: none; } .leaflet-pane { z-index: 400; } .leaflet-tile-pane { z-index: 200; } .leaflet-overlay-pane { z-index: 400; } .leaflet-shadow-pane { z-index: 500; } .leaflet-marker-pane { z-index: 600; } .leaflet-tooltip-pane { z-index: 650; } .leaflet-popup-pane { z-index: 700; } .leaflet-map-pane canvas { z-index: 100; } .leaflet-map-pane svg { z-index: 200; } .leaflet-vml-shape { width: 1px; height: 1px; } .lvml { behavior: url(#default#VML); display: inline-block; position: absolute; } .leaflet-control { position: relative; z-index: 800; pointer-events: visiblePainted; pointer-events: auto; } .leaflet-top, .leaflet-bottom { position: absolute; z-index: 1000; pointer-events: none; } .leaflet-top { top: 0; } .leaflet-right { right: 0; } .leaflet-bottom { bottom: 0; } .leaflet-left { left: 0; } .leaflet-control { float: left; clear: both; } .leaflet-right .leaflet-control { float: right; } .leaflet-top .leaflet-control { margin-top: 10px; } .leaflet-bottom .leaflet-control { margin-bottom: 10px; } .leaflet-left .leaflet-control { margin-left: 10px; } .leaflet-right .leaflet-control { margin-right: 10px; } .leaflet-fade-anim .leaflet-popup { opacity: 0; -webkit-transition: opacity 0.2s linear; -moz-transition: opacity 0.2s linear; transition: opacity 0.2s linear; } .leaflet-fade-anim .leaflet-map-pane .leaflet-popup { opacity: 1; } .leaflet-zoom-animated { -webkit-transform-origin: 0 0; -ms-transform-origin: 0 0; transform-origin: 0 0; } svg.leaflet-zoom-animated { will-change: transform; } .leaflet-zoom-anim .leaflet-zoom-animated { -webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1); -moz-transition: -moz-transform 0.25s cubic-bezier(0,0,0.25,1); transition: transform 0.25s cubic-bezier(0,0,0.25,1); } .leaflet-zoom-anim .leaflet-tile, .leaflet-pan-anim .leaflet-tile { -webkit-transition: none; -moz-transition: none; transition: none; } .leaflet-zoom-anim .leaflet-zoom-hide { visibility: hidden; } .leaflet-interactive { cursor: pointer; } .leaflet-grab { cursor: -webkit-grab; cursor: -moz-grab; cursor: grab; } .leaflet-crosshair, .leaflet-crosshair .leaflet-interactive { cursor: crosshair; } .leaflet-popup-pane, .leaflet-control { cursor: auto; } .leaflet-dragging .leaflet-grab, .leaflet-dragging .leaflet-grab .leaflet-interactive, .leaflet-dragging .leaflet-marker-draggable { cursor: move; cursor: -webkit-grabbing; cursor: -moz-grabbing; cursor: grabbing; } .leaflet-marker-icon, .leaflet-marker-shadow, .leaflet-image-layer, .leaflet-pane > svg path, .leaflet-tile-container { pointer-events: none; } .leaflet-marker-icon.leaflet-interactive, .leaflet-image-layer.leaflet-interactive, .leaflet-pane > svg path.leaflet-interactive, svg.leaflet-image-layer.leaflet-interactive path { pointer-events: visiblePainted; pointer-events: auto; } .leaflet-container { background: #ddd; outline-offset: 1px; } .leaflet-container a { color: #0078A8; } .leaflet-zoom-box { border: 2px dotted #38f; background: rgba(255,255,255,0.5); } .leaflet-container { font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; font-size: 12px; font-size: 0.75rem; line-height: 1.5; } .leaflet-bar { box-shadow: 0 1px 5px rgba(0,0,0,0.65); border-radius: 4px; } .leaflet-bar a { background-color: #fff; border-bottom: 1px solid #ccc; width: 26px; height: 26px; line-height: 26px; display: block; text-align: center; text-decoration: none; color: black; } .leaflet-bar a, .leaflet-control-layers-toggle { background-position: 50% 50%; background-repeat: no-repeat; display: block; } .leaflet-bar a:hover, .leaflet-bar a:focus { background-color: #f4f4f4; } .leaflet-bar a:first-child { border-top-left-radius: 4px; border-top-right-radius: 4px; } .leaflet-bar a:last-child { border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; border-bottom: none; } .leaflet-bar a.leaflet-disabled { cursor: default; background-color: #f4f4f4; color: #bbb; } .leaflet-touch .leaflet-bar a { width: 30px; height: 30px; line-height: 30px; } .leaflet-touch .leaflet-bar a:first-child { border-top-left-radius: 2px; border-top-right-radius: 2px; } .leaflet-touch .leaflet-bar a:last-child { border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; } .leaflet-control-zoom-in, .leaflet-control-zoom-out { font: bold 18px 'Lucida Console', Monaco, monospace; text-indent: 1px; } .leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out { font-size: 22px; } .leaflet-control-layers { box-shadow: 0 1px 5px rgba(0,0,0,0.4); background: #fff; border-radius: 5px; } .leaflet-control-layers-toggle { background-image: url(images/layers.png); width: 36px; height: 36px; } .leaflet-retina .leaflet-control-layers-toggle { background-image: url(images/layers-2x.png); background-size: 26px 26px; } .leaflet-touch .leaflet-control-layers-toggle { width: 44px; height: 44px; } .leaflet-control-layers .leaflet-control-layers-list, .leaflet-control-layers-expanded .leaflet-control-layers-toggle { display: none; } .leaflet-control-layers-expanded .leaflet-control-layers-list { display: block; position: relative; } .leaflet-control-layers-expanded { padding: 6px 10px 6px 6px; color: #333; background: #fff; } .leaflet-control-layers-scrollbar { overflow-y: scroll; overflow-x: hidden; padding-right: 5px; } .leaflet-control-layers-selector { margin-top: 2px; position: relative; top: 1px; } .leaflet-control-layers label { display: block; font-size: 13px; font-size: 1.08333em; } .leaflet-control-layers-separator { height: 0; border-top: 1px solid #ddd; margin: 5px -10px 5px -6px; } .leaflet-default-icon-path { background-image: url(images/marker-icon.png); } .leaflet-container .leaflet-control-attribution { background: #fff; background: rgba(255, 255, 255, 0.8); margin: 0; } .leaflet-control-attribution, .leaflet-control-scale-line { padding: 0 5px; color: #333; line-height: 1.4; } .leaflet-control-attribution a { text-decoration: none; } .leaflet-control-attribution a:hover, .leaflet-control-attribution a:focus { text-decoration: underline; } .leaflet-attribution-flag { display: inline !important; vertical-align: baseline !important; width: 1em; height: 0.6669em; } .leaflet-left .leaflet-control-scale { margin-left: 5px; } .leaflet-bottom .leaflet-control-scale { margin-bottom: 5px; } .leaflet-control-scale-line { border: 2px solid #777; border-top: none; line-height: 1.1; padding: 2px 5px 1px; white-space: nowrap; -moz-box-sizing: border-box; box-sizing: border-box; background: rgba(255, 255, 255, 0.8); text-shadow: 1px 1px #fff; } .leaflet-control-scale-line:not(:first-child) { border-top: 2px solid #777; border-bottom: none; margin-top: -2px; } .leaflet-control-scale-line:not(:first-child):not(:last-child) { border-bottom: 2px solid #777; } .leaflet-touch .leaflet-control-attribution, .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar { box-shadow: none; } .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar { border: 2px solid rgba(0,0,0,0.2); background-clip: padding-box; } .leaflet-popup { position: absolute; text-align: center; margin-bottom: 20px; } .leaflet-popup-content-wrapper { padding: 1px; text-align: left; border-radius: 12px; } .leaflet-popup-content { margin: 13px 24px 13px 20px; line-height: 1.3; font-size: 13px; font-size: 1.08333em; min-height: 1px; } .leaflet-popup-content p { margin: 17px 0; margin: 1.3em 0; } .leaflet-popup-tip-container { width: 40px; height: 20px; position: absolute; left: 50%; margin-top: -1px; margin-left: -20px; overflow: hidden; pointer-events: none; } .leaflet-popup-tip { width: 17px; height: 17px; padding: 1px; margin: -10px auto 0; pointer-events: auto; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); } .leaflet-popup-content-wrapper, .leaflet-popup-tip { background: white; color: #333; box-shadow: 0 3px 14px rgba(0,0,0,0.4); } .leaflet-container a.leaflet-popup-close-button { position: absolute; top: 0; right: 0; border: none; text-align: center; width: 24px; height: 24px; font: 16px/24px Tahoma, Verdana, sans-serif; color: #757575; text-decoration: none; background: transparent; } .leaflet-container a.leaflet-popup-close-button:hover, .leaflet-container a.leaflet-popup-close-button:focus { color: #585858; } .leaflet-popup-scrolled { overflow: auto; } .leaflet-oldie .leaflet-popup-content-wrapper { -ms-zoom: 1; } .leaflet-oldie .leaflet-popup-tip { width: 24px; margin: 0 auto; -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)"; filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678); } .leaflet-oldie .leaflet-control-zoom, .leaflet-oldie .leaflet-control-layers, .leaflet-oldie .leaflet-popup-content-wrapper, .leaflet-oldie .leaflet-popup-tip { border: 1px solid #999; } .leaflet-div-icon { background: #fff; border: 1px solid #666; } .leaflet-tooltip { position: absolute; padding: 6px; background-color: #fff; border: 1px solid #fff; border-radius: 3px; color: #222; white-space: nowrap; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; pointer-events: none; box-shadow: 0 1px 3px rgba(0,0,0,0.4); } .leaflet-tooltip.leaflet-interactive { cursor: pointer; pointer-events: auto; } .leaflet-tooltip-top:before, .leaflet-tooltip-bottom:before, .leaflet-tooltip-left:before, .leaflet-tooltip-right:before { position: absolute; pointer-events: none; border: 6px solid transparent; background: transparent; content: ""; } .leaflet-tooltip-bottom { margin-top: 6px; } .leaflet-tooltip-top { margin-top: -6px; } .leaflet-tooltip-bottom:before, .leaflet-tooltip-top:before { left: 50%; margin-left: -6px; } .leaflet-tooltip-top:before { bottom: 0; margin-bottom: -12px; border-top-color: #fff; } .leaflet-tooltip-bottom:before { top: 0; margin-top: -12px; margin-left: -6px; border-bottom-color: #fff; } .leaflet-tooltip-left { margin-left: -6px; } .leaflet-tooltip-right { margin-left: 6px; } .leaflet-tooltip-left:before, .leaflet-tooltip-right:before { top: 50%; margin-top: -6px; } .leaflet-tooltip-left:before { right: 0; margin-right: -12px; border-left-color: #fff; } .leaflet-tooltip-right:before { left: 0; margin-left: -12px; border-right-color: #fff; } @media print { .leaflet-control { -webkit-print-color-adjust: exact; print-color-adjust: exact; } } </style>
@@ -107,7 +107,7 @@ h2 span{font-weight:500;letter-spacing:0;text-transform:none}
 .hk .nm{font-size:16px}.hk .sub{font-size:12.5px}.hk .att{display:flex;flex-direction:column;align-items:flex-end;gap:4px}.hk .att .n{font-size:12.5px;color:var(--muted);white-space:nowrap}
 .hk .att .btn{white-space:nowrap}.hk.done{opacity:.75}
 .row .ht{font-size:14px;color:var(--muted);white-space:nowrap}
-.herocard{border-radius:20px;overflow:hidden;position:relative;background:#000}
+.heroph{position:relative;aspect-ratio:4/3}.heroph svg{width:100%;height:100%;display:block;position:absolute;inset:0}.herocard img.free{aspect-ratio:auto;max-height:72vh}.mv iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#000}.herocard{border-radius:20px;overflow:hidden;position:relative;background:#000}
 .herocard img{display:block;width:100%;max-width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 40%}
 .herocard .ov{position:absolute;left:0;right:0;bottom:0;padding:16px;background:linear-gradient(to top,rgba(0,0,0,.55),transparent);color:#fff;display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
 .herocard .ov b{font-size:clamp(17px,5vw,21px);font-weight:800;display:block;white-space:nowrap;text-shadow:0 1px 6px rgba(0,0,0,.5)}.herocard .ov span{font-size:clamp(14px,4.2vw,17px);font-weight:700;opacity:.95;display:block;white-space:nowrap;margin-top:3px;text-shadow:0 1px 6px rgba(0,0,0,.5)}.herocard .ov>div{min-width:0;flex:1}.herocard .bgm{padding:7px 11px;font-size:12px;border-radius:999px;flex:none}.herocard .bgm .eq{height:12px}.herocard .bgm .eq i{width:3px}
@@ -296,9 +296,10 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-top:8px;line-
   </header>
 
   <div id="tab-home" class="view" style="display:flex;flex-direction:column;gap:18px">
-    <div class="herocard"><img src="mascot.jpg" alt="하마크루 마스코트 — 산 정상에서 컵라면을 먹는 하마"><div class="ov"><div><b id="homeName">평일 산행</b><span id="homeTag">블야 100대 명산</span></div><button class="bgm" type="button" id="bgmBtn"><span class="eq"><i></i><i></i><i></i></span><span id="bgmLbl">🎧 크루 주제곡</span></button></div></div>
-    <audio id="bgm" src="bgm.mp3" preload="none" loop></audio>
+    <div class="herocard" id="heroCard"><img id="heroImg" src="" alt="크루 대표 사진" hidden><div class="heroph" id="heroPh"><svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--pine)" stop-opacity=".85"/><stop offset="1" stop-color="var(--pine)"/></linearGradient></defs><rect width="400" height="220" fill="url(#hg)"/><path d="M0 200L80 110l50 50 60-80 60 60 50-40 100 100v20H0z" fill="#000" opacity=".22"/><path d="M0 220L110 140l50 45 70-95 70 70 40-30 60 70v20z" fill="#000" opacity=".3"/></svg></div><div class="ov"><div><b id="homeName">평일 산행</b><span id="homeTag">블야 100대 명산</span></div><button class="bgm" type="button" id="bgmBtn" hidden><span class="eq"><i></i><i></i><i></i></span><span id="bgmLbl">🎧 크루 주제곡</span></button></div></div>
+    <audio id="bgm" preload="none" loop></audio>
     <div class="box" id="installBox" hidden style="display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap"><div><b>📲 홈 화면에 앱처럼 꺼내 두기</b><div class="mu" id="installText" style="font-size:12.5px;color:var(--muted);margin-top:2px"></div></div><button class="btn sm primary" type="button" id="installBtn">설치</button></div>
+    <div class="box" id="noCrewBox" hidden style="border-color:var(--sun)"><b>아직 개설되지 않은 크루예요</b><div class="mu" style="margin-top:4px">크루 ID <code id="noCrewId"></code>로 처음 가입하는 사람이 개설자가 됩니다. 이 크루를 만드는 분이라면 아래에서 가입해 주세요. 링크를 받은 분이라면 ID가 맞는지 보낸 분께 확인해 주세요.</div><div class="linkrow" style="margin-top:10px"><a class="lbtn on" href="#apply">개설(첫 가입) →</a></div></div>
     <section><h2>소개</h2><div class="info rules" id="homeIntro" style="padding:6px 14px 10px"></div></section>
     <section><h2>다음 일정</h2><div id="homeNext"></div><p class="note" id="qNext" hidden></p></section>
     <section><h2>회원가입</h2><div class="quick big one"><a href="#apply" class="hi"><i>✍️</i><b>회원가입 신청 <small>(크루원 모집)</small></b><span>신청 → 운영자 승인 → 로그인</span></a></div></section>
@@ -307,22 +308,23 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-top:8px;line-
       <a href="#rules"><i>📜</i><b>회칙<br>안내</b><span>가입 전 필독</span></a>
       <a href="#members"><i>👥</i><b>크루원<br>정보</b><span>정보 · 순위</span></a>
     </div></section>
-    <section><h2>크루 주제곡 — 뮤직비디오</h2><div class="mv"><video id="mv" src="mv.mp4" poster="poster.jpg" controls playsinline preload="none"></video></div><p class="note" style="margin-top:6px">뮤직비디오를 재생하면 위의 주제곡 재생은 자동으로 멈춥니다.</p></section>
+    <section id="mvSec" hidden><h2>크루 주제곡 — 뮤직비디오</h2><div class="mv" id="mvWrap"><video id="mv" controls playsinline preload="none"></video></div><p class="note" style="margin-top:6px">뮤직비디오를 재생하면 위의 주제곡 재생은 자동으로 멈춥니다.</p></section>
+    <section id="setupSec" hidden><h2>개설자 할 일</h2><div class="box" style="border-color:var(--pine)"><b>🎨 우리 산악회 꾸미기</b><div class="mu" style="margin-top:4px">크루 이름·대표 사진·주제곡·회칙·가입 지역을 우리 산악회에 맞게 채워 주세요. 저장하면 이 안내는 사라집니다.</div><div class="linkrow" style="margin-top:10px"><button class="btn sm primary" type="button" id="setupBtn">꾸미기 시작</button><button class="btn sm ghost fg" type="button" id="shareBtn">크루 링크 복사</button></div></div></section>
   </div>
 
   <div id="tab-rules" class="view" hidden>
-    <h1 class="pt">하마크루 회칙<small>가입 전 꼭 읽어 주세요</small></h1>
+    <h1 class="pt"><span id="rulesTitle">회칙</span><small>가입 전 꼭 읽어 주세요</small></h1>
     <div class="banner"><b>🚫 이 페이지 링크의 외부 공유를 절대 금지합니다</b>크루원 외 타인·다른 모임·SNS에 링크를 공유하거나 화면을 캡처해 배포하면 즉시 무통보 강퇴합니다. 크루원 명단과 기록이 담긴 우리 크루만의 공간입니다.</div>
     <div class="box" id="rulesWho" hidden style="margin-top:12px;display:flex;justify-content:space-between;align-items:center;gap:8px"><span id="rulesWhoText"></span><button class="btn sm ghost fg" type="button" id="logoutBtn2">로그아웃</button></div>
     <div class="ackcard" id="ackCard" hidden><label style="cursor:default"><span style="font-size:20px;line-height:1">📖</span><span><b>회칙을 끝까지 읽은 뒤, 맨 아래 확인 체크를 눌러 주세요.</b><br><small>체크해야 일정·도감·크루원 화면으로 넘어갈 수 있어요.</small></span></label></div>
     <div class="info rules" style="margin-top:12px" id="rulesFull"></div>
     <div class="ackcard" id="ackCard2" hidden><label><input type="checkbox" id="ackChk2"><span><b>회칙을 끝까지 읽었고 모두 동의합니다.</b><br><small>체크하면 바로 모든 메뉴를 쓸 수 있어요.</small></span></label></div>
-    <p class="copy">© 하이마운틴크루(HMC) · 본 페이지의 구성·글·이미지·음원의 무단 복제·배포를 금지합니다.</p>
+    <p class="copy" id="rulesCopy"></p>
   </div>
 
   <div id="tab-apply" class="view" hidden>
     <h1 class="pt">회원가입 신청<small>신청 즉시 접수 → 운영자 승인 → 로그인</small></h1>
-    <div class="box" id="bootNote" hidden style="margin-bottom:10px;border-color:var(--pine)"><b>아직 개설자가 없어요.</b><div class="mu" style="margin-top:4px">지금 첫 번째로 가입하는 사람이 <b>개설자</b>로 바로 등록됩니다. 크루를 만든 분이 먼저 가입해 주세요.</div></div>
+    <div class="box" id="bootNote" hidden style="margin-bottom:10px;border-color:var(--pine)"><b>아직 개설자가 없어요.</b><div class="mu" style="margin-top:4px">지금 첫 번째로 가입하는 사람이 <b>개설자</b>로 바로 등록되고, 크루 이름·대표 사진·주제곡·회칙을 직접 꾸밀 수 있어요. 크루를 만드는 분이 먼저 가입해 주세요.</div><div class="f" style="margin-top:10px"><label for="a_crewName">크루(산악회) 이름</label><input id="a_crewName" placeholder="예: 두물머리 산악회"></div><div class="f" style="margin-top:8px"><label for="a_crewShort">약칭 (2~6자, 화면 모서리 표시)</label><input id="a_crewShort" maxlength="6" placeholder="예: 두산"></div></div>
     <div class="formcard"><form id="applyForm" novalidate>
       <div class="f"><label for="a_name">닉네임 (중복 불가 · 로그인 아이디로 사용)</label><input id="a_name" autocomplete="off" placeholder="예: 하마대장"><p class="note" id="nickMsg" style="margin-top:4px"></p></div>
       <div class="grid2" style="margin-top:10px"><div class="f"><label for="a_pin">비밀번호 4자리 (숫자)</label><input id="a_pin" inputmode="numeric" maxlength="4" type="password" autocomplete="new-password"></div><div class="f"><label for="a_pin2">비밀번호 확인</label><input id="a_pin2" inputmode="numeric" maxlength="4" type="password" autocomplete="new-password"></div></div>
@@ -332,7 +334,7 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-top:8px;line-
         <div class="f"><label for="a_gender">성별</label><select id="a_gender"><option value="">선택</option><option>남</option><option>여</option></select></div>
       </div>
       <div class="grid2" style="margin-top:10px">
-        <div class="f"><label for="a_region">지역</label><select id="a_region"><option value="">선택</option><option>오송</option><option>조치원</option><option>세종</option><option>청주</option><option>강내</option><option>옥산</option><option>대전</option><option>천안</option><option value="기타">기타 (직접 입력)</option></select></div>
+        <div class="f"><label for="a_region">지역</label><select id="a_region"><option value="">선택</option></select></div>
         <div class="f" id="dongWrap" hidden><label for="a_dong" id="dongLabel">청주 동 이름</label><input id="a_dong" placeholder="예: 복대동"></div>
       </div>
       <input type="hidden" id="a_phone">
@@ -407,9 +409,20 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-top:8px;line-
   </div>
 
 
+  <div id="tab-land" class="view" hidden>
+    <h1 class="pt">새 산악회(크루) 만들기<small>크루 ID 하나로 우리만의 일정·회원·산 도감 앱이 생겨요</small></h1>
+    <div class="formcard">
+      <div class="f"><label for="l_id">크루 ID (영문 소문자·숫자·하이픈 3~20자 — 링크 주소에 쓰임)</label><input id="l_id" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="예: dumulmeori"><p class="note" id="l_msg" style="margin-top:4px"></p></div>
+      <div class="acts" style="margin-top:12px"><button class="btn primary" type="button" id="l_go" style="flex:1">이 ID로 개설 시작</button></div>
+      <p class="note" style="margin-top:10px">다음 화면에서 <b>첫 번째로 가입하는 사람이 개설자</b>가 됩니다. 크루 이름·약칭과 닉네임·비밀번호를 정하면 바로 개설되고, 이어서 대표 사진·주제곡·회칙·가입 지역을 꾸밀 수 있어요.</p>
+    </div>
+    <section style="margin-top:18px"><h2>이미 있는 크루로 가기</h2><div class="formcard"><div class="grid2"><input id="l_find" placeholder="크루 ID" autocapitalize="none" spellcheck="false"><button class="btn ghost fg" type="button" id="l_findGo">이동</button></div><p class="note" style="margin-top:8px">크루 링크는 <code id="l_urlEx"></code> 형식이에요. 개설자나 운영진에게 링크를 받아 홈 화면에 추가해 두면 앱처럼 쓸 수 있어요.</p></div></section>
+    <section style="margin-top:18px"><h2>이 앱으로 할 수 있는 것</h2><div class="info rules" style="padding:6px 14px 10px"><ul style="margin:6px 0 0"><li><b>일정</b>등산·운동·친목 모임 등록, 참석 체크, 카풀 경비 자동 계산(유류비·통행료 1/N)</li><li><b>회원</b>닉네임+4자리 비밀번호 로그인, 가입 승인, 운영진 지정, 참여 순위</li><li><b>산 도감</b>블랙야크 명산100·100+ 전체 코스 안내(공식 자료 기준), 크루 메모</li><li><b>꾸미기</b>크루 이름·대표 사진·주제곡·뮤직비디오·테마색·회칙·가입 지역을 개설자가 직접 설정</li></ul></div></section>
+    <p class="note" style="margin-top:14px">앱 자체의 구성·코드 저작권은 하이마운틴크루(HMC)에 있으며, 각 크루가 올린 사진·글·음원의 권리와 책임은 해당 크루에 있습니다.</p>
+  </div>
   <div id="tab-gate" class="view" hidden>
     <h1 class="pt">크루원 전용<small>이 메뉴는 가입 승인된 크루원만 볼 수 있어요</small></h1>
-    <div class="box" id="gateBox"><div style="font-size:15px;line-height:1.6"><b>하이마운틴크루 크루원이신가요?</b><br>닉네임과 비밀번호로 로그인하면 일정·회칙·산 도감·크루원 정보가 열립니다.</div>
+    <div class="box" id="gateBox"><div style="font-size:15px;line-height:1.6"><b><span id="gateCrewName">크루</span> 크루원이신가요?</b><br>닉네임과 비밀번호로 로그인하면 일정·회칙·산 도감·크루원 정보가 열립니다.</div>
       <div class="grid2" style="margin-top:12px"><input id="gateNick2" placeholder="닉네임" autocomplete="username"><input id="gateCode2" type="password" inputmode="numeric" maxlength="4" placeholder="비밀번호 4자리" autocomplete="current-password"></div>
       <button class="btn primary" type="button" id="gateBtn2" style="width:100%;margin-top:8px">로그인</button><p class="note" id="gateMsg2"></p>
       <div class="linkrow" style="margin-top:12px"><a class="lbtn on" href="#apply">아직 크루원이 아니라면 가입 신청 →</a><a class="lbtn" href="#home">홈으로</a></div>
@@ -523,6 +536,19 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-top:8px;line-
       <div class="f"><label for="c_short">약칭</label><input id="c_short"></div>
     </div>
     <div class="f" style="margin-top:10px"><label for="c_tag">한 줄 소개</label><input id="c_tag"></div>
+    <div class="f" style="margin-top:10px"><label for="c_theme">테마색 (버튼·강조색)</label><select id="c_theme"></select></div>
+    <div class="f" style="margin-top:10px"><label>홈 대표 사진 (산악회 단체 사진·마스코트 등)</label>
+      <div class="linkrow"><label class="btn sm ghost fg" style="cursor:pointer">사진 올리기<input type="file" accept="image/*" id="c_heroFile" hidden></label><button class="btn sm ghost fg" type="button" id="c_heroDel">사진 없음(기본 배경)</button></div>
+      <div id="c_heroPrev" style="margin-top:8px"></div>
+      <p class="note">올리면 가로 1280px·350KB 이하로 줄여 저장합니다. 글자가 들어간 이미지보다 사진 자체가 잘 보이는 것을 권해요.</p>
+      <details style="margin-top:6px"><summary class="note" style="cursor:pointer">사진을 주소(URL)로 넣기</summary><input id="c_heroUrl" placeholder="https://… .jpg (직접 올린 사진이 있으면 그게 우선)" style="margin-top:6px"></details></div>
+    <div class="f" style="margin-top:10px"><label>주제곡(BGM) — 홈 화면 🎧 버튼으로 재생</label>
+      <div class="linkrow"><label class="btn sm ghost fg" style="cursor:pointer">mp3 올리기 (4MB 이하)<input type="file" accept="audio/mpeg,audio/mp3,.mp3,audio/mp4,.m4a" id="c_bgmFile" hidden></label><button class="btn sm ghost fg" type="button" id="c_bgmDel">주제곡 없음</button></div>
+      <p class="note" id="c_bgmInfo" style="margin-top:6px"></p>
+      <details style="margin-top:6px"><summary class="note" style="cursor:pointer">음원 주소(URL)로 넣기</summary><input id="c_bgmUrl" placeholder="https://… .mp3" style="margin-top:6px"></details>
+      <p class="note">저작권이 있는 음원은 권리자 허락이 있는 것만 올려 주세요.</p></div>
+    <div class="f" style="margin-top:10px"><label for="c_mv">뮤직비디오·소개 영상 — 유튜브 주소 (없으면 비워 두면 홈에서 숨겨짐)</label><input id="c_mv" placeholder="https://youtu.be/… 또는 https://www.youtube.com/watch?v=…"><p class="note">유튜브에 올린 영상 주소를 붙여 넣으면 홈 화면에 재생창이 생깁니다. 유튜브 '공개' 또는 '일부 공개'로 올려야 재생됩니다.</p></div>
+    <div class="f" style="margin-top:10px"><label for="c_regions">가입 지역 선택지 — 한 줄에 하나 (끝에 * 를 붙이면 '동 이름' 등 세부 입력을 받음, 예: 청주*)</label><textarea id="c_regions" style="min-height:80px" placeholder="오송&#10;세종&#10;청주*"></textarea><p class="note">비워 두면 가입 신청 때 지역을 직접 적게 됩니다. '기타(직접 입력)'는 항상 포함돼요.</p></div>
     <div class="f" style="margin-top:10px"><label for="c_intro">크루 소개 (홈 화면)</label><textarea id="c_intro" style="min-height:110px"></textarea></div>
     <div class="f" style="margin-top:10px"><label for="c_join">회원등록 문의 링크 (오픈채팅·밴드 등)</label><input id="c_join" type="url" placeholder="https://"></div>
     <div class="f" style="margin-top:10px"><label for="c_url">참여 신청 링크 (밴드 글·오픈채팅·구글폼)</label><input id="c_url" type="url" placeholder="https://"></div>
@@ -662,18 +688,29 @@ footer{font-size:12px;color:var(--muted);text-align:center;padding-top:8px;line-
 </div></div>
 
 <script type="module">
-import {create as fbCreate} from './fb.js?v=1.9.36';
+import {create as fbCreate} from './fb.js?v=2.0.0';
 (function(){
   const $=s=>document.querySelector(s);
   const S={crew:{},hikes:[],mountains:[],members:[]};
-  const FB=fbCreate(window.HMC_FIREBASE||{});
+  // ---------- 크루(산악회) 선택: 주소의 ?c=크루ID. 없으면 루트 크루(이 배포의 원래 크루). ?new 는 새 크루 개설 안내 ----------
+  const ROOT_CID=(window.HMC_ROOT_CREW===undefined?'hmc':String(window.HMC_ROOT_CREW||''));
+  const QP=new URLSearchParams(location.search);
+  const IS_NEW=QP.has('new');
+  const CID_OK=id=>/^[a-z0-9][a-z0-9-]{2,19}$/.test(id)&&!['new','start','admin','api','www','app','crews'].includes(id);
+  let CID=(QP.get('c')||'').trim().toLowerCase();if(!CID)CID=ROOT_CID;
+  const IS_ROOT=!!ROOT_CID&&CID===ROOT_CID;
+  const CID_BAD=!IS_ROOT&&!CID_OK(CID);
+  const crewUrl=id=>location.origin+location.pathname+(ROOT_CID&&id===ROOT_CID?'':'?c='+encodeURIComponent(id));
+  const FB=fbCreate(window.HMC_FIREBASE||{},CID,ROOT_CID);
   let BASE={}, remote={crew:null,hikes:{},members:{},mtx:{}}, PINS={}, crewLoaded=false, mtLoaded=false;
   const sj=o=>JSON.stringify(o,(k,v)=>(v&&typeof v==='object'&&!Array.isArray(v))?Object.keys(v).sort().reduce((a,x)=>{if(v[x]!==undefined)a[x]=v[x];return a},{}):v);
   const normKey=n=>String(n||'').replace(/\s/g,'').toLowerCase();
   const hex=t=>[...new TextEncoder().encode(t)].map(b=>b.toString(16).padStart(2,'0')).join('');
   // 닉네임 → 실제 로그인 계정 키. 개설자가 닉네임을 바꾸면 crew.alias[새키]={key:원래키,g:세대}로 기록해 계정(uid)·기록은 그대로 두고 새 닉네임으로 로그인하게 한다
   const loginOf=key=>{const a=((S.crew&&S.crew.alias)||{})[key];if(a&&a.key)return {key:a.key,g:Number(a.g)||0};return {key,g:Number((((S.crew&&S.crew.gen)||{})[key])||0)}};
-  const emailOf=key=>{const l=loginOf(key);return 'u'+hex(l.key)+(l.g?'-'+l.g:'')+'@hmc.local'};
+  // 로그인 계정(이메일) 만들기 — 크루마다 분리(authNs). 루트 크루의 기존 회원은 예전 형식 그대로 유지
+  const nsOf=()=>remote.crew?(remote.crew.authNs||''):(IS_ROOT?'':CID);
+  async function emailOf(key){const l=loginOf(key);const ns=nsOf();const local=ns?('c'+(await sha(ns+'/'+l.key)).slice(0,32)):('u'+hex(l.key));return local+(l.g?'-'+l.g:'')+'@hmc.local'}
   const pwOf=(key,pin)=>'hmc-'+pin+'-'+loginOf(key).key;
   // 계정을 명단에서 지울 때: 별칭 제거 + 원래 키 세대 올리기(같은 닉네임으로 새로 가입해도 옛 계정과 겹치지 않게)
   const releaseKey=k=>{const cur=loginOf(k);const alias=Object.assign({},S.crew.alias||{});if(alias[k])delete alias[k];S.crew.alias=alias;const gen=Object.assign({},S.crew.gen||{});gen[cur.key]=(gen[cur.key]||0)+1;S.crew.gen=gen};
@@ -710,10 +747,10 @@ import {create as fbCreate} from './fb.js?v=1.9.36';
   const photoSec=h=>{if(!canEdit)return '';const ps=hikePhotos(h);const pics=ps.filter(p=>p.type!=='video'),vids=ps.filter(p=>p.type==='video');const ok=canSeePhotos(h);
     return `<div class="sec" style="margin-top:14px">📷 산행사진 공유 <span style="font-size:12px;font-weight:500;color:var(--muted);margin-left:auto">사진 최대 10장 · 참석자와 운영진만 열람</span></div>
     ${!ok?`<div class="box"><div class="mu">🔒 이 산행 참석자와 운영진만 사진을 볼 수 있어요.${(h.attendees||[]).length?` (사진 ${pics.length}장${vids.length?' · 영상 '+vids.length:''})`:''}</div></div>`:
-    pics.length?`<div class="photos nocap">${pics.map(p=>`<div style="position:relative"><a href="${esc(p.data||p.url)}" download="hmc-${esc(h.date)}-${esc((p.byName||'').slice(0,6))}.jpg" title="길게 누르면 저장"><img src="${esc(p.data||p.url)}" alt="산행사진" loading="lazy" draggable="false"></a>${(isStaff()||p.by===meId)?`<button type="button" data-rmp="${esc(p.id)}" data-hid="${esc(h.id)}" style="position:absolute;top:4px;right:4px;border:0;border-radius:50%;width:22px;height:22px;background:rgba(0,0,0,.6);color:#fff;cursor:pointer">×</button>`:''}${p.byName?`<span style="position:absolute;left:4px;bottom:4px;font-size:10px;background:rgba(0,0,0,.5);color:#fff;padding:1px 5px;border-radius:6px">${esc(p.byName)}</span>`:''}</div>`).join('')}</div>`:'<div class="box"><div class="mu">아직 올린 사진이 없어요. 산행 후 사진을 올려 우리 산행을 기록해요.</div></div>'}
+    pics.length?`<div class="photos nocap">${pics.map(p=>`<div style="position:relative"><a href="${esc(p.data||p.url)}" download="${esc(CID)}-${esc(h.date)}-${esc((p.byName||'').slice(0,6))}.jpg" title="길게 누르면 저장"><img src="${esc(p.data||p.url)}" alt="산행사진" loading="lazy" draggable="false"></a>${(isStaff()||p.by===meId)?`<button type="button" data-rmp="${esc(p.id)}" data-hid="${esc(h.id)}" style="position:absolute;top:4px;right:4px;border:0;border-radius:50%;width:22px;height:22px;background:rgba(0,0,0,.6);color:#fff;cursor:pointer">×</button>`:''}${p.byName?`<span style="position:absolute;left:4px;bottom:4px;font-size:10px;background:rgba(0,0,0,.5);color:#fff;padding:1px 5px;border-radius:6px">${esc(p.byName)}</span>`:''}</div>`).join('')}</div>`:'<div class="box"><div class="mu">아직 올린 사진이 없어요. 산행 후 사진을 올려 우리 산행을 기록해요.</div></div>'}
     ${ok&&vids.length?`<div class="linkrow" style="margin-top:8px">${vids.map(v=>`<a class="lbtn" href="${esc(v.url)}" target="_blank" rel="noopener">▶ ${esc(v.title||'동영상')}${v.byName?` · ${esc(v.byName)}`:''}</a>${(isStaff()||v.by===meId)?`<button class="btn sm ghost fg" type="button" data-rmp="${esc(v.id)}" data-hid="${esc(h.id)}">×</button>`:''}`).join('')}</div>`:''}
     ${ok?`<div class="linkrow" style="margin-top:8px">${pics.length<10?`<label class="btn sm ghost fg" style="cursor:pointer">사진 올리기<input type="file" accept="image/*" multiple data-upphoto="${esc(h.id)}" hidden></label>`:''}<button class="btn sm ghost fg" type="button" data-upvideo="${esc(h.id)}">동영상 링크 추가</button></div><p class="note" style="margin-top:4px">사진은 길게 눌러(PC는 우클릭) 저장. 동영상은 파일 업로드 대신 유튜브·네이버 MYBOX·카톡 등에 올린 링크를 붙여 넣어요.</p>`:''}`};
-  async function placeSearch(q){const key=(S.crew.kakaoKey||window.HMC_KAKAO_KEY||'').trim();if(!key)throw new Error('카카오 키 없음');const r=await fetch('https://dapi.kakao.com/v2/local/search/keyword.json?query='+encodeURIComponent(q)+'&size=10',{headers:{Authorization:'KakaoAK '+key}});const j=await r.json();if(!r.ok)throw new Error(j.message||('응답 '+r.status));return j.documents||[]}
+  async function placeSearch(q){const key=(S.crew.kakaoKey||(IS_ROOT?window.HMC_KAKAO_KEY:'')||'').trim();if(!key)throw new Error('카카오 키 없음');const r=await fetch('https://dapi.kakao.com/v2/local/search/keyword.json?query='+encodeURIComponent(q)+'&size=10',{headers:{Authorization:'KakaoAK '+key}});const j=await r.json();if(!r.ok)throw new Error(j.message||('응답 '+r.status));return j.documents||[]}
   $('#placeBtn').addEventListener('click',()=>{$('#ps_q').value=$('#h_meet').value.trim();$('#ps_list').innerHTML='';$('#placeSheet').hidden=false;setTimeout(()=>$('#ps_q').focus(),50);if($('#ps_q').value)$('#ps_go').click()});
   $('#ps_close').addEventListener('click',()=>$('#placeSheet').hidden=true);
   $('#ps_q').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('#ps_go').click()}});
@@ -775,7 +812,25 @@ import {create as fbCreate} from './fb.js?v=1.9.36';
   const gearHtml=g=>{if(!g)return '';const lines=g.split('\n').map(l=>l.trim()).filter(Boolean);return `<div class="gearlist">${lines.map(l=>{const m=l.match(/^\[([^\]]+)\]\s*(.*)$/);const lab=m?m[1]:'',body=m?m[2]:l;return `<div class="gl">${lab?`<b>${esc(lab)}</b>`:''}${body.split(/[,，]\s*/).filter(Boolean).map(x=>`<span>${esc(x)}</span>`).join('')}</div>`}).join('')}</div>`};
   const gearFor=(d,force)=>{const se=force||seasonOf(d);return se?`[공통] ${GEAR.common}\n[${seasonKo[se]}] ${GEAR[se]}`:''};
   const memById=id=>S.members.find(m=>m.id===id);
-  const DEFAULT_RULES="⚠️ 회칙 미준수 시 통보 없이 강퇴될 수 있습니다\n입장 시 간단한 인사는 매너입니다\n\n🌟 1. 가입 조건 및 닉네임 설정\n연령: 1975년생 ~ 2000년생\n(활발한 소통을 위해 나이 제한을 둡니다)\n\n지역: 오송, 조치원, 세종, 청주 인근 거주자 및 직장인\n\n닉네임 양식 (입장 후 10분 내 변경 필수)\n형식: [닉네임(2~4자)/출생년도/성별/지역/가입일]\n주의: 출생년도는 등록상 빠른 년생이 아닌 실제 태어난 연도로 기재\n\n예시: 하마대장/81/남/오송/260506\n미나/90/여/세종/260506\n(가입일은 오프라인 모임 등!산! 참석이후 삭제)\n\n양식 미준수 및 무성의한 닉네임은 무통보 강퇴 사유가 됩니다.\n\n⛰️ 2. 안전 및 개인 책임 (필독)\n하마크루의 산행은 인솔자가 이끄는 유료 투어가 아닌 자발적 동행 입니다.\n\n산행 중 발생하는 사고 및 부상에 대해 방장과 운영진, 해당 모임장은 그 어떠한 책임도 지지 않습니다.\n본인의 안전은 본인이 꼭 책임져 주세요.\n\n📅 3. 모임 운영 규칙\n신규 회원 필참: 가입일로부터 한달간 최소 1회 이상 모임에 참여해 주세요.\n5월 1일 가입시 6월 1일 오전 12시부\n(미참여 시 강퇴사유입니다)\n\n벙 개설 권한:\n등산: 기존 산행 1회 참석 후 누구나 개설 가능.\n친목(술/식사): 등산 벙주를 1회 이상 수행한 분은 자유롭게 가능\n다만 회칙에 준해서 모임은 끝까지 정리해주세요\n\n등산의 경우 먼저 일정을 만드신분이 있다면 같은날 다른 산행의 일정을 만들수 없으며\n타산악회의 일정을 저희 모임에 올리거나 타산악회의 일정에 하마크루 인원을 게스트로 유도하는 행위는 하지 말아주세요\n(안내 산악회 알레버스등은 예외)\n\n이성 매너: 1:1 사적 만남 요구 및 불필요한 사적 연락은 엄격히 금지합니다.\n\n벙주는 모임의 성격을 앞에 명시해주세요\n(등산) 산행관련일정\n(운동) 산행을 제외한 각종 운동 관련모임\n(친목) 운동외 모임 예) 영화나 전시관 식사등\n\n운영진의 특별한 요청시를 제외 일정에 불참란은 체크하지 말아주세요!!!!!!!!!!!!!!!!!!!\n(긍정적인 참여 독려를 위함)\n\n🚗 4. 카풀 및 정산\n교통비: 운전자를 제외한 탑승 인원이 유류비와 통행료를 1/N로 정산합니다.\n(네이버 유류비 기준)\n\n참석 예의: 술벙/먹벙 시 잠시 참석하더라도 전체 정산 인원에 포함됩니다.\n음주여부와 상관없이 동일하게 정산합니다\n\n🚫 강퇴 사유\n비매너 행동, 금전 분쟁, 이성에게 불편함을 주는 행위.\n\n타 모임 홍보, 정치 종교 민감한사항, 나이 허위 기재, 다단계 영업과 금전대출등 절대금지";
+  // 범용 회칙 템플릿 — 새 크루의 개설자가 '크루 정보'에서 자기 산악회에 맞게 고칩니다. [ ] 안은 꼭 채워 주세요
+  const GENERIC_RULES="⚠️ 회칙 미준수 시 통보 없이 강퇴될 수 있습니다\n입장 시 간단한 인사는 매너입니다\n\n🌟 1. 가입 조건 및 닉네임 설정\n연령: [예: 1975년생 ~ 2000년생]\n(활발한 소통을 위해 나이 제한을 둡니다)\n\n지역: [예: ○○, ○○ 인근 거주자 및 직장인]\n\n닉네임 양식 (입장 후 10분 내 변경 필수)\n형식: [닉네임(2~4자)/출생년도/성별/지역/가입일]\n주의: 출생년도는 등록상 빠른 년생이 아닌 실제 태어난 연도로 기재\n\n예시: 산대장/81/남/[지역]/260506\n(가입일은 오프라인 모임 참석 이후 삭제)\n\n양식 미준수 및 무성의한 닉네임은 무통보 강퇴 사유가 됩니다.\n\n⛰️ 2. 안전 및 개인 책임 (필독)\n우리 크루의 산행은 인솔자가 이끄는 유료 투어가 아닌 자발적 동행입니다.\n\n산행 중 발생하는 사고 및 부상에 대해 개설자와 운영진, 해당 모임장은 그 어떠한 책임도 지지 않습니다.\n본인의 안전은 본인이 꼭 책임져 주세요.\n\n📅 3. 모임 운영 규칙\n신규 회원 필참: 가입일로부터 한 달간 최소 1회 이상 모임에 참여해 주세요.\n(미참여 시 강퇴 사유입니다)\n\n벙 개설 권한:\n등산: 기존 산행 1회 참석 후 누구나 개설 가능.\n친목(술/식사): 등산 벙주를 1회 이상 수행한 분은 자유롭게 가능\n다만 회칙에 준해서 모임은 끝까지 정리해주세요\n\n등산의 경우 먼저 일정을 만드신 분이 있다면 같은 날 다른 산행의 일정을 만들 수 없으며\n타 산악회의 일정을 저희 모임에 올리거나 타 산악회의 일정에 우리 크루 인원을 게스트로 유도하는 행위는 하지 말아주세요\n\n이성 매너: 1:1 사적 만남 요구 및 불필요한 사적 연락은 엄격히 금지합니다.\n\n벙주는 모임의 성격을 앞에 명시해주세요\n(등산) 산행 관련 일정\n(운동) 산행을 제외한 각종 운동 관련 모임\n(친목) 운동 외 모임 예) 영화나 전시관 식사 등\n\n운영진의 특별한 요청 시를 제외하고 일정에 불참란은 체크하지 말아주세요!\n(긍정적인 참여 독려를 위함)\n\n🚗 4. 카풀 및 정산\n교통비: 운전자를 제외한 탑승 인원이 유류비와 통행료를 1/N로 정산합니다.\n(네이버 유류비 기준)\n\n참석 예의: 술벙/먹벙 시 잠시 참석하더라도 전체 정산 인원에 포함됩니다.\n음주 여부와 상관없이 동일하게 정산합니다\n\n🚫 강퇴 사유\n비매너 행동, 금전 분쟁, 이성에게 불편함을 주는 행위.\n\n타 모임 홍보, 정치·종교 민감한 사항, 나이 허위 기재, 다단계 영업과 금전 대출 등 절대 금지";
+  const HMC_RULES="⚠️ 회칙 미준수 시 통보 없이 강퇴될 수 있습니다\n입장 시 간단한 인사는 매너입니다\n\n🌟 1. 가입 조건 및 닉네임 설정\n연령: 1975년생 ~ 2000년생\n(활발한 소통을 위해 나이 제한을 둡니다)\n\n지역: 오송, 조치원, 세종, 청주 인근 거주자 및 직장인\n\n닉네임 양식 (입장 후 10분 내 변경 필수)\n형식: [닉네임(2~4자)/출생년도/성별/지역/가입일]\n주의: 출생년도는 등록상 빠른 년생이 아닌 실제 태어난 연도로 기재\n\n예시: 하마대장/81/남/오송/260506\n미나/90/여/세종/260506\n(가입일은 오프라인 모임 등!산! 참석이후 삭제)\n\n양식 미준수 및 무성의한 닉네임은 무통보 강퇴 사유가 됩니다.\n\n⛰️ 2. 안전 및 개인 책임 (필독)\n하마크루의 산행은 인솔자가 이끄는 유료 투어가 아닌 자발적 동행 입니다.\n\n산행 중 발생하는 사고 및 부상에 대해 방장과 운영진, 해당 모임장은 그 어떠한 책임도 지지 않습니다.\n본인의 안전은 본인이 꼭 책임져 주세요.\n\n📅 3. 모임 운영 규칙\n신규 회원 필참: 가입일로부터 한달간 최소 1회 이상 모임에 참여해 주세요.\n5월 1일 가입시 6월 1일 오전 12시부\n(미참여 시 강퇴사유입니다)\n\n벙 개설 권한:\n등산: 기존 산행 1회 참석 후 누구나 개설 가능.\n친목(술/식사): 등산 벙주를 1회 이상 수행한 분은 자유롭게 가능\n다만 회칙에 준해서 모임은 끝까지 정리해주세요\n\n등산의 경우 먼저 일정을 만드신분이 있다면 같은날 다른 산행의 일정을 만들수 없으며\n타산악회의 일정을 저희 모임에 올리거나 타산악회의 일정에 하마크루 인원을 게스트로 유도하는 행위는 하지 말아주세요\n(안내 산악회 알레버스등은 예외)\n\n이성 매너: 1:1 사적 만남 요구 및 불필요한 사적 연락은 엄격히 금지합니다.\n\n벙주는 모임의 성격을 앞에 명시해주세요\n(등산) 산행관련일정\n(운동) 산행을 제외한 각종 운동 관련모임\n(친목) 운동외 모임 예) 영화나 전시관 식사등\n\n운영진의 특별한 요청시를 제외 일정에 불참란은 체크하지 말아주세요!!!!!!!!!!!!!!!!!!!\n(긍정적인 참여 독려를 위함)\n\n🚗 4. 카풀 및 정산\n교통비: 운전자를 제외한 탑승 인원이 유류비와 통행료를 1/N로 정산합니다.\n(네이버 유류비 기준)\n\n참석 예의: 술벙/먹벙 시 잠시 참석하더라도 전체 정산 인원에 포함됩니다.\n음주여부와 상관없이 동일하게 정산합니다\n\n🚫 강퇴 사유\n비매너 행동, 금전 분쟁, 이성에게 불편함을 주는 행위.\n\n타 모임 홍보, 정치 종교 민감한사항, 나이 허위 기재, 다단계 영업과 금전대출등 절대금지";
+  const DEFAULT_RULES=IS_ROOT?HMC_RULES:GENERIC_RULES;
+  const DEFAULT_INTRO=IS_ROOT?'지역: 오송·청주 중심, 평일 산행\n대상: 교대근무자·평일 휴무자 환영\n목표: 블랙야크 명산100 · 100+ 함께 완등\n방식: 카풀 이동, 유류비·통행료 1/N 정산':'지역: (크루 정보에서 소개를 적어 주세요)\n대상: 산을 좋아하는 누구나\n목표: 블랙야크 명산100 · 100+ 함께 완등\n방식: 카풀 이동, 유류비·통행료 1/N 정산';
+  // 루트 크루(이 배포의 원래 크루)만 저장소 파일(마스코트·주제곡·뮤직비디오)을 기본값으로 씀. 다른 크루는 개설자가 올린 것만 사용
+  const ROOT_DEFAULTS=IS_ROOT?{name:'하이마운틴크루',short:'HMC',heroUrl:'mascot.jpg',heroAlt:'하마크루 마스코트 — 산 정상에서 컵라면을 먹는 하마',bgmUrl:'bgm.mp3',mvUrl:'mv.mp4',regions:['오송','조치원','세종','청주*','강내','옥산','대전','천안'],theme:'pine'}:{name:'',short:'',regions:[],theme:'pine'};
+  const cv=k=>{const v=S.crew?S.crew[k]:undefined;return (v===undefined||v===null||v===''||(Array.isArray(v)&&!v.length))?ROOT_DEFAULTS[k]:v};
+  const crewName=()=>cv('name')||'우리 산악회';
+  const crewShort=()=>cv('short')||crewName().slice(0,4);
+  // 테마색(브랜드색 1 + 중립색 2 원칙) — 밝은/어두운 화면 각각
+  const THEMES={pine:{n:'소나무 초록',l:['#1f5a3c','#ffffff','#eaf3ec'],d:['#5fb584','#0f1a13','#1f2d24']},
+    orange:{n:'노을 주황',l:['#c2410c','#ffffff','#fdeee5'],d:['#f08c4a','#1a110b','#2f2118']},
+    blue:{n:'호수 파랑',l:['#1d4ed8','#ffffff','#e8eefc'],d:['#7aa2ff','#0d1326','#1c2440']},
+    plum:{n:'자두 보라',l:['#6d28d9','#ffffff','#f0e9fb'],d:['#b48cff','#140f22','#261d3d']},
+    slate:{n:'바위 회색',l:['#334155','#ffffff','#eceff3'],d:['#a9b6c8','#0f1217','#232a35']},
+    brown:{n:'흙 갈색',l:['#7c4a1e','#ffffff','#f5ebe1'],d:['#d6a06b','#1a130d','#2e2419']}};
+  function applyTheme(){const t=THEMES[cv('theme')]||THEMES.pine;const dark=document.documentElement.dataset.theme==='dark'||(document.documentElement.dataset.theme!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches);const [p,ink,moss]=dark?t.d:t.l;const st=document.documentElement.style;st.setProperty('--pine',p);st.setProperty('--pine-ink',ink);st.setProperty('--moss',moss);const m=document.querySelector('meta[name=theme-color]');if(m)m.content=t.l[0]}
+  try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',applyTheme)}catch(e){}
   // 회칙: 문단→목록. '라벨: 내용' 줄은 라벨 굵게, 괄호만 있는 줄은 보조 설명, '예시:'는 박스. 글자 단위 줄바꿈 방지(keep-all)
   function rulesLines(lines){return lines.map(l=>{l=l.trim();if(!l)return '';l=l.replace(/!{3,}/g,'!');
       const isNote=/^\(.*\)$/.test(l);const isEx=/^예시\s*:/.test(l)||/^[^\s\/]{1,8}\/\d{2}\/[남여]\/[^\/]+\/\d{6}$/.test(l);const sub=/^(등산|친목|운동)(\([^)]*\))?\s*[:：]/.test(l)||/^\(등산\)|^\(운동\)|^\(친목\)/.test(l);
@@ -810,11 +865,15 @@ import {create as fbCreate} from './fb.js?v=1.9.36';
   $('#whoChip').addEventListener('click',()=>{if(!meId||!me()){location.hash='#schedule';setTimeout(()=>{const g=$('#gateNick');if(g&&!g.closest('[hidden]'))g.focus()},300);return}location.hash='#members'});
   function render(){
     const c=S.crew;
-    $('#crewName').textContent=c.name||'하이마운틴크루';
+    $('#crewName').textContent=crewName();
     $('#crewTag').textContent=c.tagline||'';
+    {const cs0=$('#crewShort');if(cs0)cs0.textContent=crewShort()}
+    $('#rulesTitle').textContent=crewName()+' 회칙';$('#rulesCopy').textContent='© '+crewName()+' · 본 페이지의 구성·글·이미지·음원의 무단 복제·배포를 금지합니다.';
+    $('#gateCrewName').textContent=crewName();
+    document.title=crewName();$('#homeName').textContent=IS_ROOT?'평일 산행':crewName();$('#homeTag').textContent=IS_ROOT?'블야 100대 명산':(c.tagline||'');applyTheme();renderMedia();renderRegions();renderSetup();renderManifest();
     renderWho();
     
-    {const it=(c.intro||'').trim()||'지역: 오송·청주 중심, 평일 산행\n대상: 교대근무자·평일 휴무자 환영\n목표: 블랙야크 명산100 · 100+ 함께 완등\n방식: 카풀 이동, 유류비·통행료 1/N 정산';
+    {const it=(c.intro||'').trim()||DEFAULT_INTRO;
       const lines=it.split(/\n+/).map(l=>l.trim()).filter(Boolean);const ls=lines.length>1?lines:it.split(/(?<=[.!?。])\s+/).map(l=>l.trim()).filter(Boolean);
       $('#homeIntro').innerHTML=`<ul style="margin:6px 0 0">${rulesLines(ls)}</ul>`}
     renderRules();
@@ -853,7 +912,7 @@ import {create as fbCreate} from './fb.js?v=1.9.36';
         ${mayEdit(next)?`<button class="btn sm ghost fg" type="button" data-edit="${esc(next.id)}">편집</button>`:''}${delBtn(next)}</div>${statusBar(next)}${photoSec(next)}`;
     }}
     { const hero=$('#hero'); const cur=S.hikes.find(x=>x.id===curHike); hero.innerHTML=cur?heroHtml(cur):''; if(cur)$('#hkTitle').innerHTML=`${kindTag(cur)} <b style="margin-left:4px">${esc(titleOf(cur))}</b>`; }
-    $('#memTools').hidden=!isStaff(); $('#addNote').hidden=canEdit; $('#tabAdd').style.display=canEdit?'':'none';$('#editHint').hidden=canEdit;$('#bootNote').hidden=!(crewLoaded&&!remote.crew);
+    $('#memTools').hidden=!isStaff(); $('#addNote').hidden=canEdit; $('#tabAdd').style.display=canEdit?'':'none';$('#editHint').hidden=canEdit;$('#bootNote').hidden=!(crewLoaded&&!remote.crew);$('#noCrewBox').hidden=!(crewLoaded&&!remote.crew);$('#noCrewId').textContent=CID;
     $('#memGuest').hidden=true;applyGate();
     const up0=S.hikes.filter(h=>!isPast(h)).length;$('#schedSub').textContent=up0?`예정 ${up0}건`:'예정된 일정 없음';
     renderBook(); renderMembers();
@@ -967,7 +1026,7 @@ import {create as fbCreate} from './fb.js?v=1.9.36';
     if(!n||!v){msg.textContent='닉네임과 비밀번호를 모두 넣어 주세요';return}
     const key=normKey(n);$('#gateBtn').disabled=true;
     try{localStorage.setItem('hmc_login_at',String(Date.now()))}catch(e){}
-    welcomeNick=n;try{await FB.signIn(emailOf(key),pwOf(key,v));msg.textContent='';$('#gateCode').value=''}
+    welcomeNick=n;try{await FB.signIn(await emailOf(key),pwOf(key,v));msg.textContent='';$('#gateCode').value=''}
     catch(e){welcomeNick='';msg.textContent=authMsg(e);try{localStorage.removeItem('hmc_login_at')}catch(x){}}finally{$('#gateBtn').disabled=false}});
   $('#gateCode').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('#gateBtn').click()}});
   $('#gateBtn2').addEventListener('click',()=>{$('#gateNick').value=$('#gateNick2').value;$('#gateCode').value=$('#gateCode2').value;$('#gateBtn').click()});
@@ -1043,12 +1102,12 @@ import {create as fbCreate} from './fb.js?v=1.9.36';
       if(alias[newKey]&&!(alias[newKey].key===cur.key&&Number(alias[newKey].g||0)===cur.g)){toast('예전에 다른 회원이 쓰던 닉네임이라 쓸 수 없어요. 탈퇴자 관리에서 먼저 풀어 주세요');return}
       alias[newKey]={key:cur.key,g:cur.g};if(alias[oldKey])delete alias[oldKey];else{const gen=Object.assign({},S.crew.gen||{});gen[oldKey]=(gen[oldKey]||0)+1;S.crew.gen=gen}S.crew.alias=alias;newName=n}
     if(!id){const pin=$('#u_pin').value.trim();if(!/^\d{4}$/.test(pin)){toast('비밀번호는 숫자 4자리');return}
-      const key=normKey(n);try{uid=await FB.createUserSecondary(emailOf(key),pwOf(key,pin))}catch(err){toast(authMsg(err));return}
+      const key=normKey(n);try{uid=await FB.createUserSecondary(await emailOf(key),pwOf(key,pin))}catch(err){toast(authMsg(err));return}
       try{await FB.set('pins/'+uid,{pin})}catch(err){}PINS[uid]=pin}
     else if(ownerLevel()&&PINS[id]&&!$('#u_pin').readOnly){const pin=$('#u_pin').value.trim();const oldPin=PINS[id];
       if(pin!==oldPin){if(!/^\d{4}$/.test(pin)){toast('비밀번호는 숫자 4자리');return}
         const key=normKey(newName);const btn=document.querySelector('#memForm button[type=submit]');if(btn)btn.disabled=true;
-        try{await FB.changePasswordSecondary(emailOf(key),pwOf(key,oldPin),pwOf(key,pin));await FB.set('pins/'+id,{pin});PINS[id]=pin;toast(`${prev?prev.name:n}님 비밀번호를 ${pin}(으)로 바꿨어요. 회원에게 알려 주세요`,4000)}
+        try{await FB.changePasswordSecondary(await emailOf(key),pwOf(key,oldPin),pwOf(key,pin));await FB.set('pins/'+id,{pin});PINS[id]=pin;toast(`${prev?prev.name:n}님 비밀번호를 ${pin}(으)로 바꿨어요. 회원에게 알려 주세요`,4000)}
         catch(err){toast('비밀번호 변경 실패: '+authMsg(err));S.crew.alias=snap.alias;S.crew.gen=snap.gen;if(btn)btn.disabled=false;return}
         if(btn)btn.disabled=false}}
     // 기존 문서의 다른 필드(회칙 확인·접속 기록·탈퇴일 등)는 그대로 두고 편집한 값만 덮어쓴다
@@ -1120,7 +1179,7 @@ import {create as fbCreate} from './fb.js?v=1.9.36';
     const ed=!!$('#h_id').value;$('#addTitle').firstChild.textContent=(k==='hike'?'산행':k==='sport'?'운동 일정':'친목 일정')+(ed?' 편집':' 등록')}
   $('#kindSel').addEventListener('click',e=>{const b=e.target.closest('button');if(b)applyKind(b.dataset.kind)});
   // 이동 자동 계산: 카카오 길찾기(키 있으면, 통행료 포함) 또는 OSRM(OSM 기반, 거리·시간만)
-  async function calcRoute(mlat,mlng,dlat,dlng){const key=(S.crew.kakaoKey||window.HMC_KAKAO_KEY||'').trim();let km=0,min=0,toll=null,src='';
+  async function calcRoute(mlat,mlng,dlat,dlng){const key=(S.crew.kakaoKey||(IS_ROOT?window.HMC_KAKAO_KEY:'')||'').trim();let km=0,min=0,toll=null,src='';
     if(key){const r=await fetch(`https://apis-navi.kakaomobility.com/v1/directions?origin=${mlng},${mlat}&destination=${dlng},${dlat}&summary=true`,{headers:{Authorization:'KakaoAK '+key}});const j=await r.json();
       if(!r.ok||!j.routes||!j.routes[0]||j.routes[0].result_code!==0)throw new Error((j.msg||(j.routes&&j.routes[0]&&j.routes[0].result_msg))||('카카오 응답 '+r.status));
       const sm=j.routes[0].summary;km=sm.distance/1000;min=sm.duration/60;toll=sm.fare?sm.fare.toll:null;src='카카오 길찾기'}
@@ -1132,7 +1191,7 @@ import {create as fbCreate} from './fb.js?v=1.9.36';
     line.textContent='계산 중…';try{const r=await calcRoute(mlat,mlng,dlat,dlng);$('#h_route').value=`자차 편도 약 ${tm(r.min)} · ${r.km}km`;if(r.fuel!=null)$('#h_fuel1').value=r.fuel;if(r.toll!=null)$('#h_toll1').value=r.toll;line.textContent=`${r.src}: 편도 ${r.km}km · ${tm(r.min)} · 통행료 ${r.toll!=null?won(r.toll):'확인 불가'}`+(r.fuel==null?' · 유류비는 크루 정보에서 유가·연비를 설정하면 자동 계산돼요':` · 유류비 ${won(r.fuel)} (유가 ${won(Number(S.crew.fuelPrice)||Number(FUEL.price))}/L${Number(S.crew.fuelPrice)?'':' · 오피넷 '+(FUEL.date||'')+' 전국 평균 자동'} · 연비 ${Number(S.crew.fuelEff)||12}km/L)`);previewCost()}catch(e){line.textContent='계산 실패: '+(e.message||e)}});
   async function navCalcHike(h){if(!mayEdit(h))return;if(!(h.meetLat&&h.meetLng)){toast('집합 장소 좌표가 없어요 — 편집에서 집합 프리셋을 골라 주세요');return}if(!(h.destLat&&h.destLng)){try{const g=await geocodePlace(((h.mountain||'')+' '+(h.dest||'').replace(/\s*\(.*\)$/,'')).trim());h.destLat=g.lat;h.destLng=g.lng;toast('도착지 좌표: '+g.name)}catch(e){toast('도착지 좌표가 없어요 — 편집에서 도착지(주차장)를 확인해 주세요');return}}
     toast('경로 계산 중…');try{const r=await calcRoute(h.meetLat,h.meetLng,h.destLat,h.destLng);h.route=`자차 편도 약 ${tm(r.min)} · ${r.km}km`;if(r.fuel!=null)h.fuel1=String(r.fuel);if(r.toll!=null)h.toll1=String(r.toll);h.navSrc=`${r.src} · ${new Date().toISOString().slice(0,10)}${r.price?` · 유가 ${r.price}원/L · 연비 ${r.eff}km/L`:''}`;toast(`${r.src}: 편도 ${r.km}km · ${tm(r.min)}${r.toll!=null?' · 통행료 '+won(r.toll):''}${r.fuel!=null?' · 유류비 '+won(r.fuel):''}`);save()}catch(e){toast('계산 실패: '+(e.message||e))}}
-  const DEFAULT_MEETS=[{name:'오송5길 2 (기본 집합지)',lat:'36.6114556609241',lng:'127.32915817025',addr:'충북 청주시 흥덕구 오송읍 오송5길 2',fixed:true}];
+  const DEFAULT_MEETS=IS_ROOT?[{name:'오송5길 2 (기본 집합지)',lat:'36.6114556609241',lng:'127.32915817025',addr:'충북 청주시 흥덕구 오송읍 오송5길 2',fixed:true}]:[];
   // 프리셋 = 크루 설정 프리셋 + 자주 쓴 출발지(3회 이상, 좌표는 그 일정들에서 가져옴)
   function meetPresets(){const base=(S.crew.meets&&S.crew.meets.length)?S.crew.meets.slice():DEFAULT_MEETS.slice();const names=new Set(base.map(m=>m.name.replace(/\s/g,'')));
     const cnt={};for(const h of S.hikes){const n=(h.meet||'').trim();if(!n)continue;const k=n.replace(/\s/g,'');if(names.has(k))continue;cnt[k]=cnt[k]||{name:n,n:0,lat:'',lng:''};cnt[k].n++;if(h.meetLat&&h.meetLng){cnt[k].lat=h.meetLat;cnt[k].lng=h.meetLng}}
@@ -1141,11 +1200,11 @@ import {create as fbCreate} from './fb.js?v=1.9.36';
   $('#h_meetSel').addEventListener('change',()=>{const m=meetPresets()[Number($('#h_meetSel').value)];if(m){$('#h_meet').value=m.name;$('#h_meetLat').value=m.lat||'';$('#h_meetLng').value=m.lng||''}routeBtns();autoNav()});
   // 개설자: 집합 장소 관리 시트
   const pm=$('#presetSheet');
-  async function geocode(q){const key=(S.crew.kakaoKey||window.HMC_KAKAO_KEY||'').trim();if(!key)throw new Error('카카오 키 없음');
+  async function geocode(q){const key=(S.crew.kakaoKey||(IS_ROOT?window.HMC_KAKAO_KEY:'')||'').trim();if(!key)throw new Error('카카오 키 없음');
     let r=await fetch('https://dapi.kakao.com/v2/local/search/address.json?query='+encodeURIComponent(q),{headers:{Authorization:'KakaoAK '+key}});let j=await r.json();if(!r.ok)throw new Error(j.message||('응답 '+r.status));
     let d=(j.documents||[])[0];if(!d){r=await fetch('https://dapi.kakao.com/v2/local/search/keyword.json?query='+encodeURIComponent(q),{headers:{Authorization:'KakaoAK '+key}});j=await r.json();d=(j.documents||[])[0]}
     if(!d)throw new Error('주소를 찾지 못했어요');return {lat:d.y,lng:d.x,addr:(d.road_address&&d.road_address.address_name)||d.address_name||d.place_name||q,name:d.place_name||''}}
-  async function geocodePlace(q){const key=(S.crew.kakaoKey||window.HMC_KAKAO_KEY||'').trim();if(!key)throw new Error('카카오 키 없음');const r=await fetch('https://dapi.kakao.com/v2/local/search/keyword.json?query='+encodeURIComponent(q)+'&size=10',{headers:{Authorization:'KakaoAK '+key}});const j=await r.json();
+  async function geocodePlace(q){const key=(S.crew.kakaoKey||(IS_ROOT?window.HMC_KAKAO_KEY:'')||'').trim();if(!key)throw new Error('카카오 키 없음');const r=await fetch('https://dapi.kakao.com/v2/local/search/keyword.json?query='+encodeURIComponent(q)+'&size=10',{headers:{Authorization:'KakaoAK '+key}});const j=await r.json();
     const ds=(j.documents||[]).filter(d=>!/버스정류장|지하철|택시/.test(d.category_name||''));const d=ds.find(x=>/주차장/.test(x.category_name||'')||/주차장/.test(x.place_name||''))||ds[0];if(!d)throw new Error('장소를 찾지 못했어요');return {lat:d.y,lng:d.x,name:d.place_name,addr:d.road_address_name||d.address_name}}
   function renderPresets(){const ps=S.crew.meets&&S.crew.meets.length?S.crew.meets:DEFAULT_MEETS;$('#pm_list').innerHTML=ps.map((m,i)=>`<div class="mem"><div><div class="nm">${esc(m.name)}</div><div class="sub" style="font-size:12.5px;color:var(--muted)">${m.lat?`위도 ${esc(m.lat)} · 경도 ${esc(m.lng)}`:'<span style="color:var(--sun)">좌표 없음 — 주소로 찾기를 눌러 주세요</span>'}${m.addr?` · ${esc(m.addr)}`:''}</div></div><div style="display:flex;gap:6px">${m.lat?'':`<button class="btn sm ghost fg" type="button" data-pmgeo="${i}">좌표 찾기</button>`}<button class="btn sm ghost fg" type="button" data-pmdel="${i}" style="color:#c0392b">삭제</button></div></div>`).join('')||'<div class="more">등록된 집합 장소가 없어요</div>';
     document.querySelectorAll('[data-pmdel]').forEach(b=>b.addEventListener('click',()=>{if(b.textContent!=='정말 삭제'){b.textContent='정말 삭제';return}const ps2=(S.crew.meets&&S.crew.meets.length?S.crew.meets:DEFAULT_MEETS).slice();ps2.splice(Number(b.dataset.pmdel),1);S.crew.meets=ps2;renderPresets();save()}));
@@ -1239,15 +1298,89 @@ import {create as fbCreate} from './fb.js?v=1.9.36';
     hs.hidden=true;$('#h_id').value='';save()});
   $('#h_cancel').addEventListener('click',()=>{$('#h_id').value=''});
 
+
+  // ---------- 크루 꾸미기: 대표 사진·주제곡·영상·지역·테마 ----------
+  // 사진: 가로 1280px·350KB 이하 JPEG로 줄여 meta/hero 문서에 저장(heroVer로 버전 관리, 기기에 캐시)
+  // 주제곡: mp3를 base64 조각(700KB)으로 media/bgm_N 문서에 저장, 재생 버튼을 누를 때만 내려받아 기기에 캐시
+  // 영상: 유튜브 주소(임베드) 또는 mp4 주소. — 나중에 파일 저장소(Storage)를 켜면 URL 방식으로 그대로 바꿔 탈 수 있음
+  const CH=700000;
+  const cacheKey=(k,v)=>'hmcm_'+CID+'_'+k+'_'+v;
+  async function cacheGet(key){try{const c=await caches.open('hmc-media');const r=await c.match('/__m/'+key);return r?await r.text():null}catch(e){return null}}
+  async function cachePut(key,text){try{const c=await caches.open('hmc-media');await c.put('/__m/'+key,new Response(text,{headers:{'Content-Type':'text/plain'}}))}catch(e){}}
+  function shrinkImage(file){return new Promise((res,rej)=>{const img=new Image();const u=URL.createObjectURL(file);img.onload=()=>{URL.revokeObjectURL(u);const W=1280;const sc=Math.min(1,W/Math.max(img.width,img.height));const cv2=document.createElement('canvas');cv2.width=Math.round(img.width*sc);cv2.height=Math.round(img.height*sc);cv2.getContext('2d').drawImage(img,0,0,cv2.width,cv2.height);let q=0.85,out=cv2.toDataURL('image/jpeg',q);while(out.length>350*1024*1.37&&q>0.4){q-=0.1;out=cv2.toDataURL('image/jpeg',q)}if(out.length>350*1024*1.37){const c3=document.createElement('canvas');c3.width=Math.round(cv2.width*0.7);c3.height=Math.round(cv2.height*0.7);c3.getContext('2d').drawImage(cv2,0,0,c3.width,c3.height);out=c3.toDataURL('image/jpeg',0.7)}res(out)};img.onerror=()=>{URL.revokeObjectURL(u);rej(new Error('이미지를 읽지 못했어요'))};img.src=u})}
+  const fileB64=file=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result).split(',')[1]||'');r.onerror=()=>rej(new Error('파일을 읽지 못했어요'));r.readAsDataURL(file)});
+  const mdef=k=>(S.crew&&(k in S.crew))?(S.crew[k]||''):(ROOT_DEFAULTS[k]||''); // 미디어 주소: 키가 아예 없을 때만 루트 기본값
+  let heroDraft=null, bgmDraft=null; // 시트에서 고른 뒤 저장 때 올림. {data}|'none'|null, {b64,mime,size}|'none'|null
+  let heroShown='';
+  async function loadHero(){const img=$('#heroImg'),ph=$('#heroPh');const url=mdef('heroUrl'),ver=S.crew.heroVer||0;const want=ver?('v'+ver):url?('u'+url):'';
+    if(want===heroShown)return;heroShown=want;
+    if(!want){img.hidden=true;img.removeAttribute('src');ph.hidden=false;return}
+    const isDef=!ver&&url===(ROOT_DEFAULTS.heroUrl||'');img.classList.toggle('free',!isDef);img.alt=isDef?(ROOT_DEFAULTS.heroAlt||''):crewName()+' 대표 사진';
+    if(!ver){img.src=url;img.hidden=false;ph.hidden=true;return}
+    let data=await cacheGet(cacheKey('hero',ver));
+    if(!data){try{const d=await FB.get('meta/hero');data=d&&d.data||'';if(data)cachePut(cacheKey('hero',ver),data)}catch(e){data=''}}
+    if(heroShown!==want)return;if(data){img.src=data;img.hidden=false;ph.hidden=true}else{img.hidden=true;ph.hidden=false}}
+  let bgmLoadedVer='';
+  async function ensureBgm(){const bgm=$('#bgm');const url=mdef('bgmUrl'),ver=S.crew.bgmVer||0;const want=ver?('v'+ver):url?('u'+url):'';if(!want)return false;if(bgmLoadedVer===want)return true;
+    if(!ver){bgm.src=url;bgmLoadedVer=want;return true}
+    bgmLbl('loading');let b64=await cacheGet(cacheKey('bgm',ver));
+    if(!b64){const n=Number(S.crew.bgmN)||0;const parts=[];for(let i=0;i<n;i++){const d=await FB.get('media/bgm_'+i);if(!d||!d.data)throw new Error('주제곡 조각 '+i+' 없음');parts.push(d.data)}b64=parts.join('');cachePut(cacheKey('bgm',ver),b64)}
+    const mime=S.crew.bgmMime||'audio/mpeg';const bin=atob(b64);const arr=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)arr[i]=bin.charCodeAt(i);bgm.src=URL.createObjectURL(new Blob([arr],{type:mime}));bgmLoadedVer=want;return true}
+  const ytId=u=>{const m=String(u||'').match(/(?:youtu\.be\/|v=|\/shorts\/|\/embed\/)([A-Za-z0-9_-]{6,})/);return m?m[1]:''};
+  let mvShown='';
+  function renderMedia(){loadHero();
+    const hasBgm=!!(mdef('bgmUrl')||S.crew.bgmVer);$('#bgmBtn').hidden=!hasBgm;if(!hasBgm&&!$('#bgm').paused){$('#bgm').pause()}
+    const mvUrl=mdef('mvUrl').trim();const sec=$('#mvSec');sec.hidden=!mvUrl;if(mvUrl===mvShown)return;mvShown=mvUrl;const wrap=$('#mvWrap');
+    if(!mvUrl){wrap.innerHTML='<video id="mv" controls playsinline preload="none"></video>'}
+    else if(ytId(mvUrl)){wrap.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${ytId(mvUrl)}?rel=0" title="뮤직비디오" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>`}
+    else{wrap.innerHTML=`<video id="mv" src="${esc(mvUrl)}"${IS_ROOT&&mvUrl===ROOT_DEFAULTS.mvUrl?' poster="poster.jpg"':''} controls playsinline preload="none"></video>`}
+    const v=wrap.querySelector('video');if(v)v.addEventListener('play',()=>{$('#bgm').pause();$('#bgmBtn').classList.remove('on');bgmLbl(false)})}
+  const regionList=()=>(cv('regions')||[]).map(r=>String(r).trim()).filter(Boolean);
+  function renderRegions(){const sel=$('#a_region');const rs=regionList();const cur=sel.value;const key=rs.join('|');
+    if(sel.dataset.key!==key){sel.dataset.key=key;sel.innerHTML='<option value="">선택</option>'+rs.map(r=>{const need=r.endsWith('*');const v=need?r.slice(0,-1):r;return `<option value="${esc(v)}"${need?' data-detail="1"':''}>${esc(v)}</option>`}).join('')+'<option value="기타">기타 (직접 입력)</option>';sel.value=[...sel.options].some(o=>o.value===cur)?cur:''}
+    if(!rs.length){sel.value='기타';sel.closest('.f').hidden=true;$('#dongWrap').hidden=false;$('#dongLabel').textContent='지역';$('#a_dong').placeholder='예: ○○시 ○○동'}else{sel.closest('.f').hidden=false;if(sel.value!==cur||!cur)sel.dispatchEvent(new Event('change'))}}
+  function renderSetup(){const show=isOwner&&canEdit&&!S.crew.setupDone;$('#setupSec').hidden=!show}
+  $('#setupBtn').addEventListener('click',()=>$('#btnCrew').click());
+  $('#shareBtn').addEventListener('click',async()=>{const u=crewUrl(CID);try{await navigator.clipboard.writeText(u);toast('크루 링크를 복사했어요: '+u)}catch(e){prompt('크루 링크',u)}});
+  // 홈 화면 추가(PWA) 이름·시작 주소를 크루별로: 루트 크루는 파일 manifest 그대로, 다른 크루는 즉석 manifest
+  let manifestKey='';
+  function renderManifest(){if(IS_ROOT)return;const name=crewName(),short=crewShort();const k=name+'|'+short+'|'+(cv('theme')||'');if(k===manifestKey)return;manifestKey=k;
+    const t=THEMES[cv('theme')]||THEMES.pine;const base=location.origin+location.pathname.replace(/[^/]*$/,'');
+    const m={name,short_name:short,start_url:crewUrl(CID),scope:base,display:'standalone',background_color:'#ffffff',theme_color:t.l[0],lang:'ko',icons:[{src:base+'icon-generic-192.png',sizes:'192x192',type:'image/png'},{src:base+'icon-generic-512.png',sizes:'512x512',type:'image/png'}]};
+    const link=document.querySelector('link[rel=manifest]');if(link)link.href='data:application/manifest+json;charset=utf-8,'+encodeURIComponent(JSON.stringify(m));
+    const at=document.querySelector('meta[name=apple-mobile-web-app-title]');if(at)at.content=short||name;
+    document.querySelectorAll('link[rel=apple-touch-icon],link[rel=icon]').forEach(l=>l.href='icon-generic-192.png')}
+  function fillCrewExtras(c){const ts=$('#c_theme');ts.innerHTML=Object.entries(THEMES).map(([k,t])=>`<option value="${k}">${t.n}</option>`).join('');ts.value=cv('theme')||'pine';
+    heroDraft=null;bgmDraft=null;$('#c_heroUrl').value=mdef('heroUrl');$('#c_bgmUrl').value=mdef('bgmUrl');$('#c_mv').value=mdef('mvUrl');$('#c_regions').value=regionList().join('\n');
+    heroPreview();bgmInfo()}
+  function heroPreview(){const el=$('#c_heroPrev');if(heroDraft==='none'){el.innerHTML='<div class="box"><div class="mu">사진 없음 — 기본 산 배경을 씁니다</div></div>';return}
+    const src=heroDraft?heroDraft.data:(S.crew.heroVer?$('#heroImg').src:mdef('heroUrl'));
+    el.innerHTML=src?`<img src="${esc(src)}" alt="" style="max-height:160px;border-radius:12px;display:block">`:'<div class="box"><div class="mu">아직 사진이 없어요 — 기본 산 배경을 씁니다</div></div>'}
+  function bgmInfo(){const el=$('#c_bgmInfo');if(bgmDraft==='none'){el.textContent='주제곡 없음으로 저장됩니다';return}if(bgmDraft){el.textContent=`올릴 파일: ${bgmDraft.name} (${(bgmDraft.size/1024/1024).toFixed(2)}MB)`;return}
+    el.textContent=S.crew.bgmVer?`저장된 주제곡 있음 (${((S.crew.bgmSize||0)/1024/1024).toFixed(2)}MB)`:mdef('bgmUrl')?'음원 사용 중: '+mdef('bgmUrl'):'주제곡 없음'}
+  $('#c_heroFile').addEventListener('change',async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;try{heroDraft={data:await shrinkImage(f)};heroPreview()}catch(err){toast(err.message||'사진을 읽지 못했어요')}});
+  $('#c_heroDel').addEventListener('click',()=>{heroDraft='none';heroPreview()});
+  $('#c_bgmFile').addEventListener('change',async e=>{const f=e.target.files[0];e.target.value='';if(!f)return;if(f.size>4*1024*1024){toast('4MB 이하 mp3만 올릴 수 있어요. 비트레이트를 낮춰(96~128kbps) 다시 저장해 보세요');return}try{bgmDraft={b64:await fileB64(f),mime:f.type||'audio/mpeg',size:f.size,name:f.name};bgmInfo()}catch(err){toast(err.message)}});
+  $('#c_bgmDel').addEventListener('click',()=>{bgmDraft='none';bgmInfo()});
+  // 저장 때 사진·주제곡 문서를 먼저 쓰고, 크루 문서에는 버전만 남김
+  async function commitMedia(c){
+    if(heroDraft==='none'){c.heroVer=0;c.heroUrl=''}else if(heroDraft){const ver=Date.now();await FB.set('meta/hero',{data:heroDraft.data,ver});c.heroVer=ver;cachePut(cacheKey('hero',ver),heroDraft.data)}
+    if(bgmDraft==='none'){c.bgmVer=0;c.bgmN=0;c.bgmUrl=''}else if(bgmDraft){const ver=Date.now();const parts=[];for(let i=0;i<bgmDraft.b64.length;i+=CH)parts.push(bgmDraft.b64.slice(i,i+CH));for(let i=0;i<parts.length;i++)await FB.set('media/bgm_'+i,{data:parts[i],ver,i});c.bgmVer=ver;c.bgmN=parts.length;c.bgmMime=bgmDraft.mime;c.bgmSize=bgmDraft.size;cachePut(cacheKey('bgm',ver),bgmDraft.b64)}
+    heroDraft=null;bgmDraft=null}
   // ---------- 운영자: 크루 ----------
   $('#btnCrew').addEventListener('click',()=>{const c=S.crew;$('#c_name').value=c.name||'';$('#c_short').value=c.short||'';$('#c_tag').value=c.tagline||'';
-    $('#c_url').value=c.applyUrl||'';$('#c_label').value=c.applyLabel||'';$('#c_contact').value=c.contact||'';$('#c_rules').value=c.rules||'';$('#c_intro').value=c.intro||'';$('#c_join').value=c.joinUrl||'';$('#c_rulesFull').value=c.rulesFull||DEFAULT_RULES;$('#c_fuel').value=c.fuelPrice||'';$('#c_eff').value=c.fuelEff||'';$('#c_kakao').value=c.kakaoKey||'';$('#c_meets').value=(c.meets||[]).map(m=>[m.name,m.lat,m.lng,m.addr||''].join(' | ')).join('\n');cs.hidden=false});
+    $('#c_url').value=c.applyUrl||'';$('#c_label').value=c.applyLabel||'';$('#c_contact').value=c.contact||'';$('#c_rules').value=c.rules||'';$('#c_intro').value=c.intro||'';$('#c_join').value=c.joinUrl||'';$('#c_rulesFull').value=c.rulesFull||DEFAULT_RULES;$('#c_fuel').value=c.fuelPrice||'';$('#c_eff').value=c.fuelEff||'';$('#c_kakao').value=c.kakaoKey||'';$('#c_meets').value=(c.meets||[]).map(m=>[m.name,m.lat,m.lng,m.addr||''].join(' | ')).join('\n');$('#c_name').value=c.name||ROOT_DEFAULTS.name||'';$('#c_short').value=c.short||ROOT_DEFAULTS.short||'';if(!$('#c_intro').value.trim())$('#c_intro').value=DEFAULT_INTRO;fillCrewExtras(c);cs.hidden=false});
   $('#c_cancel').addEventListener('click',()=>cs.hidden=true);
   async function sha(t){const b=new TextEncoder().encode('hmc:'+t);const d=await crypto.subtle.digest('SHA-256',b);return [...new Uint8Array(d)].map(x=>x.toString(16).padStart(2,'0')).join('')}
-  $('#crewForm').addEventListener('submit',async e=>{e.preventDefault();
-    S.crew={ownerUid:S.crew.ownerUid||'',name:$('#c_name').value.trim(),short:$('#c_short').value.trim(),tagline:$('#c_tag').value.trim(),applyUrl:$('#c_url').value.trim(),
+  $('#crewForm').addEventListener('submit',async e=>{e.preventDefault();const btn=e.target.querySelector('[type=submit]');btn.disabled=true;btn.textContent='저장 중…';
+    const keep=(({ownerUid,gen,authNs,heroVer,heroUrl,bgmVer,bgmN,bgmMime,bgmSize,bgmUrl,created})=>({ownerUid,gen,authNs,heroVer,heroUrl,bgmVer,bgmN,bgmMime,bgmSize,bgmUrl,created}))(S.crew);
+    const c={...keep,ownerUid:S.crew.ownerUid||'',name:$('#c_name').value.trim(),short:$('#c_short').value.trim(),tagline:$('#c_tag').value.trim(),applyUrl:$('#c_url').value.trim(),
       applyLabel:$('#c_label').value.trim(),contact:$('#c_contact').value.trim(),fuelPrice:$('#c_fuel').value.trim(),fuelEff:$('#c_eff').value.trim(),kakaoKey:$('#c_kakao').value.trim(),rules:$('#c_rules').value,rulesFull:$('#c_rulesFull').value,intro:$('#c_intro').value,joinUrl:$('#c_join').value.trim(),
-      meets:$('#c_meets').value.split('\n').map(l=>l.split('|').map(x=>x.trim())).filter(a=>a[0]).map(a=>({name:a[0],lat:a[1]||'',lng:a[2]||'',addr:a[3]||''}))};cs.hidden=true;save()});
+      meets:$('#c_meets').value.split('\n').map(l=>l.split('|').map(x=>x.trim())).filter(a=>a[0]).map(a=>({name:a[0],lat:a[1]||'',lng:a[2]||'',addr:a[3]||''})),
+      theme:$('#c_theme').value,mvUrl:$('#c_mv').value.trim(),regions:$('#c_regions').value.split('\n').map(x=>x.trim()).filter(Boolean),setupDone:true};
+    const hu=$('#c_heroUrl').value.trim();if(hu!==mdef('heroUrl'))c.heroUrl=hu;const bu=$('#c_bgmUrl').value.trim();if(bu!==mdef('bgmUrl'))c.bgmUrl=bu;
+    try{await commitMedia(c)}catch(err){toast('사진·주제곡 저장 실패: '+authMsg(err));btn.disabled=false;btn.textContent='저장';return}
+    S.crew=c;cs.hidden=true;btn.disabled=false;btn.textContent='저장';save()});
 
   // ---------- 운영자: 코스 추가/편집 ----------
   const ks=$('#courseSheet');
@@ -1342,32 +1475,33 @@ import {create as fbCreate} from './fb.js?v=1.9.36';
     window.addEventListener('appinstalled',()=>{box.hidden=true;toast('설치됐어요! 홈 화면에서 하마크루를 열어 주세요')});
     if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{})}})();
   // BGM / 뮤비
-  const bgm=$('#bgm'),bgmBtn=$('#bgmBtn'),mv=$('#mv');
-  const bgmLbl=on=>{$('#bgmLbl').textContent=on?'♪ 재생 중 · 멈추기':'🎧 크루 주제곡'};
-  bgmBtn.addEventListener('click',async()=>{try{if(bgm.paused){mv.pause();await bgm.play();bgmBtn.classList.add('on');bgmLbl(true)}else{bgm.pause();bgmBtn.classList.remove('on');bgmLbl(false)}}catch(e){toast('이 환경에서는 재생이 막혀 있어요')}});
-  mv.addEventListener('play',()=>{bgm.pause();bgmBtn.classList.remove('on');bgmLbl(false)});bgm.addEventListener('ended',()=>bgmLbl(false));
+  const bgm=$('#bgm'),bgmBtn=$('#bgmBtn');
+  function bgmLbl(on){$('#bgmLbl').textContent=on==='loading'?'⏳ 불러오는 중…':on?'♪ 재생 중 · 멈추기':'🎧 크루 주제곡'}
+  bgmBtn.addEventListener('click',async()=>{try{if(bgm.paused){const mvEl=$('#mv');if(mvEl)mvEl.pause();if(!(await ensureBgm())){toast('주제곡이 없어요');return}await bgm.play();bgmBtn.classList.add('on');bgmLbl(true)}else{bgm.pause();bgmBtn.classList.remove('on');bgmLbl(false)}}catch(e){bgmLbl(false);toast('재생하지 못했어요: '+(e.message||'이 환경에서는 재생이 막혀 있어요'))}});
+  bgm.addEventListener('ended',()=>bgmLbl(false));
   // 회원가입 신청 → Firebase 계정 생성 + 가입 대기 문서. 개설자가 없으면 첫 가입자가 개설자
   $('#applyForm').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.tagName!=='TEXTAREA')e.preventDefault()});
   $('#a_name').addEventListener('input',()=>{const n=$('#a_name').value.trim();const el=$('#nickMsg');el.textContent=n?'중복 여부는 신청 버튼을 누를 때 확인돼요':'';el.style.color='var(--muted)'});
-  $('#a_region').addEventListener('change',()=>{const r=$('#a_region').value;$('#dongWrap').hidden=!(r==='청주'||r==='기타');$('#dongLabel').textContent=r==='기타'?'지역 직접 입력':'청주 동 이름';$('#a_dong').placeholder=r==='기타'?'예: 공주':'예: 복대동'});
+  $('#a_region').addEventListener('change',()=>{const sel=$('#a_region');const r=sel.value;const opt=sel.options[sel.selectedIndex];const need=r==='기타'||!!(opt&&opt.dataset.detail);$('#dongWrap').hidden=!need;$('#dongLabel').textContent=r==='기타'?'지역 직접 입력':r+' 동 이름';$('#a_dong').placeholder=r==='기타'?'예: 공주':'예: ○○동'});
   const todayISO=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
   $('#a_copy').addEventListener('click',async()=>{const n=$('#a_name').value.trim(),by=$('#a_birth').value.trim(),g=$('#a_gender').value,rg=$('#a_region').value,dong=$('#a_dong').value.trim();
     const out=$('#a_msgOut');const err=m=>{out.textContent=m;out.hidden=false;out.style.color='var(--sun)';toast(m)};
     if(!n||n.length<2||n.length>8)return err('닉네임은 2~8자로 적어 주세요');
     const pin=$('#a_pin').value.trim();if(!/^\d{4}$/.test(pin))return err('비밀번호는 숫자 4자리로 정해 주세요');if(pin!==$('#a_pin2').value.trim())return err('비밀번호 확인이 달라요');
-    if(!/^\d{2}$/.test(by))return err('년생은 두 자리 숫자로 적어 주세요 (예: 81)');if(!g)return err('성별을 골라 주세요');if(!rg)return err('지역을 골라 주세요');if(rg==='청주'&&!dong)return err('청주는 동 이름을 적어 주세요');if(rg==='기타'&&!dong)return err('지역을 적어 주세요');
+    if(!/^\d{2}$/.test(by))return err('년생은 두 자리 숫자로 적어 주세요 (예: 81)');if(!g)return err('성별을 골라 주세요');if(!rg)return err('지역을 골라 주세요');const rsel=$('#a_region');const needD=rg==='기타'||!!(rsel.options[rsel.selectedIndex]&&rsel.options[rsel.selectedIndex].dataset.detail);if(needD&&!dong)return err(rg==='기타'?'지역을 적어 주세요':rg+'는 동 이름을 적어 주세요');
+    const bootNow=crewLoaded&&!remote.crew;const cName=$('#a_crewName').value.trim(),cShort=$('#a_crewShort').value.trim();if(bootNow&&(cName.length<2||cName.length>20))return err('크루(산악회) 이름을 2~20자로 적어 주세요');if(bootNow&&(cShort.length<1||cShort.length>6))return err('약칭을 1~6자로 적어 주세요');
     if(loggedIn()){return err('이미 로그인되어 있어요. 다른 사람 가입은 로그아웃 후 해 주세요')}
-    const region=rg==='청주'?`청주 ${dong}`:rg==='기타'?dong:rg;const key=normKey(n);const btn=$('#a_copy');btn.disabled=true;
+    const region=rg==='기타'?dong:(needD?`${rg} ${dong}`:rg);const key=normKey(n);const btn=$('#a_copy');btn.disabled=true;
     try{
       try{localStorage.setItem('hmc_login_at',String(Date.now()))}catch(e){}
-      const uid=await FB.signUp(emailOf(key),pwOf(key,pin));
+      const uid=await FB.signUp(await emailOf(key),pwOf(key,pin));
       const boot=crewLoaded&&!remote.crew;
       const m={id:uid,name:n,nameKey:key,role:boot?'owner':'member',status:boot?'active':'pending',join:todayISO(),birth:by,gender:g,region,memo:$('#a_msg').value.trim(),car:'',staffSince:''};
-      if(boot){await FB.set('meta/crew',{name:'하이마운틴크루',short:'HMC',tagline:'평일 산행 · 블랙야크 100대 명산',applyUrl:'',applyLabel:'참여 신청',contact:'',rules:'',rulesFull:'',intro:'',joinUrl:'',meets:[],ownerUid:uid})}
+      if(boot){await FB.set('meta/crew',{name:cName,short:cShort,tagline:IS_ROOT?'평일 산행 · 블랙야크 100대 명산':'',applyUrl:'',applyLabel:'참여 신청',contact:'',rules:'',rulesFull:'',intro:'',joinUrl:'',meets:[],regions:[],theme:'pine',mvUrl:'',authNs:IS_ROOT?'':CID,setupDone:false,created:todayISO(),ownerUid:uid})}
       await FB.set('members/'+uid,m);try{await FB.set('pins/'+uid,{pin})}catch(e){}
       await onUser({uid});
-      out.style.color='var(--pine)';out.textContent=boot?'개설자로 등록됐어요. 크루원 탭에서 크루 정보를 채워 주세요.':'가입 신청이 접수됐어요. 운영자가 승인하면 닉네임과 비밀번호로 로그인할 수 있어요.';out.hidden=false;toast(out.textContent);
-      $('#applyForm').reset();$('#dongWrap').hidden=true;setTimeout(()=>{location.hash=boot?'#rules':'#home';if(!boot)toast(`${n}님, 가입 신청이 접수됐어요 ⏳
+      out.style.color='var(--pine)';out.textContent=boot?'개설자로 등록됐어요. 이제 우리 산악회를 꾸며 볼까요?':'가입 신청이 접수됐어요. 운영자가 승인하면 닉네임과 비밀번호로 로그인할 수 있어요.';out.hidden=false;toast(out.textContent);
+      $('#applyForm').reset();$('#dongWrap').hidden=true;renderRegions();setTimeout(()=>{location.hash='#home';if(boot){setTimeout(()=>{if(me())$('#btnCrew').click()},900)}if(!boot)toast(`${n}님, 가입 신청이 접수됐어요 ⏳
 운영진 승인 후 로그인하면 회칙 안내로 이어집니다`,6000,'big')},600);
     }catch(e){err(authMsg(e))}finally{btn.disabled=false}});
 
@@ -1401,8 +1535,19 @@ import {create as fbCreate} from './fb.js?v=1.9.36';
     if(canEdit){watchData();watchMembers();if(isOwner&&!unsubPins)unsubPins=FB.listenCol('pins',arr=>{PINS=Object.fromEntries(arr.map(p=>[p.id,p.pin]));render()},()=>{})}
     render();showTab();
     if(canEdit&&!rulesAcked()&&location.hash!=='#rules'){location.hash='#rules'}
-    if(welcomeNick){const nm=welcomeNick;welcomeNick='';if(m.status==='active')toast(`${m.name}님, 하마와 함께 즐거운 산행 되세요 🏔️`,6000,'big');else if(m.status==='pending')toast(`${m.name}님, 가입 승인을 기다리고 있어요`,3500)}
+    if(welcomeNick){const nm=welcomeNick;welcomeNick='';if(m.status==='active')toast(`${m.name}님, ${crewShort()}와 함께 즐거운 산행 되세요 🏔️`,6000,'big');else if(m.status==='pending')toast(`${m.name}님, 가입 승인을 기다리고 있어요`,3500)}
   }
+  // ---------- 새 크루 개설 안내(?new) / 잘못된 크루 ID ----------
+  function showLanding(){document.querySelectorAll('#app > .view').forEach(v=>v.hidden=v.id!=='tab-land');$('#tabbar').hidden=true;document.querySelector('header').hidden=true;document.title='새 산악회 만들기'}
+  function initLanding(msg){showLanding();$('#l_urlEx').textContent=crewUrl('크루ID');if(msg){$('#l_msg').textContent=msg;$('#l_msg').style.color='var(--sun)'}
+    const norm=v=>v.trim().toLowerCase();
+    $('#l_go').addEventListener('click',async()=>{const id=norm($('#l_id').value);const m=$('#l_msg');m.style.color='var(--sun)';if(!CID_OK(id)||(ROOT_CID&&id===ROOT_CID)){m.textContent='영문 소문자·숫자·하이픈 3~20자로, 영문 또는 숫자로 시작해야 해요 (예: dumulmeori)';return}
+      $('#l_go').disabled=true;m.textContent='확인 중…';try{const d=await FB.getAt(id,'meta/crew');if(d){m.textContent=`'${id}'는 이미 개설된 크루예요. 다른 ID를 정하거나 아래에서 그 크루로 이동하세요`;return}m.style.color='var(--pine)';m.textContent='사용할 수 있는 ID예요. 개설 화면으로 이동합니다…';setTimeout(()=>{location.href=crewUrl(id)+'#apply'},500)}catch(e){m.textContent='확인하지 못했어요: '+authMsg(e)}finally{$('#l_go').disabled=false}});
+    $('#l_id').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('#l_go').click()}});
+    $('#l_findGo').addEventListener('click',()=>{const id=norm($('#l_find').value);if(!id)return;location.href=crewUrl(id)});
+    $('#l_find').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('#l_findGo').click()}});
+    window.addEventListener('hashchange',showLanding);}
+  if(IS_NEW||CID_BAD){initLanding(CID_BAD?`'${CID}'는 쓸 수 없는 크루 ID예요. 새로 만들거나 정확한 ID로 이동하세요`:'');return}
   (async()=>{
     try{const r=await fetch('mountains.json');const arr=await r.json();S.mountains=arr;BASE=Object.fromEntries(arr.map(m=>[m.id,sj({memo:m.memo||'',courses:m.courses||[]})]));mtLoaded=true}catch(e){toast('산 도감 자료를 불러오지 못했어요')}
     render();
