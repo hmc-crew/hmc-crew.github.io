@@ -80,8 +80,17 @@ service cloud.firestore {
     match /comments/{id} {
       allow read: if isActive() || isOwner();
       allow create: if isActive() && request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 1000;
-      allow update: if false;
-      allow delete: if isStaff() || (isActive() && resource.data.by == request.auth.uid);
+      allow update: if isActive() && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt']) && request.resource.data.text is string && request.resource.data.text.size() <= 1000;
+      allow delete: if isStaff();
+    }
+
+    // 개설자와 1:1 대화 — 당사자(with)와 개설자만. 회원끼리는 불가
+    match /dms/{id} {
+      allow read: if isOwner() || (isActive() && resource.data.with == request.auth.uid);
+      allow create: if request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 1000
+        && (isOwner() || (isActive() && request.resource.data.with == request.auth.uid));
+      allow update: if (isOwner() || isActive()) && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt']);
+      allow delete: if isOwner();
     }
 
     // 산 도감 덧붙임(크루 메모·직접 추가한 코스) — 활동 크루원만 읽기, 운영진만 쓰기
@@ -154,8 +163,15 @@ service cloud.firestore {
       match /comments/{id} {
         allow read: if cActive() || cOwner();
         allow create: if cActive() && request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 1000;
-        allow update: if false;
-        allow delete: if cStaff() || (cActive() && resource.data.by == request.auth.uid);
+        allow update: if cActive() && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt']) && request.resource.data.text is string && request.resource.data.text.size() <= 1000;
+        allow delete: if cStaff();
+      }
+      match /dms/{id} {
+        allow read: if cOwner() || (cActive() && resource.data.with == request.auth.uid);
+        allow create: if request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 1000
+          && (cOwner() || (cActive() && request.resource.data.with == request.auth.uid));
+        allow update: if (cOwner() || cActive()) && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt']);
+        allow delete: if cOwner();
       }
       match /mtx/{id} {
         allow read: if cActive() || cOwner();
