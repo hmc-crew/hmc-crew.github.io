@@ -90,6 +90,8 @@ service cloud.firestore {
       allow create: if isStaff();
       allow delete: if isStaff();
       allow update: if isStaff()
+        || (isActive() && changed().hasOnly(['reads']) && request.auth.uid in resource.data.members
+            && request.resource.data.reads.diff(resource.data.get('reads', {})).affectedKeys().hasOnly([request.auth.uid]))
         || (isActive() && changed().hasOnly(['members'])
             && request.resource.data.members.diff(resource.data.members).affectedKeys().hasOnly([request.auth.uid])
             && (!(request.auth.uid in request.resource.data.members)
@@ -192,6 +194,8 @@ service cloud.firestore {
         allow create: if cStaff();
         allow delete: if cStaff();
         allow update: if cStaff()
+          || (cActive() && changed().hasOnly(['reads']) && request.auth.uid in resource.data.members
+              && request.resource.data.reads.diff(resource.data.get('reads', {})).affectedKeys().hasOnly([request.auth.uid]))
           || (cActive() && changed().hasOnly(['members'])
               && request.resource.data.members.diff(resource.data.members).affectedKeys().hasOnly([request.auth.uid])
               && (!(request.auth.uid in request.resource.data.members)
