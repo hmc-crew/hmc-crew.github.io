@@ -41,9 +41,11 @@ service cloud.firestore {
       allow update: if isStaff()
         || (isActive() && resource.data.hostId == request.auth.uid)
         || (isActive() && changed().hasOnly(['photos']))
-        || (isActive() && changed().hasOnly(['attendees', 'people'])
+        || (isActive() && changed().hasOnly(['attendees', 'people', 'solo'])
             && resource.data.attendees.toSet().difference(request.resource.data.attendees.toSet()).hasOnly([request.auth.uid])
-            && request.resource.data.attendees.toSet().difference(resource.data.attendees.toSet()).hasOnly([request.auth.uid]));
+            && request.resource.data.attendees.toSet().difference(resource.data.attendees.toSet()).hasOnly([request.auth.uid])
+            && resource.data.get('solo', []).toSet().difference(request.resource.data.get('solo', []).toSet()).hasOnly([request.auth.uid])
+            && request.resource.data.get('solo', []).toSet().difference(resource.data.get('solo', []).toSet()).hasOnly([request.auth.uid]));
       allow delete: if isStaff();
     }
 
@@ -113,9 +115,11 @@ service cloud.firestore {
         allow update: if cStaff()
           || (cActive() && resource.data.hostId == request.auth.uid)
           || (cActive() && changed().hasOnly(['photos']))
-          || (cActive() && changed().hasOnly(['attendees', 'people'])
+          || (cActive() && changed().hasOnly(['attendees', 'people', 'solo'])
               && resource.data.attendees.toSet().difference(request.resource.data.attendees.toSet()).hasOnly([request.auth.uid])
-              && request.resource.data.attendees.toSet().difference(resource.data.attendees.toSet()).hasOnly([request.auth.uid]));
+              && request.resource.data.attendees.toSet().difference(resource.data.attendees.toSet()).hasOnly([request.auth.uid])
+              && resource.data.get('solo', []).toSet().difference(request.resource.data.get('solo', []).toSet()).hasOnly([request.auth.uid])
+              && request.resource.data.get('solo', []).toSet().difference(resource.data.get('solo', []).toSet()).hasOnly([request.auth.uid]));
         allow delete: if cStaff();
       }
       match /members/{uid} {
