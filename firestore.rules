@@ -116,6 +116,14 @@ service cloud.firestore {
       allow delete: if isOwner();
     }
 
+    // 활동 로그 — 본인 행동만 기록(생성), 개설자만 열람·삭제, 수정 불가
+    match /logs/{id} {
+      allow read: if isOwner();
+      allow create: if signedIn() && request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 300;
+      allow update: if false;
+      allow delete: if isOwner();
+    }
+
     // 산 도감 덧붙임(크루 메모·직접 추가한 코스) — 활동 크루원만 읽기, 운영진만 쓰기
     match /mtx/{id} {
       allow read: if isActive() || isOwner();
@@ -214,6 +222,12 @@ service cloud.firestore {
         allow create: if request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 1000
           && (cOwner() || (cActive() && request.resource.data.with == request.auth.uid));
         allow update: if (cOwner() || cActive()) && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt']);
+        allow delete: if cOwner();
+      }
+      match /logs/{id} {
+        allow read: if cOwner();
+        allow create: if signedIn() && request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 300;
+        allow update: if false;
         allow delete: if cOwner();
       }
       match /mtx/{id} {
