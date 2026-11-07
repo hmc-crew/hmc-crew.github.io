@@ -76,6 +76,14 @@ service cloud.firestore {
       allow delete: if isStaff() || (isActive() && resource.data.by == request.auth.uid);
     }
 
+    // 일정별 대화(댓글) — 활동 크루원 읽기·작성(본인), 삭제는 본인 또는 운영진
+    match /comments/{id} {
+      allow read: if isActive() || isOwner();
+      allow create: if isActive() && request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 1000;
+      allow update: if false;
+      allow delete: if isStaff() || (isActive() && resource.data.by == request.auth.uid);
+    }
+
     // 산 도감 덧붙임(크루 메모·직접 추가한 코스) — 활동 크루원만 읽기, 운영진만 쓰기
     match /mtx/{id} {
       allow read: if isActive() || isOwner();
@@ -140,6 +148,12 @@ service cloud.firestore {
       match /photos/{id} {
         allow read: if cStaff() || (cActive() && request.auth.uid in get(/databases/$(db)/documents/crews/$(cid)/hikes/$(resource.data.hikeId)).data.attendees);
         allow create: if (cStaff() || (cActive() && request.auth.uid in get(/databases/$(db)/documents/crews/$(cid)/hikes/$(request.resource.data.hikeId)).data.attendees)) && request.resource.data.by == request.auth.uid;
+        allow update: if false;
+        allow delete: if cStaff() || (cActive() && resource.data.by == request.auth.uid);
+      }
+      match /comments/{id} {
+        allow read: if cActive() || cOwner();
+        allow create: if cActive() && request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 1000;
         allow update: if false;
         allow delete: if cStaff() || (cActive() && resource.data.by == request.auth.uid);
       }
