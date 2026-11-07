@@ -84,6 +84,27 @@ service cloud.firestore {
       allow delete: if isStaff();
     }
 
+    // 채팅방 — 활동 크루원 읽기. 개설: 운영진. 입장/퇴장: 본인 키만 변경(산행 방은 참석자만 입장). 강퇴·삭제: 운영진
+    match /rooms/{id} {
+      allow read: if isActive() || isOwner();
+      allow create: if isStaff();
+      allow delete: if isStaff();
+      allow update: if isStaff()
+        || (isActive() && changed().hasOnly(['members'])
+            && request.resource.data.members.diff(resource.data.members).affectedKeys().hasOnly([request.auth.uid])
+            && (!(request.auth.uid in request.resource.data.members)
+                || resource.data.type != 'hike'
+                || request.auth.uid in get(/databases/$(db)/documents/hikes/$(resource.data.hikeId)).data.attendees));
+    }
+    // 채팅 메시지(방의 하위 컬렉션) — 방 참여자만 읽기·작성, 본인 글 수정·삭제표시, 완전 삭제는 운영진
+    match /rooms/{rid}/msgs/{id} {
+      allow read: if isStaff() || (isActive() && request.auth.uid in get(/databases/$(db)/documents/rooms/$(rid)).data.members);
+      allow create: if isActive() && request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 1000
+        && request.auth.uid in get(/databases/$(db)/documents/rooms/$(rid)).data.members;
+      allow update: if isActive() && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt']);
+      allow delete: if isStaff();
+    }
+
     // 개설자와 1:1 대화 — 당사자(with)와 개설자만. 회원끼리는 불가
     match /dms/{id} {
       allow read: if isOwner() || (isActive() && resource.data.with == request.auth.uid);
@@ -164,6 +185,24 @@ service cloud.firestore {
         allow read: if cActive() || cOwner();
         allow create: if cActive() && request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 1000;
         allow update: if cActive() && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt']) && request.resource.data.text is string && request.resource.data.text.size() <= 1000;
+        allow delete: if cStaff();
+      }
+      match /rooms/{id} {
+        allow read: if cActive() || cOwner();
+        allow create: if cStaff();
+        allow delete: if cStaff();
+        allow update: if cStaff()
+          || (cActive() && changed().hasOnly(['members'])
+              && request.resource.data.members.diff(resource.data.members).affectedKeys().hasOnly([request.auth.uid])
+              && (!(request.auth.uid in request.resource.data.members)
+                  || resource.data.type != 'hike'
+                  || request.auth.uid in get(/databases/$(db)/documents/crews/$(cid)/hikes/$(resource.data.hikeId)).data.attendees));
+      }
+      match /rooms/{rid}/msgs/{id} {
+        allow read: if cStaff() || (cActive() && request.auth.uid in get(/databases/$(db)/documents/crews/$(cid)/rooms/$(rid)).data.members);
+        allow create: if cActive() && request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 1000
+          && request.auth.uid in get(/databases/$(db)/documents/crews/$(cid)/rooms/$(rid)).data.members;
+        allow update: if cActive() && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt']);
         allow delete: if cStaff();
       }
       match /dms/{id} {

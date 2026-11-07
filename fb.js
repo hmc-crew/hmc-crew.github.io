@@ -3,7 +3,7 @@
 // 그 밖의 크루는 crews/{크루ID}/… 아래에 같은 구조로 저장합니다.
 import { initializeApp, deleteApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updatePassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-import { getFirestore, collection, doc, onSnapshot, getDoc, setDoc, updateDoc, deleteDoc, writeBatch, query, where } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getFirestore, collection, doc, onSnapshot, getDoc, setDoc, updateDoc, deleteDoc, writeBatch, query, where, deleteField } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 export function create(cfg,cid,rootCid){
   const app=initializeApp(cfg);
@@ -12,8 +12,8 @@ export function create(cfg,cid,rootCid){
   const isRoot=!!rootCid&&cid===rootCid;
   const pre=c=>isRoot?[]:['crews',c];              // 경로 접두(루트 크루는 없음)
   const preOf=c=>(rootCid&&c===rootCid)?[]:['crews',c];
-  const ref=p=>{const [c,id]=p.split('/');return doc(db,...pre(cid),c,id)};
-  const col=c=>collection(db,...pre(cid),c);
+  const ref=p=>doc(db,...pre(cid),...p.split('/'));          // 'col/id' 또는 'col/id/sub/id'
+  const col=c=>collection(db,...pre(cid),...c.split('/')); // 'col' 또는 'col/id/sub'
   const clean=o=>JSON.parse(JSON.stringify(o)); // undefined 제거
   return {
     cid, isRoot,
@@ -28,6 +28,9 @@ export function create(cfg,cid,rootCid){
     async changePasswordSecondary(email,oldPw,newPw){const app2=initializeApp(cfg,'secondary-'+Date.now());try{const a2=getAuth(app2);const r=await signInWithEmailAndPassword(a2,email,oldPw);await updatePassword(r.user,newPw);await signOut(a2)}finally{try{await deleteApp(app2)}catch(e){}}},
     listenDoc(path,cb,err){return onSnapshot(ref(path),s=>cb(s.exists()?{id:s.id,...s.data()}:null),e=>err&&err(e))},
     listenWhere(c,field,value,cb,err){return onSnapshot(query(col(c),where(field,'==',value)),s=>cb(s.docs.map(d=>({id:d.id,...d.data()}))),e=>err&&err(e))},
+    // 한 필드의 범위 조회(복합 색인 불필요) — 채팅 메시지(roomAt = 방ID|시각)에 사용
+    listenRange(c,field,from,to,cb,err){return onSnapshot(query(col(c),where(field,'>=',from),where(field,'<',to)),s=>cb(s.docs.map(d=>({id:d.id,...d.data()}))),e=>err&&err(e))},
+    deleteField(){return deleteField()},
     listenCol(c,cb,err){return onSnapshot(col(c),s=>cb(s.docs.map(d=>({id:d.id,...d.data()}))),e=>err&&err(e))},
     async get(path){const s=await getDoc(ref(path));return s.exists()?{id:s.id,...s.data()}:null},
     // 다른 크루의 문서 읽기(크루 ID가 비어 있는지 확인할 때)
