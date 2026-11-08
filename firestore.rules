@@ -126,6 +126,14 @@ service cloud.firestore {
       allow delete: if isOwner();
     }
 
+    // 산행 GPS 기록 — 활동 크루원 읽기, 본인 기록만 생성, 삭제는 본인·운영진
+    match /tracks/{id} {
+      allow read: if isActive() || isOwner();
+      allow create: if isActive() && request.resource.data.by == request.auth.uid && request.resource.data.pts is string && request.resource.data.pts.size() <= 60000;
+      allow update: if false;
+      allow delete: if isStaff() || (isActive() && resource.data.by == request.auth.uid);
+    }
+
     // 산 도감 덧붙임(크루 메모·직접 추가한 코스) — 활동 크루원만 읽기, 운영진만 쓰기
     match /mtx/{id} {
       allow read: if isActive() || isOwner();
@@ -233,6 +241,12 @@ service cloud.firestore {
         allow create: if signedIn() && request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 300;
         allow update: if false;
         allow delete: if cOwner();
+      }
+      match /tracks/{id} {
+        allow read: if cActive() || cOwner();
+        allow create: if cActive() && request.resource.data.by == request.auth.uid && request.resource.data.pts is string && request.resource.data.pts.size() <= 60000;
+        allow update: if false;
+        allow delete: if cStaff() || (cActive() && resource.data.by == request.auth.uid);
       }
       match /mtx/{id} {
         allow read: if cActive() || cOwner();
