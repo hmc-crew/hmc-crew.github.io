@@ -37,7 +37,7 @@ export function create(cfg,cid,rootCid){
     async getAt(c,path){const [cc,id]=path.split('/');const s=await getDoc(doc(db,...preOf(c),cc,id));return s.exists()?{id:s.id,...s.data()}:null},
     async set(path,data){await setDoc(ref(path),clean(data))},
     // 지정한 필드만 바꾼다(문서 전체를 덮어쓰지 않음) — 본인 접속 기록처럼 규칙이 특정 필드만 허용할 때 사용
-    async update(path,data){await updateDoc(ref(path),clean(data))},
+    async update(path,data){const d={};for(const [k,v] of Object.entries(data)){if(v===undefined)continue;d[k]=(v&&typeof v==='object'&&typeof v._methodName==='string')?v:clean(v)}await updateDoc(ref(path),d)},
     async del(path){await deleteDoc(ref(path))},
     async batch(ops){const b=writeBatch(db);for(const o of ops){if(o.type==='del')b.delete(ref(o.path));else b.set(ref(o.path),clean(o.data))}await b.commit()},
   };
