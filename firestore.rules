@@ -80,7 +80,7 @@ service cloud.firestore {
     match /comments/{id} {
       allow read: if isActive() || isOwner();
       allow create: if isActive() && request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 1000;
-      allow update: if isActive() && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt']) && request.resource.data.text is string && request.resource.data.text.size() <= 1000;
+      allow update: if isActive() && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt', 'hist']) && request.resource.data.text is string && request.resource.data.text.size() <= 1000;
       allow delete: if isStaff();
     }
 
@@ -103,7 +103,7 @@ service cloud.firestore {
       allow read: if isStaff() || (isActive() && request.auth.uid in get(/databases/$(db)/documents/rooms/$(rid)).data.members);
       allow create: if isActive() && request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 1000
         && request.auth.uid in get(/databases/$(db)/documents/rooms/$(rid)).data.members;
-      allow update: if isActive() && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt']);
+      allow update: if isActive() && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt', 'hist']);
       allow delete: if isStaff();
     }
 
@@ -112,7 +112,7 @@ service cloud.firestore {
       allow read: if isOwner() || (isActive() && resource.data.with == request.auth.uid);
       allow create: if request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 1000
         && (isOwner() || (isActive() && request.resource.data.with == request.auth.uid));
-      allow update: if (isOwner() || isActive()) && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt']);
+      allow update: if (isOwner() || isActive()) && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt', 'hist']);
       allow delete: if isOwner();
     }
 
@@ -194,7 +194,7 @@ service cloud.firestore {
       match /comments/{id} {
         allow read: if cActive() || cOwner();
         allow create: if cActive() && request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 1000;
-        allow update: if cActive() && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt']) && request.resource.data.text is string && request.resource.data.text.size() <= 1000;
+        allow update: if cActive() && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt', 'hist']) && request.resource.data.text is string && request.resource.data.text.size() <= 1000;
         allow delete: if cStaff();
       }
       match /rooms/{id} {
@@ -214,14 +214,14 @@ service cloud.firestore {
         allow read: if cStaff() || (cActive() && request.auth.uid in get(/databases/$(db)/documents/crews/$(cid)/rooms/$(rid)).data.members);
         allow create: if cActive() && request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 1000
           && request.auth.uid in get(/databases/$(db)/documents/crews/$(cid)/rooms/$(rid)).data.members;
-        allow update: if cActive() && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt']);
+        allow update: if cActive() && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt', 'hist']);
         allow delete: if cStaff();
       }
       match /dms/{id} {
         allow read: if cOwner() || (cActive() && resource.data.with == request.auth.uid);
         allow create: if request.resource.data.by == request.auth.uid && request.resource.data.text is string && request.resource.data.text.size() <= 1000
           && (cOwner() || (cActive() && request.resource.data.with == request.auth.uid));
-        allow update: if (cOwner() || cActive()) && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt']);
+        allow update: if (cOwner() || cActive()) && resource.data.by == request.auth.uid && changed().hasOnly(['text', 'edited', 'editedAt', 'del', 'delAt', 'hist']);
         allow delete: if cOwner();
       }
       match /logs/{id} {
