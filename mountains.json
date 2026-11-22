@@ -169,7 +169,8 @@
   },
   "park": "일반",
   "parkV": true,
-  "parkSrc": "정선군 관광 누리집(국립가리왕산자연휴양림·케이블카 소개, 공원 지정 언급 없음) (https://www.jeongseon.go.kr/tour/jeongseontour/travelstory/Jeongseon_Summer, 2026-11-08 확인) · 강원특별자치도 자연공원 현황에 없음(https://state.gwd.go.kr/portal/partinfo/environment/naturalPark/natural) · 기후에너지환경부 자연공원 목록에 없음(https://www.kbr.go.kr/main.do?menuKey=952)"
+  "parkSrc": "정선군 관광 누리집(국립가리왕산자연휴양림·케이블카 소개, 공원 지정 언급 없음) (https://www.jeongseon.go.kr/tour/jeongseontour/travelstory/Jeongseon_Summer, 2026-11-08 확인) · 강원특별자치도 자연공원 현황에 없음(https://state.gwd.go.kr/portal/partinfo/environment/naturalPark/natural) · 기후에너지환경부 자연공원 목록에 없음(https://www.kbr.go.kr/main.do?menuKey=952)",
+  "dataNote": "승격 보류 2026-11-23: 정선군 관광명소 '가리왕산 등산로' 페이지(contentSeq=163474)에 코스 거리·시간·주차장 명칭·주소 없음(주소 가리왕산로 707·입장료·장애인 주차구역만); 산림청 숲나들e 국립가리왕산자연휴양림 페이지(hmpgId=0113 메인·오시는길) 열람 불가(robots 차단) — 공식 자료에서 코스 거리·소요시간·주차장 주소 모두 빠짐"
  },
  {
   "name": "가야산(경상)",
@@ -423,7 +424,8 @@
   },
   "park": "도립",
   "parkV": true,
-  "parkSrc": "울산광역시 관광 영남알프스 9봉우리·울산시 자연공원 현황(가지산 자연공원 1979.11.5 경남고시 304호) (https://www.ulsan.go.kr/tour/kor/contents.do?mId=001001008002000000 · https://www.ulsan.go.kr/u/envi/contents.ulsan?mId=001006003000000000, 2026-11-07 확인)"
+  "parkSrc": "울산광역시 관광 영남알프스 9봉우리·울산시 자연공원 현황(가지산 자연공원 1979.11.5 경남고시 304호) (https://www.ulsan.go.kr/tour/kor/contents.do?mId=001001008002000000 · https://www.ulsan.go.kr/u/envi/contents.ulsan?mId=001006003000000000, 2026-11-07 확인)",
+  "dataNote": "승격 보류 2026-11-23: 밀양시 문화관광 가지산 등산안내(mnNo=60205060000)·울산관광 영남알프스 9봉우리(mId=001001008002000000) 페이지 열람 불가(robots 차단, 2회 시도) — 공식 자료에서 코스 거리·소요시간·주차장(석남사·석남터널·운문령) 명칭·주소 미확인"
  },
  {
   "name": "감악산(원주)",
@@ -870,7 +872,7 @@
     "parkAddr": "충남 천안시 동남구 광덕면 광덕사길 26 (광덕사 주소 기준 · 주차장 자체 지번 미확인)",
     "desc": "글 14개(2026-11-07)+이전 5개 기준, 범위 6.1~7.6km(GPS 6.07·6.9km, 안내성 6.5·6.8·7.6km) / 2시간 30분~3시간(GPS 무휴식 1시간 54분, 휴식 포함 5시간 19분). 586계단 급경사로 올라 장군바위 능선으로 완만하게 하산. 정상→장군바위 1.2km(글 2개).",
     "src": "인터넷 교차확인 19개(koreahike·hiking-beginner·landyplay·everytrail GPS·램블러 2건·welfarehello·다음) · 천안시·아산시 공식 코스표는 열람 불가(robots·서버오류)",
-    "note": "주차 무료(2025~2026 글 3건; koreahike 1건은 같은 글에서 무료·유료 요금표를 함께 적어 상충 — 현장 확인 권장). 주차장 공식 명칭·면수 미확인. 천안 버스 600·601 광덕사 종점. 안내판 기준 주차장→정상 1코스 편도 2.7km(글 1건).",
+    "note": "주차 무료(2025~2026 글 3건; koreahike 1건은 같은 글에서 무료·유료 요금표를 함께 적어 상충 — 현장 확인 권장). 주차장 공식 명칭·면수 미확인. 천안 버스 600·601 광덕사 종점. 안내판 기준 주차장→정상 1코스 편도 2.7km(글 1건). 천안시 문화관광 '산 > 광덕산' 페이지 소재지는 '충청남도 천안시 동남구 광덕면 광덕사길 30'(2026-11-23 확인; 관광지 소재지이며 주차장 주소는 아님).",
     "tier": 2,
     "no": 1,
     "shortest": true
@@ -914,7 +916,8 @@
   "lng": 127.027875,
   "park": "일반",
   "parkV": true,
-  "parkSrc": "천안시 문화관광(광덕산 699m 천안 최고봉, 공원 지정 언급 없음) (https://www.cheonan.go.kr/tour/sub02_03_04.do, 2026-11-08 확인) · 기후에너지환경부 자연공원 목록 — 충남 자연공원은 계룡산·태안해안(국립), 덕산·칠갑산·대둔산(도립)뿐(https://www.kbr.go.kr/main.do?menuKey=952)"
+  "parkSrc": "천안시 문화관광(광덕산 699m 천안 최고봉, 공원 지정 언급 없음) (https://www.cheonan.go.kr/tour/sub02_03_04.do, 2026-11-08 확인) · 기후에너지환경부 자연공원 목록 — 충남 자연공원은 계룡산·태안해안(국립), 덕산·칠갑산·대둔산(도립)뿐(https://www.kbr.go.kr/main.do?menuKey=952)",
+  "dataNote": "승격 보류 2026-11-23: 천안시 문화관광 '산 > 광덕산'(mngNo=32)에 소재지 '광덕면 광덕사길 30'·문의 041-521-2424만 있고 코스·거리·시간·주차장 없음; 천안8경 광덕산(car.cheonan.go.kr)·광덕사(mngNo=39) 페이지 열람 불가(robots/서버오류); 아산시 공식 코스표 미발견 — 공식 자료에서 코스 거리·소요시간·주차장 주소 모두 빠짐"
  },
  {
   "name": "구병산(보은)",
@@ -1006,7 +1009,8 @@
    "src": "주차장 위치·좌표: 카카오맵 장소 DB(2026-11-05 확인)"
   },
   "park": "국립",
-  "parkV": true
+  "parkV": true,
+  "dataNote": "승격 보류 2026-11-23: 보은군 관광 누리집(boeun.go.kr/tour) 열람 불가(robots 차단, 2회 시도) — 공식 코스 경유지·거리·시간·주차장 모두 미확인. 현재 노랑은 산림청 책자 코스(경유지만, 거리·주차장 없음)에 따른 것"
  },
  {
   "name": "구봉산(진안)",
@@ -1586,7 +1590,8 @@
   },
   "park": "시립",
   "parkV": true,
-  "parkSrc": "포항시청 푸른도시 \"내연산보경사시립공원\"(구 보경사군립공원, 2023-02 포항시 공원계획변경 고시로 시립 전환) (https://www.pohang.go.kr//dept/contents.do?mid=0602030000 · 포항시 문화관광 내연산 http://phtour.pohang.go.kr/phtour/tourist_site/mountain/naeyeonsan/, 2026-11-07 확인) · 정상(삼지봉) 구역 포함 여부는 구역도 미확인, 주 등산로(보경사~12폭포)는 구역 안"
+  "parkSrc": "포항시청 푸른도시 \"내연산보경사시립공원\"(구 보경사군립공원, 2023-02 포항시 공원계획변경 고시로 시립 전환) (https://www.pohang.go.kr//dept/contents.do?mid=0602030000 · 포항시 문화관광 내연산 http://phtour.pohang.go.kr/phtour/tourist_site/mountain/naeyeonsan/, 2026-11-07 확인) · 정상(삼지봉) 구역 포함 여부는 구역도 미확인, 주 등산로(보경사~12폭포)는 구역 안",
+  "dataNote": "승격 보류 2026-11-23: 포항시 문화관광 내연산 페이지(향로봉 1~5코스·우척봉 1~4코스 경유지만 있고 거리·시간·주차장 명칭·주소 없음, 보경사~연산폭포 왕복 6km·2시간만); 퐝퐝여행 내연산 보경사 시립공원(tour_info_idx=155·184) 열람 불가(robots 차단) — 공식 자료에서 코스 거리·소요시간·주차장 주소 빠짐"
  },
  {
   "name": "내장산",
@@ -9148,7 +9153,8 @@
   "lat": 37.84857,
   "lng": 128.168446,
   "park": "일반",
-  "parkV": false
+  "parkV": false,
+  "parkSrc": "미확인 2026-11-23: 강원특별자치도 자연공원 현황·지정변경(state.gwd.go.kr/portal/partinfo/environment/naturalPark/natural·designate), 기후에너지환경부 자연공원 목록(kbr.go.kr menuKey=952), 관광개발정보시스템(tdss.kr tourResourceStat03) — 모두 robots 차단으로 열람 불가"
  },
  {
   "name": "백화산(경북 상주)",
@@ -9163,7 +9169,8 @@
   "lat": 36.302551,
   "lng": 127.905371,
   "park": "일반",
-  "parkV": false
+  "parkV": false,
+  "parkSrc": "미확인 2026-11-23: 경상북도 자연공원 지정 현황(data.gb.go.kr set_uid=283), 기후에너지환경부 자연공원 목록(kbr.go.kr menuKey=952), tdss.kr 자연공원 지정현황 — 모두 robots 차단으로 열람 불가"
  },
  {
   "name": "벽방산(경남 통영)",
@@ -9178,7 +9185,8 @@
   "lat": 34.948555,
   "lng": 128.383227,
   "park": "일반",
-  "parkV": false
+  "parkV": false,
+  "parkSrc": "미확인 2026-11-23: 기후에너지환경부 자연공원 목록(kbr.go.kr menuKey=952)·tdss.kr 자연공원 지정현황 robots 차단으로 열람 불가; 경남도 자연공원 현황 페이지는 검색에서 찾지 못함(2016 PDF만 과거 사용) — 한려해상국립공원 구역 포함 여부도 미확인"
  },
  {
   "name": "병풍산(전남 담양)",
@@ -9200,7 +9208,8 @@
    "src": "주차장 위치·좌표: 카카오맵 장소 DB(2026-11-05 확인)"
   },
   "park": "일반",
-  "parkV": false
+  "parkV": false,
+  "parkSrc": "미확인 2026-11-23: 기후에너지환경부 자연공원 목록(kbr.go.kr menuKey=952)·tdss.kr 자연공원 지정현황 robots 차단으로 열람 불가; 전남도 제4차 종합계획 6장 PDF(jeonnam.go.kr plan2022_3_6.pdf)에는 자연공원 목록 없음; 담양군 누리집 자연공원 안내 페이지 미발견"
  },
  {
   "name": "불곡산(경기 양주)",
@@ -9215,7 +9224,8 @@
   "lat": 37.799544,
   "lng": 127.025977,
   "park": "일반",
-  "parkV": false
+  "parkV": false,
+  "parkSrc": "미확인 2026-11-23: 기후에너지환경부 자연공원 목록(kbr.go.kr menuKey=952)·tdss.kr 자연공원 지정현황 robots 차단으로 열람 불가; 경기도·양주시 공식 자연공원 안내 페이지 미발견"
  },
  {
   "name": "불암산(서울)",
@@ -9237,7 +9247,8 @@
    "src": "주차장 위치·좌표: 카카오맵 장소 DB(2026-11-05 확인)"
   },
   "park": "일반",
-  "parkV": false
+  "parkV": false,
+  "parkSrc": "미확인 2026-11-23: 기후에너지환경부 자연공원 목록(kbr.go.kr menuKey=952)·tdss.kr robots 차단으로 열람 불가; 국가생물다양성정보공유체계 생태자원DB 자연공원(kbr.go.kr/home/eco/eco04001i.do, 2015-10 기준)에는 서울 소재 국립공원이 북한산뿐이나 도립·시립 목록은 첨부(hwp)만 있어 미열람"
  },
  {
   "name": "비계산(경남 거창/합천)",
@@ -9252,7 +9263,8 @@
   "lat": 35.721949,
   "lng": 128.069349,
   "park": "일반",
-  "parkV": false
+  "parkV": false,
+  "parkSrc": "미확인 2026-11-23: 기후에너지환경부 자연공원 목록(kbr.go.kr menuKey=952)·tdss.kr 자연공원 지정현황 robots 차단으로 열람 불가; 경남도 자연공원 현황 페이지는 검색에서 찾지 못함"
  },
  {
   "name": "사명산(강원 화천)",
@@ -9267,7 +9279,8 @@
   "lat": 38.076072,
   "lng": 127.905182,
   "park": "일반",
-  "parkV": false
+  "parkV": false,
+  "parkSrc": "미확인 2026-11-23: 강원특별자치도 자연공원 현황·지정변경(state.gwd.go.kr naturalPark/natural·designate), 기후에너지환경부 자연공원 목록(kbr.go.kr menuKey=952), tdss.kr 자연공원 지정현황 — 모두 robots 차단으로 열람 불가"
  },
  {
   "name": "삼신봉(경남 하동)",
@@ -9300,8 +9313,9 @@
   "id": "m157",
   "lat": 35.264236,
   "lng": 127.705118,
-  "park": "일반",
-  "parkV": false
+  "park": "국립",
+  "parkV": true,
+  "parkSrc": "국립공원공단 지리산국립공원 코스별난이도 — 탐방코스 목록에 '삼신봉코스' 있음 (https://www.knps.or.kr/front/portal/visit/visitCourseSubMain.do?parkId=120100&parkNavGb=guide&menuNo=7020100, 2026-11-23 확인) · 공원 소개(https://www.knps.or.kr/front/portal/visit/visitCourseMain.do?parkId=120100&menuNo=7020100)"
  },
  {
   "name": "석화산(강원 홍천)",
@@ -9316,7 +9330,8 @@
   "lat": 37.782788,
   "lng": 128.377021,
   "park": "일반",
-  "parkV": false
+  "parkV": false,
+  "parkSrc": "미확인 2026-11-23: 강원특별자치도 자연공원 현황·지정변경(state.gwd.go.kr naturalPark/natural·designate), 기후에너지환경부 자연공원 목록(kbr.go.kr menuKey=952), tdss.kr 자연공원 지정현황 — 모두 robots 차단으로 열람 불가"
  },
  {
   "name": "선야산(충남 금산)",
@@ -9331,7 +9346,8 @@
   "lat": 36.048825,
   "lng": 127.366567,
   "park": "일반",
-  "parkV": false
+  "parkV": false,
+  "parkSrc": "미확인 2026-11-23: 충남 국·도립공원 현황(chungnam.go.kr menuNo=500653)·충남 도립공원 개요(cnpark menuNo=3300074), 기후에너지환경부 자연공원 목록(kbr.go.kr menuKey=952), tdss.kr — 모두 robots 차단으로 열람 불가(대둔산도립공원 구역 포함 여부 미확인)"
  },
  {
   "name": "설흘산(경남 남해)",
@@ -9346,7 +9362,8 @@
   "lat": 34.734912,
   "lng": 127.899957,
   "park": "일반",
-  "parkV": false
+  "parkV": true,
+  "parkSrc": "국립공원공단 한려해상국립공원 소개 — 공원 지구는 '상주·금산지구, 남해대교지구, 사천지구, 통영·한산지구, 거제·해금강지구, 여수·오동도지구'로 남해군 소재 지구는 상주·금산·남해대교뿐이며 탐방코스 목록(금산 1코스·우제봉·소매물도·지심도·한산도·두모탐방로)에 설흘산·남면 코스 없음 (https://www.knps.or.kr/front/portal/visit/visitCourseMain.do?parkId=120300&menuNo=7020103 · https://www.knps.or.kr/front/portal/visit/visitCourseSubMain.do?parkId=120300&parkNavGb=traffic&menuNo=7020103, 2026-11-23 확인) → 남면 설흘산은 구역 밖으로 판단(공원 구역도 원문은 미열람). 경남 도립·군립 목록은 이번 실행에서 열람 불가"
  },
  {
   "name": "성주봉(경북 문경)",
@@ -9368,7 +9385,8 @@
    "src": "주차장 위치·좌표: 카카오맵 장소 DB(2026-11-05 확인)"
   },
   "park": "일반",
-  "parkV": false
+  "parkV": false,
+  "parkSrc": "미확인 2026-11-23: 경상북도 자연공원 지정 현황(data.gb.go.kr set_uid=283), 기후에너지환경부 자연공원 목록(kbr.go.kr menuKey=952), tdss.kr 자연공원 지정현황 — 모두 robots 차단으로 열람 불가(문경새재도립공원 구역 포함 여부 미확인)"
  },
  {
   "name": "쇠뿔바위봉(전북 부안)",
@@ -9401,8 +9419,9 @@
   "id": "m162",
   "lat": 35.676824,
   "lng": 126.618845,
-  "park": "일반",
-  "parkV": false
+  "park": "국립",
+  "parkV": true,
+  "parkSrc": "국립공원공단 변산반도국립공원 코스별난이도 — 탐방코스 목록에 '쇠뿔바위 코스' 있음, 공원 소개에 '내변산의 직소폭포, 의상봉, 쇠뿔바위' (https://www.knps.or.kr/front/portal/visit/visitCourseSubMain.do?parkId=121800&parkNavGb=park&menuNo=7020091 · https://www.knps.or.kr/front/portal/visit/visitCourseMain.do?parkId=121800&menuNo=7020091, 2026-11-23 확인)"
  },
  {
   "name": "수도산(경북 김천)",
@@ -9417,7 +9436,8 @@
   "lat": 35.858021,
   "lng": 127.98401,
   "park": "일반",
-  "parkV": false
+  "parkV": false,
+  "parkSrc": "미확인 2026-11-23: 경상북도 자연공원 지정 현황(data.gb.go.kr set_uid=283), 기후에너지환경부 자연공원 목록(kbr.go.kr menuKey=952), tdss.kr 자연공원 지정현황 — 모두 robots 차단으로 열람 불가"
  },
  {
   "name": "수리산(경기 안양)",
