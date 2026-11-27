@@ -41,6 +41,8 @@ service cloud.firestore {
       allow update: if isStaff()
         || (isActive() && resource.data.hostId == request.auth.uid)
         || (isActive() && changed().hasOnly(['photos']))
+        || (isActive() && changed().hasOnly(['recs']) && request.auth.uid in resource.data.attendees
+            && request.resource.data.recs.diff(resource.data.get('recs', {})).affectedKeys().hasOnly([request.auth.uid]))
         || (isActive() && changed().hasOnly(['attendees', 'people', 'solo'])
             && resource.data.attendees.toSet().difference(request.resource.data.attendees.toSet()).hasOnly([request.auth.uid])
             && request.resource.data.attendees.toSet().difference(resource.data.attendees.toSet()).hasOnly([request.auth.uid])
@@ -173,6 +175,8 @@ service cloud.firestore {
         allow update: if cStaff()
           || (cActive() && resource.data.hostId == request.auth.uid)
           || (cActive() && changed().hasOnly(['photos']))
+          || (cActive() && changed().hasOnly(['recs']) && request.auth.uid in resource.data.attendees
+              && request.resource.data.recs.diff(resource.data.get('recs', {})).affectedKeys().hasOnly([request.auth.uid]))
           || (cActive() && changed().hasOnly(['attendees', 'people', 'solo'])
               && resource.data.attendees.toSet().difference(request.resource.data.attendees.toSet()).hasOnly([request.auth.uid])
               && request.resource.data.attendees.toSet().difference(resource.data.attendees.toSet()).hasOnly([request.auth.uid])

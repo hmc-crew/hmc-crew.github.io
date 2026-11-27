@@ -25,7 +25,7 @@
 
 ## 데이터 구조 (Firestore)
 - `meta/crew` — 크루 정보, `ownerUid`(개설자)
-- `hikes/{id}` — 산행 일정 (attendees: 회원 uid 배열)
+- `hikes/{id}` — 산행 일정 (attendees: 회원 uid 배열, food: 하산 맛집 한 줄, recs: {uid: {up, down, lvl, park, at}} 참석자가 남기는 실측 기록 — 등산/하산 분, 체감 난이도, 실제 주차한 곳)
 - `members/{uid}` — 크루원 (role: owner/staff/member, status: pending/active/rest/out)
 - `pins/{uid}` — 4자리 비밀번호 보관 (개설자만 열람)
 - `mtx/{mtId}` — 산 도감 덧붙임(크루 메모, 직접 추가한 코스)
